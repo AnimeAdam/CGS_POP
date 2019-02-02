@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+
 		if (Input.GetKey(KeyCode.Q))
 		{
 			P1T = true;
