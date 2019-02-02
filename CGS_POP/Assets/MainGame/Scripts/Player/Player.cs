@@ -96,9 +96,9 @@ public class Player : MonoBehaviour
     {
         Vector3[] _movement = _inputsManager.ReturnMovement(thisPlayerInfo);
         _movement[0].x *= runningSpeed;
-        _movement[1].x *= runningSpeed;
-        rb.AddForce(_movement[0], ForceMode.Impulse);
-        rb.AddForce(_movement[1], ForceMode.Impulse);
+        _movement[0].x *= runningSpeed;
+        rb.AddForce(new Vector3(_movement[0].x,0f,0f), ForceMode.Impulse);
+        rb.AddForce(new Vector3(_movement[1].x, 0f, 0f), ForceMode.Impulse);
     }
 
     void DoAbility()            //ADAM FINISH NOW
