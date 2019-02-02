@@ -13,18 +13,18 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - RedSquare
+  - RedTriangle
+  - RedCircle
+  - BlueSquare
+  - BlueTriangle
+  - BlueCircle
+  - GreenSquare
+  - GreenTriangle
+  - GreenCircle
+  - YellowSquare
+  - YellowTriangle
+  - YellowCircle
   - 
   - 
   - 
