@@ -6,38 +6,51 @@ public class ObjectController : MonoBehaviour
 {
 	//this will later have to be updated to find an array of playercontroller scripts, as there should be four in scene which all need to be reacted to
 
-    // Start is called before the first frame update
-    void Start()
+	public GameObject Player;
+	public PlayerController placo;
+	public Transform trafo;
+	Vector3 newSize = new Vector3(0.005f, 0.005f, 0.005f);
+
+	// Start is called before the first frame update
+	void Start()
     {
-		GameObject Player = GameObject.Find("Player");
-		PlayerController pc = Player.GetComponent<PlayerController>();
-		Transform tf = GetComponent<Transform>();
+		Player = GameObject.Find("Player");
+		placo = Player.GetComponent<PlayerController>();
+		trafo = GetComponent<Transform>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	void Update()
+	{
+		if (placo.P1T == true) {
+			Player1Action();
+		}
+	}
 
 	//contains action to be performed when player1 presses their button - GROW
-	void Player1Action() {
+	public void Player1Action() {
 
+		trafo.localScale += newSize;
+	//	StartCoroutine("SmallPause()");
+		
 	}
 
 	//contains action to be performed when player2 presses their button - PULL
-	void Player2Action() {
+	public void Player2Action() {
 
 	}
 
 	//contains action to be performed when player3 presses their button - SWITCH
-	void Player3Action() {
+	public void Player3Action() {
 
 	}
 
 	//contains action to be performed when player4 presses their button - FLOAT
-	void Player4Action() {
+	public void Player4Action() {
 
+	}
+
+	IEnumerator SmallPause() {
+		yield return new WaitForSeconds(2f);
 	}
 
 }

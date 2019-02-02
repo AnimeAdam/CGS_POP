@@ -233,7 +233,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -257,7 +257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: 1.41, z: -10}
+  m_LocalPosition: {x: 0.45, y: 1.41, z: -216.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -274,9 +274,9 @@ GameObject:
   - component: {fileID: 761437756}
   - component: {fileID: 761437755}
   - component: {fileID: 761437754}
-  - component: {fileID: 761437753}
   - component: {fileID: 761437752}
   - component: {fileID: 761437757}
+  - component: {fileID: 761437753}
   m_Layer: 14
   m_Name: GreenCube
   m_TagString: Untagged
@@ -384,6 +384,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c037b6167a72b24ebaec47a535f91c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  placo: {fileID: 0}
+  trafo: {fileID: 0}
 --- !u!1 &827587366
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,6 +509,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3b6a1016e02c041baea44f3ce80c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  P1T: 0
+  P2T: 0
+  P3T: 0
+  P4T: 0
 --- !u!1 &1175378077
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +634,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c037b6167a72b24ebaec47a535f91c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  placo: {fileID: 0}
+  trafo: {fileID: 0}
 --- !u!1 &1395065073
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +758,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c037b6167a72b24ebaec47a535f91c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  placo: {fileID: 0}
+  trafo: {fileID: 0}
 --- !u!1 &1723431631
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,6 +973,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c037b6167a72b24ebaec47a535f91c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  placo: {fileID: 0}
+  trafo: {fileID: 0}
 --- !u!1 &1845692200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,3 +1097,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c037b6167a72b24ebaec47a535f91c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  placo: {fileID: 0}
+  trafo: {fileID: 0}
