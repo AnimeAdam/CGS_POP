@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DoActions(_inputsManager.keyBeingPressed);
+        //DoActions(_inputsManager.keyBeingPressed);
     }
 
     #endregion

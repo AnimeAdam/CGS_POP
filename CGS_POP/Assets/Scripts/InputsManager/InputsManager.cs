@@ -10,7 +10,7 @@ public class InputsManager : MonoBehaviour
     //Constants
     private const int NUMBEROFKEYCODE = 509;                            //The total number of key code inputs
     [FlagsAttribute] public enum PLAYERS : short {NOPLAYER = 0, P1 = 1, P2 = 2, P3 = 4, P4 = 8};     //Players connected
-    public enum CONTROLLERTYPE {NOCONTROLLER,PS,XB,KEYBOARD};
+    public enum CONTROLLERTYPE {NOCONTROLLER,PS,XB,KB};
 
     //Classes
 
@@ -199,6 +199,10 @@ public class InputsManager : MonoBehaviour
         for (int i = 0; i < Input.GetJoystickNames().Length; i++)
         {
             string _controller = Input.GetJoystickNames()[i];
+            if (_controller == "")
+            {
+                _controller = "Keyboard";
+            }
             if (_player < 4)
             {
                 switch (_controller)
@@ -226,7 +230,7 @@ public class InputsManager : MonoBehaviour
                         Debug.Log("Input " + i + " is a Xbox Controller");
                         break;
                     case "Keyboard": //ADAM CHANGE WHEN TESTING KEYBOARD INPUTS
-                        playersInfo[_player]._controller = CONTROLLERTYPE.KEYBOARD;
+                        playersInfo[_player]._controller = CONTROLLERTYPE.KB;
                         AssignPlayer(playersInfo[_player], _players);
                         playersInfo[_player].SetPlayerTag();
                         playersInfo[_player].SetControllerButtons();
