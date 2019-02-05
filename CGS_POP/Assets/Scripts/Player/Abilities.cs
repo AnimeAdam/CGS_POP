@@ -8,7 +8,7 @@ static public class Abilities
     {
         NOABILITY,
         GROW,
-        SHRINK,
+        SWITCH,
         PULL,
         FLOAT
     }

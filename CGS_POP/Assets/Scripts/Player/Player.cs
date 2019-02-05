@@ -52,19 +52,19 @@ public class Player : MonoBehaviour
         {
             case "Player1":
                 thisPlayerInfo = _inputsManager.playersInfo[0];
-                ability = Abilities.Ability.GROW;
+                ability = Abilities.Ability.FLOAT;
                 break;
             case "Player2":
                 thisPlayerInfo = _inputsManager.playersInfo[1];
-                ability = Abilities.Ability.SHRINK;
+                ability = Abilities.Ability.GROW;
                 break;
             case "Player3":
                 thisPlayerInfo = _inputsManager.playersInfo[2];
-                ability = Abilities.Ability.FLOAT;
+                ability = Abilities.Ability.PULL;
                 break;
             case "Player4":
                 thisPlayerInfo = _inputsManager.playersInfo[3];
-                ability = Abilities.Ability.PULL;
+                ability = Abilities.Ability.SWITCH;
                 break;
         }
     }
