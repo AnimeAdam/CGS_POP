@@ -19,25 +19,28 @@ public class PlayerController : MonoBehaviour
 
 	// Start is called before the first frame update
 	void Start()
-    {
+	{
 		playerInd = GameObject.Find("ColourIndicator");
 		playInd = playerInd.GetComponent<PlayerIndicator>();
-    }
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
+	// Update is called once per frame
+	void Update()
+	{
 
-        if (Input.GetKey(KeyCode.Q) && playInd.player1Selected == true)
-        {
-            P1T = true;
+		if (Input.GetKey(KeyCode.Q) && playInd.player1Selected == true)
+		{
+			P1T = true;
+		}
+		else
+		{
+			P1T = false;
+		}
 
-
-        }
 		if (Input.GetKey(KeyCode.W) && playInd.player2Selected == true)
 		{
-            
-            P2T = true;
+
+			P2T = true;
 		}
 		else
 		{
@@ -77,7 +80,8 @@ public class PlayerController : MonoBehaviour
 			Jump();
 		}
 
-		if (!Input.anyKey) {
+		if (!Input.anyKey)
+		{
 			GetComponent<Rigidbody>().velocity = new Vector2(GetComponent<Rigidbody>().velocity.x, GetComponent<Rigidbody>().velocity.y);
 		}
 
@@ -101,120 +105,8 @@ public class PlayerController : MonoBehaviour
 		moveVelocity = speed;
 		GetComponent<Rigidbody>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody>().velocity.y);
 	}
+}
 
-
-
-    public void JoystickControl()
-    {
-        //NSHAN Turning on PLayers
-     //Joystick 1
-            //Square
-            if (Input.GetKeyDown(KeyCode.Joystick1Button0 ))
-            {
-                P1T = true;
-            }
-        else { P1T = false; }
-            //X
-            if (Input.GetKeyDown(KeyCode.Joystick1Button1 ))
-            {
-                P2T = true;
-            }
-        else { P2T = false; }
-        //Circle
-        if (Input.GetKeyDown(KeyCode.Joystick1Button2 ))
-            {
-                P3T = true;
-            }
-        else { P3T = false; }
-        //Triangle
-        if (Input.GetKeyDown(KeyCode.Joystick1Button3 ))
-            {
-                P4T = true;
-            }
-        else { P4T = false; }
-
-     //Joystick 2
-        //Square
-        if (Input.GetKeyDown(KeyCode.Joystick2Button0))
-        {
-            P1T = true;
-        }
-        else { P1T = false; }
-        //X
-        if (Input.GetKeyDown(KeyCode.Joystick2Button1))
-        {
-            P2T = true;
-
-        }
-        else { P2T = false; }
-        //Circle
-        if (Input.GetKeyDown(KeyCode.Joystick2Button2))
-        {
-            P3T = true;
-        }
-        else { P3T = false; }
-        //Triangle
-        if (Input.GetKeyDown(KeyCode.Joystick2Button3))
-        {
-            P4T = true;
-        }
-        else { P4T = false; }
-        //Joystick 3
-        //Square
-        if (Input.GetKeyDown(KeyCode.Joystick3Button0))
-        {
-            P1T = true;
-        }
-        else { P1T = false; }
-        //X
-        if (Input.GetKeyDown(KeyCode.Joystick3Button1))
-        {
-            P2T = true;
-
-        }
-        else { P2T = false; }
-        //Circle
-        if (Input.GetKeyDown(KeyCode.Joystick3Button2))
-        {
-            P3T = true;
-        }
-        else { P3T = false; }
-        //Triangle
-        if (Input.GetKeyDown(KeyCode.Joystick3Button3))
-        {
-            P4T = true;
-        }
-        else { P4T = false; }
-
-        //Joystick 4
-        //Square
-        if (Input.GetKeyDown(KeyCode.Joystick4Button0))
-        {
-            P1T = true;
-        }
-        else { P1T = false; }
-        //X
-        if (Input.GetKeyDown(KeyCode.Joystick4Button1))
-        {
-            P2T = true;
-
-        }
-        else { P2T = false; }
-        //Circle
-        if (Input.GetKeyDown(KeyCode.Joystick4Button2))
-        {
-            P3T = true;
-        }
-        else { P3T = false; }
-        //Triangle
-        if (Input.GetKeyDown(KeyCode.Joystick4Button3))
-        {
-            P4T = true;
-        }
-        else { P4T = false; }
-    }
-
-   }
 
 
      

@@ -9,7 +9,7 @@ public class ObjectController : MonoBehaviour
 	public GameObject Player;
 	public PlayerController placo;
 	public Transform trafo;
-	Vector3 newSize = new Vector3(0.005f, 0.005f, 0.005f);
+	Vector3 newSize = new Vector3(0.01f, 0.01f, 0.01f);
 
 	public float pullSpeed = 4f;
 	private Transform objectTarget;
@@ -48,21 +48,21 @@ public class ObjectController : MonoBehaviour
 
 	void Update()
 	{
-		if (global::Player.P1T == true && allowGrow == true) {
+		if (placo.P1T == true && allowGrow == true) {
 			Player1Action();
 		}
 
-		if (global::Player.P2T == true && allowPull == true)
+		if (placo.P2T == true && allowPull == true)
 		{
 			Player2Action();
 		}
 
-		if (global::Player.P3T == true && allowSwitch == true)
+		if (placo.P3T == true && allowSwitch == true)
 		{
 			Player3Action();
 		}
 
-		if (global::Player.P4T == true)
+		if (placo.P4T == true)
 		{
 			Player4Action();
 		}
@@ -91,11 +91,7 @@ public class ObjectController : MonoBehaviour
 		step = pullSpeed * Time.deltaTime;
 		transform.position = Vector3.MoveTowards(transform.position, objectTarget.position, step);
 	}
-    public void Player2ActionTemp(Vector3 _position)
-    {
-        step = pullSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, _position, step);
-    }
+
 
     //contains action to be performed when player3 presses their button - SWITCHes shape with an identically-sized different shape
     public void Player3Action() {

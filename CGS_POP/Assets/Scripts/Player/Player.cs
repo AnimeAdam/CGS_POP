@@ -183,7 +183,7 @@ public class Player : MonoBehaviour
                     {
                         //GameObject _object = _colltransform.parent.gameObject;
                         //_object.GetComponent<ObjectController>().Player2ActionTemp(transform.position)
-                        _colliders[i].GetComponentInParent<ObjectController>().Player2ActionTemp(transform.position);
+                        //_colliders[i].GetComponentInParent<ObjectController>().Player2ActionTemp(transform.position);
                         //_object.Player2ActionTemp(transform.position);
                     }
                 }
