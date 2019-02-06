@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 			P2T = false;
 		}
 
-		if (Input.GetKey(KeyCode.E) && playInd.player3Selected == true)
+		if (Input.GetKeyDown(KeyCode.E) && playInd.player3Selected == true)
 		{
 			P3T = true;
 		}
