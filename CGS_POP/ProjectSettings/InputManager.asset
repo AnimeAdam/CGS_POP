@@ -633,7 +633,7 @@ InputManager:
     m_Name: P4KBH
     descriptiveName: Player Keyboard Horizontal
     descriptiveNegativeName: 
-    negativeButton: 4
+    negativeButton: 
     positiveButton: 6
     altNegativeButton: 
     altPositiveButton: 

@@ -113,14 +113,15 @@ public class InputsManager : MonoBehaviour
     void Start()
     {   //DEBUG
         //DebugFindControllers();
+        //FindPlayerControllers();
     }
 
     // Update is called once per frame
     void Update()
     {
         //DEBUGS
-        DebugAnalogueInputs();
-        DebugInputs();
+        //DebugAnalogueInputs();
+        //DebugInputs();
         /*if (ReturnKeypressed() == Playstation.P1PS[1])
         {
             Debug.Log("X has been pressed");
@@ -160,8 +161,10 @@ public class InputsManager : MonoBehaviour
         if (XYMOVEMENT[0].x < DEADZONE && XYMOVEMENT[0].x > -DEADZONE) { XYMOVEMENT[0].x = 0; }
         if (XYMOVEMENT[0].y < DEADZONE && XYMOVEMENT[0].y > -DEADZONE) { XYMOVEMENT[0].y = 0; }
 
+        if(_playerInfo._controller != CONTROLLERTYPE.KB) { 
         if (XYMOVEMENT[1].x == 0) { XYMOVEMENT[1].x = Input.GetAxis(_string + "DH"); }
         if (XYMOVEMENT[1].y == 0) { XYMOVEMENT[1].y = Input.GetAxis(_string + "DV"); }
+        }
 
         return XYMOVEMENT;
     }
@@ -175,7 +178,7 @@ public class InputsManager : MonoBehaviour
         int _keyCodeNum = 0;
         for (int i = 0; i < NUMBEROFKEYCODE; i++)
         {
-            if (Input.GetKeyDown((KeyCode)i))// && !(i > 330 && i < 349))
+            if (Input.GetKey((KeyCode)i))// && !(i > 330 && i < 349))
             {
                 keyBeingPressed[_keyCodeNum] = (KeyCode)i;
                 _keyCodeNum++;
@@ -203,6 +206,7 @@ public class InputsManager : MonoBehaviour
             {
                 _controller = "Keyboard";
             }
+
             if (_player < 4)
             {
                 switch (_controller)
@@ -216,7 +220,7 @@ public class InputsManager : MonoBehaviour
                         _playerNum *= 2;
                         _players = (PLAYERS)_playerNum;
                         _player++;
-                        Debug.Log("Input " + i + " is a PlayStation Controller");
+                        Debug.Log("Player " + _player + " is a PlayStation Controller");
                         break;
                     case "Xbox 360": //ADAM CHANGE WHEN TESTING 360 CONTROLLER
                         playersInfo[_player]._controller = CONTROLLERTYPE.XB;
@@ -227,21 +231,10 @@ public class InputsManager : MonoBehaviour
                         _playerNum *= 2;
                         _players = (PLAYERS)_playerNum;
                         _player++;
-                        Debug.Log("Input " + i + " is a Xbox Controller");
-                        break;
-                    case "Keyboard": //ADAM CHANGE WHEN TESTING KEYBOARD INPUTS
-                        playersInfo[_player]._controller = CONTROLLERTYPE.KB;
-                        AssignPlayer(playersInfo[_player], _players);
-                        playersInfo[_player].SetPlayerTag();
-                        playersInfo[_player].SetControllerButtons();
-                        AddToNumberOfPlayers(playersInfo[_player]);
-                        _playerNum *= 2;
-                        _players = (PLAYERS)_playerNum;
-                        _player++;
-                        Debug.Log("Input " + i + " is a Keyboarder");
+                        Debug.Log("Player " + _player + " is a Xbox Controller");
                         break;
                     case null:
-                        Debug.Log("No Controller " + i);
+                        Debug.Log("No Controller at " + i);
                         break;
                     default:
                         Debug.Log("InputManager.FindPlayer() Unknown Controller: " + _controller);
@@ -249,6 +242,20 @@ public class InputsManager : MonoBehaviour
                 }
             }
         }
+
+        while (_player < 4)
+        {
+            playersInfo[_player]._controller = CONTROLLERTYPE.KB;
+            AssignPlayer(playersInfo[_player], _players);
+            playersInfo[_player].SetPlayerTag();
+            playersInfo[_player].SetControllerButtons();
+            AddToNumberOfPlayers(playersInfo[_player]);
+            _playerNum *= 2;
+            _players = (PLAYERS)_playerNum;
+            _player++;
+            Debug.Log("Player " + _player + " is a Keyboard");
+        }
+
         //_playerNum
         //SetNumberOfPlayer(_playerNum);
     }

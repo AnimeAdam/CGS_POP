@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectController : MonoBehaviour
 {
 	//this will later have to be updated to find an array of playercontroller scripts, as there should be four in scene which all need to be reacted to
-
+    
 	public GameObject Player;
 	public PlayerController placo;
 	public Transform trafo;
@@ -48,21 +48,21 @@ public class ObjectController : MonoBehaviour
 
 	void Update()
 	{
-		if (placo.P1T == true && allowGrow == true) {
+		if (global::Player.P1T == true && allowGrow == true) {
 			Player1Action();
 		}
 
-		if (placo.P2T == true && allowPull == true)
+		if (global::Player.P2T == true && allowPull == true)
 		{
 			Player2Action();
 		}
 
-		if (placo.P3T == true && allowSwitch == true)
+		if (global::Player.P3T == true && allowSwitch == true)
 		{
 			Player3Action();
 		}
 
-		if (placo.P4T == true)
+		if (global::Player.P4T == true)
 		{
 			Player4Action();
 		}
