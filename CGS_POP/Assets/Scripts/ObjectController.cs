@@ -29,7 +29,9 @@ public class ObjectController : MonoBehaviour
 	int i = 0;
 	Transform thisGameobject;
 	GameObject newShape;
-	Transform childTrafo;
+	Transform childTrafo; //IF THIS IS CHANGED TO GAMEOBJECT ALONG WITH THE CORRESPONDING CODE, THE GETPOSITION FOR PRESWITCHPOSITION THROWS A NULLREF I.E. NO CHILD OBJECTS ARE BEING FOUND
+
+	Vector3 floatUp = new Vector3(0, 0.1f, 0);
 
 	// Start is called before the first frame update
 	void Start()
@@ -99,7 +101,7 @@ public class ObjectController : MonoBehaviour
 		//determines which colour the shape is based on arrayToSwitchIn, 
 		//then destroys the current game object before cycling through the array and spawning the next prefab in the cycle at the saved positions
 
-		foreach (Transform shape in transform)
+		foreach (Transform shape in childTrafo.transform)
 			Destroy(shape.gameObject);
 		currentShape +=1;
 		if (currentShape >= 3)
@@ -128,8 +130,9 @@ public class ObjectController : MonoBehaviour
 
 	//contains action to be performed when player4 presses their button - FLOATs shapes upwards for as long as the button is held, then returns them slowly to the ground
 	public void Player4Action() {
-
+		trafo.Translate(Vector3.up * 10 * Time.deltaTime);
 	}
+
 
 	//IEnumerator SmallPause() {
 	//	yield return new WaitForSeconds(2f);
