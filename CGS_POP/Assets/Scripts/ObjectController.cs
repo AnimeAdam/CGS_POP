@@ -47,11 +47,13 @@ public class ObjectController : MonoBehaviour
 			Player4Action();
 		}
 
-		if (trafo.rotation.y != 0) {
+		if (trafo.rotation.y != 0)
+		{
 			trafo.rotation = new Quaternion(0, 0, 0, 0);
 		}
 
-		if (trafo.position.z != 0) {
+		if (trafo.position.z != 0)
+		{
 			trafo.position = new Vector3(trafo.position.x, trafo.position.y, 0);
 		}
 	}
