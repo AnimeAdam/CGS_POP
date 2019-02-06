@@ -606,7 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpAcceleration: 0.5
-  runningSpeed: 1
+  runningSpeed: 0.5
   direction: 0
   ability: 0
   _inputsManager: {fileID: 544222954}
@@ -1354,7 +1354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpAcceleration: 0.5
-  runningSpeed: 1
+  runningSpeed: 0.5
   direction: 0
   ability: 0
   _inputsManager: {fileID: 544222954}
@@ -1750,7 +1750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpAcceleration: 0.5
-  runningSpeed: 1
+  runningSpeed: 0.5
   direction: 0
   ability: 0
   _inputsManager: {fileID: 544222954}
@@ -2076,7 +2076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpAcceleration: 0.5
-  runningSpeed: 1
+  runningSpeed: 0.5
   direction: 0
   ability: 0
   _inputsManager: {fileID: 544222954}
