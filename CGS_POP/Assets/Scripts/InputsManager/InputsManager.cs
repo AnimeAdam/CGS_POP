@@ -222,7 +222,7 @@ public class InputsManager : MonoBehaviour
                         _player++;
                         Debug.Log("Player " + _player + " is a PlayStation Controller");
                         break;
-                    case "Xbox 360": //ADAM CHANGE WHEN TESTING 360 CONTROLLER
+                    case "Controller (XBOX 360 For Windows)": //ADAM CHANGE WHEN TESTING 360 CONTROLLER
                         playersInfo[_player]._controller = CONTROLLERTYPE.XB;
                         AssignPlayer(playersInfo[_player], _players);
                         playersInfo[_player].SetPlayerTag();

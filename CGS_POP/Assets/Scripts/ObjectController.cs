@@ -91,9 +91,14 @@ public class ObjectController : MonoBehaviour
 		step = pullSpeed * Time.deltaTime;
 		transform.position = Vector3.MoveTowards(transform.position, objectTarget.position, step);
 	}
+    public void Player2ActionTemp(Vector3 _position)
+    {
+        step = pullSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, _position, step);
+    }
 
-	//contains action to be performed when player3 presses their button - SWITCHes shape with an identically-sized different shape
-	public void Player3Action() {
+    //contains action to be performed when player3 presses their button - SWITCHes shape with an identically-sized different shape
+    public void Player3Action() {
 
 		preswitchPosition = childTrafo.position;
 		preswitchSize = childTrafo.localScale;

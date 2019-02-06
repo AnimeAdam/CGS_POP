@@ -168,13 +168,25 @@ public class Player : MonoBehaviour
     /// </summary>
     void DoAbility()
     {
+        Collider[] _colliders;
+
         switch (thisPlayerInfo._players)
         {
             case InputsManager.PLAYERS.P1:
                 P1T = true;
                 break;
             case InputsManager.PLAYERS.P2:
-                P2T = true;
+                _colliders = Physics.OverlapBox(transform.position, new Vector3(5f, 2f, 2f));
+                for (int i = 0; i < _colliders.Length; i++)
+                {
+                    if (_colliders[i].gameObject.layer > 7)
+                    {
+                        //GameObject _object = _colltransform.parent.gameObject;
+                        //_object.GetComponent<ObjectController>().Player2ActionTemp(transform.position)
+                        _colliders[i].GetComponentInParent<ObjectController>().Player2ActionTemp(transform.position);
+                        //_object.Player2ActionTemp(transform.position);
+                    }
+                }
                 break;
             case InputsManager.PLAYERS.P3:
                 P3T = true;
@@ -190,13 +202,14 @@ public class Player : MonoBehaviour
 
     void ResetAbility()
     {
+
         switch (thisPlayerInfo._players)
         {
             case InputsManager.PLAYERS.P1:
                 P1T = false;
                 break;
             case InputsManager.PLAYERS.P2:
-                P2T = false;
+                P2T = false;                
                 break;
             case InputsManager.PLAYERS.P3:
                 P3T = false;
