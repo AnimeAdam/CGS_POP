@@ -97,6 +97,7 @@ public class ObjectController : MonoBehaviour
     public void Player3Action() {
 
 		preswitchPosition = childTrafo.position;
+		preswitchRotation = childTrafo.rotation;
 		preswitchSize = childTrafo.localScale;
 
 		//determines which colour the shape is based on arrayToSwitchIn, 
@@ -122,7 +123,7 @@ public class ObjectController : MonoBehaviour
 				newShape = (GameObject)Instantiate(shapeToBecome.redPrefabs[i], preswitchPosition, preswitchRotation);
 				break;
 			case 4:
-				newShape = (GameObject)Instantiate(shapeToBecome.yellowPrefabs[i], preswitchPosition, transform.rotation);
+				newShape = (GameObject)Instantiate(shapeToBecome.yellowPrefabs[i], preswitchPosition, preswitchRotation);
 				break;
 		}
 		newShape.transform.localScale = preswitchSize*2;
