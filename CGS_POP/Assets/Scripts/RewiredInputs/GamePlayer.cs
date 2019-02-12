@@ -22,6 +22,7 @@ public class GamePlayer : MonoBehaviour
     private CharacterController cc;
     private Rigidbody rb;
 
+    //Input Listeners
     private Vector3 moveVector;
     private bool jump;
     private bool blue;
@@ -29,6 +30,9 @@ public class GamePlayer : MonoBehaviour
     private bool red;
     private bool yellow;
 
+    //Collider for detecting shapes at a distance
+    private Collider[] areaOfInfluence;
+    public float areaOfInfluenceRadius = 3f;
 
     void Awake()
     {
@@ -45,6 +49,14 @@ public class GamePlayer : MonoBehaviour
     {
         GetInput();
         ProcessInput();
+        FindObjectsInRange();
+    }
+
+    private void FindObjectsInRange()
+    {
+        //areaOfInfluence = Physics.OverlapSphere(transform.position, areaOfInfluenceRadius);
+        areaOfInfluence = RotaryHeart.Lib.PhysicsExtension.Physics.OverlapSphere(transform.position,
+            areaOfInfluenceRadius, -1, RotaryHeart.Lib.PhysicsExtension.Physics.PreviewCondition.Editor);
     }
 
     /// <summary>

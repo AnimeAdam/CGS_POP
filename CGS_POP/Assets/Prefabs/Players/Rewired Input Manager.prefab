@@ -64,7 +64,7 @@ MonoBehaviour:
       ps4_assignJoysticksByPS4JoyId: 1
       useSteamControllerSupport: 1
       logToScreen: 0
-      runInEditMode: 1
+      runInEditMode: 0
       allowInputInEditorSceneView: 1
       platformVars_windowsStandalone:
         disableKeyboard: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
       _defaultKeyboardMaps:
       - _enabled: 1
         _categoryId: 0
-        _layoutId: 3
+        _layoutId: 6
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []
       _assignMouseOnStart: 0
@@ -215,7 +215,7 @@ MonoBehaviour:
       _defaultKeyboardMaps:
       - _enabled: 1
         _categoryId: 0
-        _layoutId: 2
+        _layoutId: 5
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []
       _assignMouseOnStart: 0
@@ -233,7 +233,7 @@ MonoBehaviour:
       _defaultKeyboardMaps:
       - _enabled: 1
         _categoryId: 0
-        _layoutId: 1
+        _layoutId: 4
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []
       _assignMouseOnStart: 0
@@ -545,13 +545,13 @@ MonoBehaviour:
       _id: 0
     - _name: Default2
       _descriptiveName: Default
-      _id: 3
+      _id: 6
     - _name: Default1
       _descriptiveName: Default
-      _id: 2
+      _id: 5
     - _name: Default0
       _descriptiveName: Default
-      _id: 1
+      _id: 4
     mouseLayouts:
     - _name: Default
       _descriptiveName: Default
@@ -938,15 +938,15 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
-    - id: 1
+    - id: 4
       categoryId: 0
-      layoutId: 1
+      layoutId: 4
       name: 
       hardwareGuidString: 
       customControllerUid: 0
       actionElementMaps:
       - _actionCategoryId: 0
-        _actionId: 12
+        _actionId: 18
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -957,7 +957,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 12
+        _actionId: 18
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -968,7 +968,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 11
+        _actionId: 17
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -979,7 +979,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 10
+        _actionId: 16
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -990,7 +990,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 9
+        _actionId: 15
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -1001,7 +1001,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 8
+        _actionId: 14
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -1012,7 +1012,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 7
+        _actionId: 13
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -1022,15 +1022,15 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
-    - id: 2
+    - id: 5
       categoryId: 0
-      layoutId: 2
+      layoutId: 5
       name: 
       hardwareGuidString: 
       customControllerUid: 0
       actionElementMaps:
       - _actionCategoryId: 0
-        _actionId: 30
+        _actionId: 18
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -1041,7 +1041,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 30
+        _actionId: 18
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -1052,7 +1052,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 29
+        _actionId: 17
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -1063,7 +1063,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 28
+        _actionId: 16
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -1074,7 +1074,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 27
+        _actionId: 15
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -1085,7 +1085,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 26
+        _actionId: 14
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -1096,25 +1096,25 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 25
+        _actionId: 13
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
         _invert: 0
         _axisContribution: 0
-        _keyboardKeyCode: 121
+        _keyboardKeyCode: 111
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
-    - id: 3
+    - id: 6
       categoryId: 0
-      layoutId: 3
+      layoutId: 6
       name: 
       hardwareGuidString: 
       customControllerUid: 0
       actionElementMaps:
       - _actionCategoryId: 0
-        _actionId: 24
+        _actionId: 18
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -1125,7 +1125,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 24
+        _actionId: 18
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -1136,7 +1136,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 23
+        _actionId: 17
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -1147,7 +1147,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 22
+        _actionId: 16
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -1158,7 +1158,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 21
+        _actionId: 15
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -1169,7 +1169,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 20
+        _actionId: 14
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -1180,7 +1180,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 19
+        _actionId: 13
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -1199,11 +1199,11 @@ MonoBehaviour:
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 3
     joystickLayoutIdCounter: 7
-    keyboardLayoutIdCounter: 4
+    keyboardLayoutIdCounter: 7
     mouseLayoutIdCounter: 1
     customControllerLayoutIdCounter: 1
     joystickMapIdCounter: 4
-    keyboardMapIdCounter: 4
+    keyboardMapIdCounter: 7
     mouseMapIdCounter: 0
     customControllerMapIdCounter: 0
     customControllerIdCounter: 0
