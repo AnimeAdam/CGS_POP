@@ -10,6 +10,11 @@ public class ObjectController : MonoBehaviour
 	public PlayerController placo;
 	public Transform trafo;
 	Vector3 newSize = new Vector3(0.01f, 0.01f, 0.01f);
+	public CollisionChecker upCheck;
+	public CollisionChecker downCheck;
+	public CollisionChecker leftCheck;
+	public CollisionChecker rightCheck;
+
 
 	public float pullSpeed = 4f;
 	private Transform objectTarget;
@@ -39,6 +44,11 @@ public class ObjectController : MonoBehaviour
 		Player = GameObject.Find("Player");
 		placo = Player.GetComponent<PlayerController>();
 		trafo = GetComponent<Transform>();
+		//un-comment when fixing the object-trapped-so-can't-grow code
+		//upCheck = GetComponentInChildren<CollisionChecker>();
+		//downCheck = GetComponentInChildren<CollisionChecker>();
+		//leftCheck = GetComponentInChildren<CollisionChecker>();
+		//rightCheck = GetComponentInChildren<CollisionChecker>();
 		objectTarget = Player.transform;
 		prefabManager = GameObject.Find("PrefabManager");
 		shapeToBecome = prefabManager.GetComponent<PrefabArray>();
@@ -48,6 +58,13 @@ public class ObjectController : MonoBehaviour
 
 	void Update()
 	{
+		//if opposite colliders are returning true, deactivate growth as object is now 'stuck'
+		//if ((upCheck.objectInRange == true && downCheck.objectInRange == true) || (leftCheck.objectInRange == true && rightCheck.objectInRange == true))
+		//{
+		//	allowGrow = false;
+		//}
+		//else allowGrow = true;
+
 		if (placo.P1T == true && allowGrow == true) {
 			Player1Action();
 		}
@@ -142,9 +159,7 @@ public class ObjectController : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Wall") {
-			allowGrow = false;
-		}
+
 
 		if (other.tag == "Player") {
 			allowPull = false;
@@ -154,9 +169,6 @@ public class ObjectController : MonoBehaviour
 
 	private void OnTriggerExit(Collider other)
 	{
-		if (other.tag == "Wall") {
-			allowGrow = true;
-		}
 
 		if (other.tag == "Player")
 		{
