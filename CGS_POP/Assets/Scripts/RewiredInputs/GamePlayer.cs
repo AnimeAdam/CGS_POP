@@ -34,6 +34,11 @@ public class GamePlayer : MonoBehaviour
     private Collider[] areaOfInfluence;
     public float areaOfInfluenceRadius = 3f;
 
+    public bool P1T = false;
+    public bool P2T = false;
+    public bool P3T = false;
+    public bool P4T = false;
+
     void Awake()
     {
         // Get the Rewired Player object for this player and keep it for the duration of the character's lifetime
@@ -142,7 +147,7 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     void AbilityGrow()
     {
-
+        P1T = true;
     }
 
     /// <summary>
@@ -150,7 +155,7 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     void AbilityPull ()
     {
-
+        P2T = true;
     }
 
     /// <summary>
@@ -158,7 +163,7 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     void AbilitySwitch()
     {
-
+        P3T = true;
     }
 
     /// <summary>
@@ -166,6 +171,6 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     void AbilityFloat()
     {
-
+        P4T = true;
     }
 }
