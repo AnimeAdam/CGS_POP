@@ -29,8 +29,13 @@ public class GamePlayer : MonoBehaviour
     private bool red;
     private bool yellow;
 
+	public bool P1T = false;
+	public bool P2T = false;
+	public bool P3T = false;
+	public bool P4T = false;
 
-    void Awake()
+
+	void Awake()
     {
         // Get the Rewired Player object for this player and keep it for the duration of the character's lifetime
         player = ReInput.players.GetPlayer(playerId);
@@ -130,30 +135,31 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     void AbilityGrow()
     {
-
-    }
+		P1T = true;
+	}
 
     /// <summary>
     /// The ability to pull the shapes toward the player
     /// </summary>
     void AbilityPull ()
     {
+		P2T = true;
 
-    }
+	}
 
     /// <summary>
     /// The ability to switch the shape with another one
     /// </summary>
     void AbilitySwitch()
     {
-
-    }
+		P3T = true;
+	}
 
     /// <summary>
     /// The ability to float shapes
     /// </summary>
     void AbilityFloat()
     {
-
-    }
+		P4T = true;
+	}
 }

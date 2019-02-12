@@ -86,8 +86,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0129449805, y: 0.9960905, z: 1.0149827}
-  m_Center: {x: 0.2545953, y: 0.00034812855, z: -0.0005719662}
+  m_Size: {x: 0.012944998, y: 1.0015553, z: 1.0149827}
+  m_Center: {x: 0.2545953, y: 0.00034826715, z: -0.00057197537}
 --- !u!1 &2677114687544430977
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 9057414661224755938}
   - component: {fileID: 6194245999481785076}
   m_Layer: 0
-  m_Name: GreenTriangle (2)
+  m_Name: BlueTriangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,8 +253,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0023506, y: 0.012385838, z: 1.0143509}
-  m_Center: {x: -0.001078677, y: -0.49962285, z: -0.0005722046}
+  m_Size: {x: 1.0227317, y: 0.012385811, z: 1.0143509}
+  m_Center: {x: 0.00006161504, y: -0.49957296, z: -0.0005722046}
 --- !u!1 &7420466903312253684
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,8 +297,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0064878, y: 0.012385835, z: 1.0143509}
-  m_Center: {x: -0.0031482838, y: -0.49962288, z: -0.0005722046}
+  m_Size: {x: 1.025672, y: 0.012385784, z: 1.0143509}
+  m_Center: {x: -0.008244937, y: -0.49939707, z: -0.0005722046}
 --- !u!1 &7449600294187583225
 GameObject:
   m_ObjectHideFlags: 0
