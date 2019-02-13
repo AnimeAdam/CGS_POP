@@ -17,6 +17,8 @@ public class GamePlayer : MonoBehaviour
     // Jump Acceleration
     public float jumpSpeed = 0.5f;
     protected float jumping;
+    public float jumpFall = 1f;
+    private bool jumpState = false;
 
     private Player player; // The Rewired Player
     private CharacterController cc;
@@ -44,6 +46,8 @@ public class GamePlayer : MonoBehaviour
     static public bool P3T = false;
     static public bool P4T = false;
 
+    UniversalPhysics uPhysics;
+
     void Awake()
     {
         // Get the Rewired Player object for this player and keep it for the duration of the character's lifetime
@@ -53,6 +57,8 @@ public class GamePlayer : MonoBehaviour
         cc = GetComponent<CharacterController>();
 
         rb = GetComponent<Rigidbody>();
+
+        uPhysics = GetComponentInChildren<UniversalPhysics>();
     }
 
     void Update()
@@ -111,7 +117,7 @@ public class GamePlayer : MonoBehaviour
         // Process movement
         if (moveVector.x != 0.0f || moveVector.y != 0.0f)
         {
-            cc.SimpleMove(moveVector * moveSpeed);
+            moveVector *= moveSpeed;
         }
 
         // Process actions
@@ -119,8 +125,13 @@ public class GamePlayer : MonoBehaviour
         {
             if (cc.isGrounded)
             {
-                StartCoroutine("Jump");
+                jumping = jumpSpeed;
+                jumpState = true;
             }
+        }
+        if (jumpState)
+        {
+            Jump();
         }
 
         if (blue || green || red || yellow)
@@ -134,19 +145,22 @@ public class GamePlayer : MonoBehaviour
             P3T = false;
             P4T = false;
         }
+
+        cc.Move(new Vector3 (moveVector.x, jumping, 0f));
     }
 
     /// <summary>
     /// Will make the player Jump
     /// </summary>
-    IEnumerator Jump()
+    void Jump()
     {
-        jumping = jumpSpeed;
-        while (jumping > 0.3f)
+        if (jumping > 0f)
         {
-            jumping -= jumpSpeed * Time.deltaTime;
-            cc.Move(new Vector3(0f, jumping, 0f));
-            yield return null;
+            jumping -= /*jumpSpeed * Time.deltaTime;*/ Mathf.Lerp(jumpSpeed * Time.deltaTime, -(uPhysics.velocity.y) * Time.deltaTime, 0.5f);
+        }
+        else
+        {
+            jumpState = false;
         }
     }
 

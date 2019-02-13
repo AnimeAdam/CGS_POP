@@ -11,11 +11,13 @@ public class UniversalPhysics : MonoBehaviour
     protected Vector3 groundNormal;
     protected Rigidbody rb;
     protected CharacterController cc;
-    protected Vector3 velocity;
+    public Vector3 velocity;
     protected RaycastHit[] hitBuffer = new RaycastHit[20];
 
     protected const float minMoveDistance = 0.001f;
     protected const float shellRadius = 0.01f;
+
+    protected float gravityAcceleration = 0f;
 
 
     // Start is called before the first frame update
@@ -33,13 +35,24 @@ public class UniversalPhysics : MonoBehaviour
 
     void FixedUpdate()
     {
-        ApplyGravity();
+        if (!cc.isGrounded)
+        {
+            ApplyGravity();
+        }
+        else
+        {
+            gravityAcceleration = 0f;
+        }
     }
 
     void ApplyGravity()
     {
         velocity = Vector3.zero;
-        velocity = Physics.gravity * Time.deltaTime;
+        if (gravityAcceleration < rb.mass)
+        {
+            gravityAcceleration += rb.mass * Time.deltaTime;
+        }
+        velocity = (Physics.gravity * gravityAcceleration) * Time.deltaTime;
         cc.Move(velocity);
     }
 }
