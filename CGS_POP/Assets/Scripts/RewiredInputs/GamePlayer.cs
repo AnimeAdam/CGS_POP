@@ -54,10 +54,7 @@ public class GamePlayer : MonoBehaviour
     {
         GetInput();
         ProcessInput();
-        if (playerId == 0)
-        {
-            FindObjectsInRange();
-        }
+        FindObjectsInRange();
     }
 
     private void FindObjectsInRange()
@@ -137,10 +134,10 @@ public class GamePlayer : MonoBehaviour
                 AbilityPull();
                 break;
             case 2:
-                AbilitySwitch();
+                AbilityPull();
                 break;
             case 3:
-                AbilityFloat();
+                AbilitySwitch();
                 break;
         }
     }
