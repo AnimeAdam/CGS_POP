@@ -37,6 +37,7 @@ public class ObjectController : MonoBehaviour
 	Transform childTrafo; //IF THIS IS CHANGED TO GAMEOBJECT ALONG WITH THE CORRESPONDING CODE, THE GETPOSITION FOR PRESWITCHPOSITION THROWS A NULLREF I.E. NO CHILD OBJECTS ARE BEING FOUND
 
 	Vector3 floatUp = new Vector3(0, 0.1f, 0);
+	Rigidbody thisRigid;
 
 	// Start is called before the first frame update
 	void Start()
@@ -54,6 +55,7 @@ public class ObjectController : MonoBehaviour
 		shapeToBecome = prefabManager.GetComponent<PrefabArray>();
 		thisGameobject = GetComponent<Transform>();
 		childTrafo = GetComponentInChildren<Transform>();
+		thisRigid = GetComponent<Rigidbody>();
     }
 
 	void Update()
@@ -83,6 +85,7 @@ public class ObjectController : MonoBehaviour
 		{
 			Player4Action();
 		}
+		else thisRigid.useGravity = true;
 
 		if (trafo.rotation.y != 0)
 		{
@@ -165,6 +168,7 @@ public class ObjectController : MonoBehaviour
 
 	//contains action to be performed when player4 presses their button - FLOATs shapes upwards for as long as the button is held, then returns them slowly to the ground
 	public void Player4Action() {
+		thisRigid.useGravity = false;
 		trafo.Translate(Vector3.up * 10 * Time.deltaTime);
 	}
 
@@ -175,7 +179,6 @@ public class ObjectController : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-
 
 		if (other.tag == "Player") {
 			allowPull = false;
