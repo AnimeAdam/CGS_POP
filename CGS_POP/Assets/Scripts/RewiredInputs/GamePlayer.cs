@@ -79,10 +79,23 @@ public class GamePlayer : MonoBehaviour
 
         moveVector.x = player.GetAxis("MoveHorizontal"); // get input by name or action id
         jump = player.GetButtonDown("Jump");
-        blue = player.GetButton("Blue");
-        green = player.GetButton("Green");
-        red = player.GetButton("Red");
-        yellow = player.GetButton("Yellow");
+
+        if (playerId == 2)
+        {
+            P3T = false;
+
+            blue = player.GetButtonDown("Blue");
+            green = player.GetButtonDown("Green");
+            red = player.GetButtonDown("Red");
+            yellow = player.GetButtonDown("Yellow");
+        }
+        else
+        {
+            blue = player.GetButton("Blue");
+            green = player.GetButton("Green");
+            red = player.GetButton("Red");
+            yellow = player.GetButton("Yellow");
+        }
 
         blueLift = player.GetButtonUp("Blue");
         greenLift = player.GetButtonUp("Green");
