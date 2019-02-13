@@ -245,6 +245,10 @@ MonoBehaviour:
   Player: {fileID: 827587366}
   placo: {fileID: 0}
   trafo: {fileID: 0}
+  upCheck: {fileID: 0}
+  downCheck: {fileID: 0}
+  leftCheck: {fileID: 0}
+  rightCheck: {fileID: 0}
   pullSpeed: 4
   allowGrow: 1
   allowPull: 1
@@ -376,6 +380,10 @@ MonoBehaviour:
   Player: {fileID: 827587366}
   placo: {fileID: 0}
   trafo: {fileID: 0}
+  upCheck: {fileID: 0}
+  downCheck: {fileID: 0}
+  leftCheck: {fileID: 0}
+  rightCheck: {fileID: 0}
   pullSpeed: 4
   allowGrow: 1
   allowPull: 1
@@ -929,6 +937,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 1265694803, guid: d025dfcde6b1e0b448f2e1fcfbca3aa5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d025dfcde6b1e0b448f2e1fcfbca3aa5, type: 3}
 --- !u!4 &820025786 stripped
@@ -1130,6 +1142,10 @@ MonoBehaviour:
   Player: {fileID: 827587366}
   placo: {fileID: 0}
   trafo: {fileID: 0}
+  upCheck: {fileID: 0}
+  downCheck: {fileID: 0}
+  leftCheck: {fileID: 0}
+  rightCheck: {fileID: 0}
   pullSpeed: 4
   allowGrow: 1
   allowPull: 1
@@ -1418,6 +1434,10 @@ MonoBehaviour:
   Player: {fileID: 827587366}
   placo: {fileID: 0}
   trafo: {fileID: 0}
+  upCheck: {fileID: 0}
+  downCheck: {fileID: 0}
+  leftCheck: {fileID: 0}
+  rightCheck: {fileID: 0}
   pullSpeed: 4
   allowGrow: 1
   allowPull: 1
@@ -1906,6 +1926,10 @@ MonoBehaviour:
   Player: {fileID: 827587366}
   placo: {fileID: 0}
   trafo: {fileID: 0}
+  upCheck: {fileID: 0}
+  downCheck: {fileID: 0}
+  leftCheck: {fileID: 0}
+  rightCheck: {fileID: 0}
   pullSpeed: 4
   allowGrow: 1
   allowPull: 1
