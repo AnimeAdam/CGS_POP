@@ -5,8 +5,8 @@ using UnityEngine;
 public class Traps : MonoBehaviour
 {
     public Animator ani;
- 
-       
+
+    public ShakeTheScreen shake;
   
     //NSHAN
     // Start is called before the first frame update
@@ -27,5 +27,9 @@ public class Traps : MonoBehaviour
     {
         ani.enabled = true;
         
+        if (shake != null)
+        {
+            shake.GettingAttackedShake();
+        }
     }
 }
