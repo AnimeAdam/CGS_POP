@@ -67,21 +67,21 @@ public class ObjectController : MonoBehaviour
 		//}
 		//else allowGrow = true;
 
-		if (placo.P1T == true && allowGrow == true) {
+		if ((placo.P1T == true && allowGrow == true) || global::GamePlayer.P1T) {
 			Player1Action();
 		}
 
-		if (placo.P2T == true && allowPull == true)
+		if ((placo.P2T == true && allowPull == true) || global::GamePlayer.P2T)
 		{
 			Player2Action();
 		}
 
-		if (placo.P3T == true && allowSwitch == true)
+		if ((placo.P3T == true && allowSwitch == true) || global::GamePlayer.P3T)
 		{
 			Player3Action();
 		}
 
-		if (placo.P4T == true)
+		if ((placo.P4T == true) || global::GamePlayer.P4T)
 		{
 			Player4Action();
 		}

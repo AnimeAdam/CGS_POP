@@ -7,7 +7,7 @@ public class ShakeTheScreen : MonoBehaviour
 {
     private CameraShaker cameraShaker;
     
-    private float timer = 0f;
+
 
     // Start is called before the first frame update
     void Start()

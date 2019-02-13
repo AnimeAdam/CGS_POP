@@ -15,7 +15,7 @@ public class GamePlayer : MonoBehaviour
     public float moveSpeed = 3.0f;
 
     // Jump Acceleration
-    public float jumpSpeed = 1f;
+    public float jumpSpeed = 0.5f;
     protected float jumping;
 
     private Player player; // The Rewired Player
@@ -30,14 +30,19 @@ public class GamePlayer : MonoBehaviour
     private bool red;
     private bool yellow;
 
+    private bool blueLift;
+    private bool greenLift;
+    private bool redLift;
+    private bool yellowLift;
+
     //Collider for detecting shapes at a distance
     private Collider[] areaOfInfluence;
     public float areaOfInfluenceRadius = 3f;
 
-    public bool P1T = false;
-    public bool P2T = false;
-    public bool P3T = false;
-    public bool P4T = false;
+    static public bool P1T = false;
+    static public bool P2T = false;
+    static public bool P3T = false;
+    static public bool P4T = false;
 
     void Awake()
     {
@@ -78,6 +83,11 @@ public class GamePlayer : MonoBehaviour
         green = player.GetButton("Green");
         red = player.GetButton("Red");
         yellow = player.GetButton("Yellow");
+
+        blueLift = player.GetButtonUp("Blue");
+        greenLift = player.GetButtonUp("Green");
+        redLift = player.GetButtonUp("Red");
+        yellowLift = player.GetButtonUp("Yellow");
     }
 
     /// <summary>
@@ -103,6 +113,13 @@ public class GamePlayer : MonoBehaviour
         if (blue || green || red || yellow)
         {
             DoAbility();
+        }
+        if (blueLift || greenLift || redLift || yellowLift)
+        {
+            P1T = false;
+            P2T = false;
+            P3T = false;
+            P4T = false;
         }
     }
 
@@ -134,10 +151,10 @@ public class GamePlayer : MonoBehaviour
                 AbilityPull();
                 break;
             case 2:
-                AbilityPull();
+                AbilitySwitch();
                 break;
             case 3:
-                AbilitySwitch();
+                AbilityFloat();
                 break;
         }
     }
