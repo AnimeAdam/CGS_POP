@@ -131,16 +131,32 @@ public class ObjectController : MonoBehaviour
 
 		switch (currentColour) {
 			case 1:
-				newShape = (GameObject) Instantiate (shapeToBecome.bluePrefabs[i], preswitchPosition, preswitchRotation);
+				if (i < 2)
+				{
+					newShape = (GameObject)Instantiate(shapeToBecome.bluePrefabs[i], preswitchPosition, preswitchRotation);
+				}
+				else newShape = (GameObject)Instantiate(shapeToBecome.bluePrefabs[i], preswitchPosition, Quaternion.Euler(preswitchRotation.x, preswitchRotation.y, preswitchRotation.z - 90f));
 				break;
 			case 2:
-				newShape = (GameObject)Instantiate(shapeToBecome.greenPrefabs[i], preswitchPosition, preswitchRotation);
+				if (i < 2)
+				{
+					newShape = (GameObject)Instantiate(shapeToBecome.greenPrefabs[i], preswitchPosition, preswitchRotation);
+				}
+				else newShape = (GameObject)Instantiate(shapeToBecome.greenPrefabs[i], preswitchPosition, Quaternion.Euler(preswitchRotation.x, preswitchRotation.y, preswitchRotation.z - 90f));
 				break;
 			case 3:
-				newShape = (GameObject)Instantiate(shapeToBecome.redPrefabs[i], preswitchPosition, preswitchRotation);
+				if (i < 2)
+				{
+					newShape = (GameObject)Instantiate(shapeToBecome.redPrefabs[i], preswitchPosition, preswitchRotation);
+				}
+				else newShape = (GameObject)Instantiate(shapeToBecome.redPrefabs[i], preswitchPosition, Quaternion.Euler(preswitchRotation.x, preswitchRotation.y, preswitchRotation.z - 90f));
 				break;
 			case 4:
-				newShape = (GameObject)Instantiate(shapeToBecome.yellowPrefabs[i], preswitchPosition, preswitchRotation);
+				if (i < 2)
+				{
+					newShape = (GameObject)Instantiate(shapeToBecome.yellowPrefabs[i], preswitchPosition, preswitchRotation);
+				}
+				else newShape = (GameObject)Instantiate(shapeToBecome.yellowPrefabs[i], preswitchPosition, Quaternion.Euler(preswitchRotation.x, preswitchRotation.y, preswitchRotation.z - 90f));
 				break;
 		}
 		newShape.transform.localScale = preswitchSize*2;
