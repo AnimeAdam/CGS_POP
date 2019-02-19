@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6105120858489485689}
   - component: {fileID: 1663603371824852500}
   - component: {fileID: 4691434940836460115}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: YellowTriangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

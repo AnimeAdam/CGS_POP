@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 8979578289510899405}
   - component: {fileID: 5759047328318203879}
   - component: {fileID: 6622854396159842941}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: GreenTriangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

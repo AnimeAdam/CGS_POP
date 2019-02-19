@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 787096252256974297}
   - component: {fileID: 2317143748364287243}
   - component: {fileID: 1265694803}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: YellowSquare
   m_TagString: Untagged
   m_Icon: {fileID: 0}

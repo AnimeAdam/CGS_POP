@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4074044091262121464}
   - component: {fileID: 3822080640827178630}
   - component: {fileID: 4959770128539259696}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: RedTriangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
