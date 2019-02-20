@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionChecker : MonoBehaviour
+public class CollisionChecker4 : MonoBehaviour
 {
-	public bool objectInRange = false;
+	CollisionManager colMan;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+		colMan = GetComponentInParent<CollisionManager>();
     }
 
     // Update is called once per frame
@@ -21,8 +21,16 @@ public class CollisionChecker : MonoBehaviour
 
 	private void OnTriggerStay(Collider other)
 	{
-		if (other.tag != null) {
-			objectInRange = true;
+		if (other.tag == "Wall") {
+			colMan.side4Check = true;
+		}
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		if (other.tag == "Wall")
+		{
+			colMan.side4Check = false;
 		}
 	}
 
