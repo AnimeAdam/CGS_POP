@@ -46,7 +46,12 @@ public class GamePlayer : MonoBehaviour
     static public bool P3T = false;
     static public bool P4T = false;
 
-	public GameObject[] blueShapes = new GameObject[20];
+    static public bool colourRed = false;
+    static public bool colourGreen = false;
+    static public bool colourYellow = false;
+    static public bool colourBlue = false;
+
+    public GameObject[] blueShapes = new GameObject[20];
 	public GameObject[] greenShapes = new GameObject[20];
 	public GameObject[] redShapes = new GameObject[20];
 	public GameObject[] yellowShapes = new GameObject[20];
@@ -163,6 +168,10 @@ public class GamePlayer : MonoBehaviour
             P2T = false;
             P3T = false;
             P4T = false;
+            colourBlue = false;
+            colourGreen = false;
+            colourRed = false;
+            colourYellow = false;
         }
 
 
@@ -526,6 +535,22 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     void DoAbility()
     {
+        if (blue)
+        {
+            colourBlue = true;
+        }
+        if (yellow)
+        {
+            colourYellow = true;
+        }
+        if (green)
+        {
+            colourGreen = true;
+        }
+        if (red)
+        {
+            colourRed = true;
+        }
         switch (playerId)
         {
             case 0:
