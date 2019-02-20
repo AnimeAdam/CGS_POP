@@ -143,8 +143,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: 2
-  moveSpeed: 5
-  jumpSpeed: 0.4
+  moveSpeed: 0.2
+  jumpHeight: 0.6
+  jumpSpeed: 0.1
+  jumping: 0
+  areaOfInfluenceRadius: 3
 --- !u!114 &2250899446391724271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,3 +161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityModifier: 1
+  grounded: 0
+  col: {fileID: 0}
+  velocity: {x: 0, y: 0, z: 0}

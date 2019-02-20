@@ -63,7 +63,6 @@ public class GamePlayer : MonoBehaviour
     {
         GetInput();
         ProcessInput();
-        FindObjectsInRange();
     }
 
     private void FindObjectsInRange()
@@ -71,6 +70,10 @@ public class GamePlayer : MonoBehaviour
         //areaOfInfluence = Physics.OverlapSphere(transform.position, areaOfInfluenceRadius);
         areaOfInfluence = RotaryHeart.Lib.PhysicsExtension.Physics.OverlapSphere(transform.position,
             areaOfInfluenceRadius, -1, RotaryHeart.Lib.PhysicsExtension.Physics.PreviewCondition.Editor);
+        GameObject orb = (GameObject)Resources.Load("SphereOfInfluence");
+        orb.transform.localScale = new Vector3(areaOfInfluenceRadius*2, areaOfInfluenceRadius*2, areaOfInfluenceRadius*2);
+
+        Instantiate(orb, transform.position,Quaternion.identity);
     }
 
     /// <summary>
@@ -197,6 +200,7 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     void AbilityPull ()
     {
+        FindObjectsInRange();
         P2T = true;
     }
 
