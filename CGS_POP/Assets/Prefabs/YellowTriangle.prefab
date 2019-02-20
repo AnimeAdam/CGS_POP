@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4691434940836460115}
   m_Layer: 23
   m_Name: YellowTriangle
-  m_TagString: Untagged
+  m_TagString: Yellow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

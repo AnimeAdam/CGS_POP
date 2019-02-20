@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4959770128539259696}
   m_Layer: 20
   m_Name: RedTriangle
-  m_TagString: Untagged
+  m_TagString: Red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

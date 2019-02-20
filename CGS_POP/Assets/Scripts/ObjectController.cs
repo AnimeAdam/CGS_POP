@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class ObjectController : MonoBehaviour
 {
-	//this will later have to be updated to find an array of playercontroller scripts, as there should be four in scene which all need to be reacted to
-    
+
+	public bool P1T = false;
+	public bool P2T = false;
+	public bool P3T = false;
+	public bool P4T = false;
+
 	public GameObject Player;
-	public PlayerController placo;
+	public GamePlayer placo;
 	public Transform trafo;
 	Vector3 newSize = new Vector3(0.01f, 0.01f, 0.01f);
 	public CollisionChecker upCheck;
@@ -34,7 +38,7 @@ public class ObjectController : MonoBehaviour
 	int i = 0;
 	Transform thisGameobject;
 	GameObject newShape;
-	Transform childTrafo; //IF THIS IS CHANGED TO GAMEOBJECT ALONG WITH THE CORRESPONDING CODE, THE GETPOSITION FOR PRESWITCHPOSITION THROWS A NULLREF I.E. NO CHILD OBJECTS ARE BEING FOUND
+	Transform childTrafo;
 
 	Vector3 floatUp = new Vector3(0, 0.1f, 0);
 	Rigidbody thisRigid;
@@ -43,7 +47,7 @@ public class ObjectController : MonoBehaviour
 	void Start()
     {
 		Player = GameObject.Find("Player");
-		placo = Player.GetComponent<PlayerController>();
+		placo = Player.GetComponent<GamePlayer>();
 		trafo = GetComponent<Transform>();
 		//un-comment when fixing the object-trapped-so-can't-grow code
 		//upCheck = GetComponentInChildren<CollisionChecker>();
@@ -67,21 +71,21 @@ public class ObjectController : MonoBehaviour
 		//}
 		//else allowGrow = true;
 
-		if ((placo.P1T == true && allowGrow == true) || global::GamePlayer.P1T) {
+		if ((P1T == true && allowGrow == true) || global::GamePlayer.P1T) {
 			Player1Action();
 		}
 
-		if ((placo.P2T == true && allowPull == true) || global::GamePlayer.P2T)
+		if ((P2T == true && allowPull == true) || global::GamePlayer.P2T)
 		{
 			Player2Action();
 		}
 
-		if ((placo.P3T == true && allowSwitch == true) || global::GamePlayer.P3T)
+		if ((P3T == true && allowSwitch == true) || global::GamePlayer.P3T)
 		{
 			Player3Action();
 		}
 
-		if ((placo.P4T == true) || global::GamePlayer.P4T)
+		if ((P4T == true) || global::GamePlayer.P4T)
 		{
 			Player4Action();
 		}
@@ -164,6 +168,7 @@ public class ObjectController : MonoBehaviour
 		}
 		newShape.transform.localScale = preswitchSize*2;
 		newShape.transform.parent = thisGameobject;
+		
 	}
 
 	//contains action to be performed when player4 presses their button - FLOATs shapes upwards for as long as the button is held, then returns them slowly to the ground
