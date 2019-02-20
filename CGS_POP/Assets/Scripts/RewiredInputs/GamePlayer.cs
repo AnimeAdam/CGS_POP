@@ -15,9 +15,9 @@ public class GamePlayer : MonoBehaviour
     public float moveSpeed = 3.0f;
 
     // Jump Acceleration
-    public float jumpSpeed = 0.5f;
-    protected float jumping;
-    public float jumpFall = 1f;
+    public float jumpHeight = 0.6f;
+    public float jumpSpeed = 0.1f;
+    [SerializeField]protected float jumping;
     private bool jumpState = false;
 
     private Player player; // The Rewired Player
@@ -55,10 +55,8 @@ public class GamePlayer : MonoBehaviour
 
         // Get the character controller
         cc = GetComponent<CharacterController>();
-
         rb = GetComponent<Rigidbody>();
-
-        uPhysics = GetComponentInChildren<UniversalPhysics>();
+        uPhysics = GetComponent<UniversalPhysics>();
     }
 
     void Update()
@@ -123,9 +121,9 @@ public class GamePlayer : MonoBehaviour
         // Process actions
         if (jump)
         {
-            if (cc.isGrounded)
+            if (jumping == 0f)
             {
-                jumping = jumpSpeed;
+                jumping = jumpHeight;
                 jumpState = true;
             }
         }
@@ -154,12 +152,12 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     void Jump()
     {
-        if (jumping > 0f)
+        //if (jumping > 0f)
+        jumping += uPhysics.velocity.y*jumpSpeed; //Mathf.Lerp(jumpSpeed * Time.deltaTime, -(uPhysics.velocity.y) * Time.deltaTime, 0.5f);
+
+        if (cc.isGrounded && jumping < 0f)
         {
-            jumping -= /*jumpSpeed * Time.deltaTime;*/ Mathf.Lerp(jumpSpeed * Time.deltaTime, -(uPhysics.velocity.y) * Time.deltaTime, 0.5f);
-        }
-        else
-        {
+            jumping = 0f;
             jumpState = false;
         }
     }
