@@ -14,16 +14,12 @@ public class GamePlayer : MonoBehaviour
     // The movement speed of this character
     public float moveSpeed = 3.0f;
 
-    // Jump Acceleration
+    // Jump Stats
     public float jumpHeight = 0.6f;
     public float jumpSpeed = 0.1f;
     [SerializeField]protected float jumping;
     private bool jumpState = false;
-
-    private Player player; // The Rewired Player
-    private CharacterController cc;
-    private Rigidbody rb;
-
+    
     //Input Listeners
     private Vector3 moveVector;
     private bool jump;
@@ -31,7 +27,6 @@ public class GamePlayer : MonoBehaviour
     private bool green;
     private bool red;
     private bool yellow;
-
     private bool blueLift;
     private bool greenLift;
     private bool redLift;
@@ -41,29 +36,21 @@ public class GamePlayer : MonoBehaviour
     private Collider[] areaOfInfluence;
     public float areaOfInfluenceRadius = 3f;
 
-    static public bool P1T = false;
-    static public bool P2T = false;
-    static public bool P3T = false;
-    static public bool P4T = false;
+    //Global senders for abilities
+    [HideInInspector] public bool P1T = false;
+    [HideInInspector] public bool P2T = false;
+    [HideInInspector] public bool P3T = false;
+    [HideInInspector] public bool P4T = false;
+    [HideInInspector] public bool colourRed = false;
+    [HideInInspector] public bool colourGreen = false;
+    [HideInInspector] public bool colourYellow = false;
+    [HideInInspector] public bool colourBlue = false;
 
-    static public bool colourRed = false;
-    static public bool colourGreen = false;
-    static public bool colourYellow = false;
-    static public bool colourBlue = false;
-
-    public GameObject[] blueShapes = new GameObject[20];
-	public GameObject[] greenShapes = new GameObject[20];
-	public GameObject[] redShapes = new GameObject[20];
-	public GameObject[] yellowShapes = new GameObject[20];
-	public ObjectController[] blueComps = new ObjectController[20];
-	public ObjectController[] greenComps = new ObjectController[20];
-	public ObjectController[] redComps = new ObjectController[20];
-	public ObjectController[] yellowComps = new ObjectController[20];
-	public bool shapeCheck = false;
-
-	int i = 0;
-
-	UniversalPhysics uPhysics;
+    //Classes
+	private UniversalPhysics uPhysics;
+    private Player player; // The Rewired Player
+    private CharacterController cc;
+    private Rigidbody rb;
 
     void Awake()
     {
@@ -74,11 +61,6 @@ public class GamePlayer : MonoBehaviour
         cc = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         uPhysics = GetComponent<UniversalPhysics>();
-
-		blueShapes = GameObject.FindGameObjectsWithTag("Blue");
-		greenShapes = GameObject.FindGameObjectsWithTag("Green");
-		redShapes = GameObject.FindGameObjectsWithTag("Red");
-		yellowShapes = GameObject.FindGameObjectsWithTag("Yellow");
 	}
 
     void Update()
@@ -87,6 +69,9 @@ public class GamePlayer : MonoBehaviour
         ProcessInput();
     }
 
+    /// <summary>
+    /// Finding objects in range for the pull Ability
+    /// </summary>
     private void FindObjectsInRange()
     {
         //areaOfInfluence = Physics.OverlapSphere(transform.position, areaOfInfluenceRadius);
@@ -95,7 +80,7 @@ public class GamePlayer : MonoBehaviour
         GameObject orb = (GameObject)Resources.Load("SphereOfInfluence");
         orb.transform.localScale = new Vector3(areaOfInfluenceRadius*2, areaOfInfluenceRadius*2, areaOfInfluenceRadius*2);
 
-        Instantiate(orb, transform.position,Quaternion.identity);
+        Instantiate(orb, transform.position,Quaternion.identity); //REMEMBER as GameObject
     }
 
     /// <summary>
@@ -112,7 +97,6 @@ public class GamePlayer : MonoBehaviour
         if (playerId == 2)
         {
             P3T = false;
-
             blue = player.GetButtonDown("Blue");
             green = player.GetButtonDown("Green");
             red = player.GetButtonDown("Red");
@@ -173,344 +157,6 @@ public class GamePlayer : MonoBehaviour
             colourRed = false;
             colourYellow = false;
         }
-
-
-        //when a colour is pressed, the playerId is used to iterate over an array of that colour shapes and trigger the boolean associated with that playerId
-
-            /*if (blue)
-            {
-                switch (playerId)
-                {
-                    case 0:
-                        foreach (GameObject blueShape in blueShapes)
-                        {
-                            blueComps[i] = blueShape.GetComponent<ObjectController>();
-                            blueComps[i].P1T = true;
-                            i++;
-                        }
-                        break;
-                    case 1:
-                        foreach (GameObject blueShape in blueShapes)
-                        {
-                            blueComps[i] = blueShape.GetComponent<ObjectController>();
-                            blueComps[i].P2T = true;
-                            i++;
-                        }
-                        break;
-                    case 2:
-                        foreach (GameObject blueShape in blueShapes)
-                        {
-                            blueComps[i] = blueShape.GetComponent<ObjectController>();
-                            blueComps[i].P3T = true;
-                            i++;
-                        }
-                        break;
-                    case 3:
-                        foreach (GameObject blueShape in blueShapes)
-                        {
-                            blueComps[i] = blueShape.GetComponent<ObjectController>();
-                            blueComps[i].P4T = true;
-                            i++;
-                        }
-                        break;
-
-                }
-            }
-
-            if (green)
-            {
-                switch (playerId)
-                {
-                    case 0:
-                        foreach (GameObject greenShape in greenShapes)
-                        {
-                            i = 0;
-                            greenComps[i] = greenShape.GetComponent<ObjectController>();
-                            greenComps[i].P1T = true;
-                            i++;
-                        }
-                        break;
-                    case 1:
-                        foreach (GameObject greenShape in greenShapes)
-                        {
-                            i = 0;
-                            greenComps[i] = greenShape.GetComponent<ObjectController>();
-                            greenComps[i].P2T = true;
-                            i++;
-                        }
-                        break;
-                    case 2:
-                        foreach (GameObject greenShape in greenShapes)
-                        {
-                            i = 0;
-                            greenComps[i] = greenShape.GetComponent<ObjectController>();
-                            greenComps[i].P3T = true;
-                            i++;
-                        }
-                        break;
-                    case 3:
-                        foreach (GameObject greenShape in greenShapes)
-                        {
-                            i = 0;
-                            greenComps[i] = greenShape.GetComponent<ObjectController>();
-                            greenComps[i].P4T = true;
-                            i++;
-                        }
-                        break;
-
-                }
-
-            }
-
-            if (red)
-            {
-                switch (playerId)
-                {
-                    case 0:
-                        foreach (GameObject redShape in redShapes)
-                        {
-                            i = 0;
-                            redComps[i] = redShape.GetComponent<ObjectController>();
-                            redComps[i].P1T = true;
-                            i++;
-                        }
-                        break;
-                    case 1:
-                        foreach (GameObject redShape in redShapes)
-                        {
-                            i = 0;
-                            redComps[i] = redShape.GetComponent<ObjectController>();
-                            redComps[i].P2T = true;
-                            i++;
-                        }
-                        break;
-                    case 2:
-                        foreach (GameObject redShape in redShapes)
-                        {
-                            i = 0;
-                            redComps[i] = redShape.GetComponent<ObjectController>();
-                            redComps[i].P3T = true;
-                            i++;
-                        }
-                        break;
-                    case 3:
-                        foreach (GameObject redShape in redShapes)
-                        {
-                            i = 0;
-                            redComps[i] = redShape.GetComponent<ObjectController>();
-                            redComps[i].P4T = true;
-                            i++;
-                        }
-                        break;
-                }
-            }
-
-            if (yellow)
-            {
-                switch (playerId)
-                {
-                    case 0:
-                        foreach (GameObject yellowShape in yellowShapes)
-                        {
-                            i = 0;
-                            yellowComps[i] = yellowShape.GetComponent<ObjectController>();
-                            yellowComps[i].P1T = true;
-                            i++;
-                        }
-                        break;
-                    case 1:
-                        foreach (GameObject yellowShape in yellowShapes)
-                        {
-                            i = 0;
-                            yellowComps[i] = yellowShape.GetComponent<ObjectController>();
-                            yellowComps[i].P2T = true;
-                            i++;
-                        }
-                        break;
-                    case 2:
-                        foreach (GameObject yellowShape in yellowShapes)
-                        {
-                            i = 0;
-                            yellowComps[i] = yellowShape.GetComponent<ObjectController>();
-                            yellowComps[i].P3T = true;
-                            i++;
-                        }
-                        break;
-                    case 3:
-                        foreach (GameObject yellowShape in yellowShapes)
-                        {
-                            i = 0;
-                            yellowComps[i] = yellowShape.GetComponent<ObjectController>();
-                            yellowComps[i].P4T = true;
-                            i++;
-                        }
-                        break;
-                }
-            }
-
-            if (blueLift)
-            {
-                switch (playerId)
-                {
-                    case 0:
-                        foreach (ObjectController blueControl in blueComps)
-                        {
-                            i = 0;
-                            blueComps[i].P1T = false;
-                            i++;
-                        }
-                        break;
-                    case 1:
-                        foreach (ObjectController blueControl in blueComps)
-                        {
-                            i = 0;
-                            blueComps[i].P2T = false;
-                            i++;
-                        }
-                        break;
-                    case 2:
-                        foreach (ObjectController blueControl in blueComps)
-                        {
-                            i = 0;
-                            blueComps[i].P3T = false;
-                            i++;
-                        }
-                        break;
-                    case 3:
-                        foreach (ObjectController blueControl in blueComps)
-                        {
-                            i = 0;
-                            blueComps[4].P1T = false;
-                            i++;
-                        }
-                        break;
-                }
-            }
-
-            if (greenLift)
-            {
-                switch (playerId)
-                {
-                    case 0:
-                        foreach (ObjectController greenControl in greenComps)
-                        {
-                            i = 0;
-                            greenComps[i].P1T = false;
-                            i++;
-                        }
-                        break;
-                    case 1:
-                        foreach (ObjectController greenControl in greenComps)
-                        {
-                            i = 0;
-                            greenComps[i].P2T = false;
-                            i++;
-                        }
-                        break;
-                    case 2:
-                        foreach (ObjectController greenControl in greenComps)
-                        {
-                            i = 0;
-                            greenComps[i].P3T = false;
-                            i++;
-                        }
-                        break;
-                    case 3:
-                        foreach (ObjectController greenControl in greenComps)
-                        {
-                            i = 0;
-                            greenComps[i].P4T = false;
-                            i++;
-                        }
-                        break;
-                }
-            }
-
-            if (redLift)
-            {
-                switch (playerId)
-                {
-                    case 0:
-                        foreach (ObjectController redControl in redComps)
-                        {
-                            i = 0;
-                            redComps[i].P1T = false;
-                            i++;
-                        }
-                        break;
-
-                    case 1:
-                        foreach (ObjectController redControl in redComps)
-                        {
-                            i = 0;
-                            redComps[i].P2T = false;
-                            i++;
-                        }
-                        break;
-
-                    case 2:
-                        foreach (ObjectController redControl in redComps)
-                        {
-                            i = 0;
-                            redComps[i].P3T = false;
-                            i++;
-                        }
-                        break;
-
-                    case 3:
-                        foreach (ObjectController redControl in redComps)
-                        {
-                            i = 0;
-                            redComps[i].P4T = false;
-                            i++;
-                        }
-                        break;
-                }
-            }
-
-            if (yellowLift)
-            {
-                switch (playerId)
-                {
-                    case 0:
-                        foreach (ObjectController yellowControl in yellowComps)
-                        {
-                            i = 0;
-                            yellowComps[i].P1T = false;
-                            i++;
-                        }
-                        break;
-
-                    case 1:
-                        foreach (ObjectController yellowControl in yellowComps)
-                        {
-                            i = 0;
-                            yellowComps[i].P2T = false;
-                            i++;
-                        }
-                        break;
-
-                    case 2:
-                        foreach (ObjectController yellowControl in yellowComps)
-                        {
-                            i = 0;
-                            yellowComps[i].P3T = false;
-                            i++;
-                        }
-                        break;
-
-                    case 3:
-                        foreach (ObjectController yellowControl in yellowComps)
-                        {
-                            i = 0;
-                            yellowComps[i].P4T = false;
-                            i++;
-                        }
-                        break;
-                }
-            }*/
-
-
 
         cc.Move(new Vector3 (moveVector.x, jumping, 0f));
     }

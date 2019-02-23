@@ -5,22 +5,21 @@ using UnityEngine;
 
 public class UniversalPhysics : MonoBehaviour
 {
+    //Gravity Settings
     private Vector3 gravity;
     public float gravityModifier = 1f;
-    protected Vector3 gravityAcceleration;
+    //protected Vector3 gravityAcceleration;
+    //protected bool grounded;
+    //protected Vector3 groundNormal;
 
-    [SerializeField]protected bool grounded;
-    protected Vector3 groundNormal;
+    //Components
     protected Rigidbody rb;
     public Collider col;
     protected CharacterController cc;
+
+    //Applied Velocity
     public Vector3 velocity;
-    protected RaycastHit[] hitBuffer = new RaycastHit[20];
-
-    protected const float minMoveDistance = 0.001f;
-    protected const float shellRadius = 0.01f;
-
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +34,7 @@ public class UniversalPhysics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        grounded = cc.isGrounded;
+
     }
 
     void FixedUpdate()
@@ -43,6 +42,10 @@ public class UniversalPhysics : MonoBehaviour
         ApplyGravity();
     }
 
+
+    /// <summary>
+    /// Apply Gravity to the object every frame, when on ground
+    /// </summary>
     void ApplyGravity()
     {
         velocity = (gravity * rb.mass) * Time.deltaTime;
@@ -50,6 +53,10 @@ public class UniversalPhysics : MonoBehaviour
         cc.Move(velocity);
     }
 
+
+    /// <summary>
+    /// Sets the gravity times the gravityModifier
+    /// </summary>
     void SetGravity()
     {
         gravity = Physics.gravity * gravityModifier;

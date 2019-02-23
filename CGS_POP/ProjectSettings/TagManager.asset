@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+  - Green
+  - Red
+  - Blue
+  - Yellow
   layers:
   - Default
   - TransparentFX
@@ -14,22 +18,22 @@ TagManager:
   - UI
   - 
   - 
-  - RedSquare
-  - RedTriangle
-  - RedCircle
-  - BlueSquare
-  - BlueTriangle
-  - BlueCircle
-  - GreenSquare
-  - GreenTriangle
-  - GreenCircle
-  - YellowSquare
-  - YellowTriangle
-  - YellowCircle
-  - Red
-  - Blue
-  - Green
-  - Yellow
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
