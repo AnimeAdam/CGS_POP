@@ -9,8 +9,11 @@ using UnityEngine;
     
 public class ShapeManager : MonoBehaviour
 {
-    //Player Actions
-    [Header("Player Abilities")]
+	//Audio Manager
+	AudioManager abilityPlayer;
+
+	//Player Actions
+	[Header("Player Abilities")]
     [SerializeField] private Vector3 growthSpeed = new Vector3(0.01f, 0.01f, 0.01f);        //How much to increase the shapes size over time
     [SerializeField] private float pullSpeed = 4f;                                          //How fast the shapes pulls towards the player
     [SerializeField] private float floatSpeed = 1f;                                         //How fast the shapes float upwards the player
@@ -33,6 +36,9 @@ public class ShapeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		//Audio Management
+		abilityPlayer = FindObjectOfType<AudioManager>();
+
         //Shape Management
         shapesTransforms = GetShapesList();
         SetShapeColours();
@@ -55,6 +61,7 @@ public class ShapeManager : MonoBehaviour
 
         if (_player1.gameObject.GetComponent<GamePlayer>().P1T) {
             Player1Action();
+			abilityPlayer.PlayAbilitySound();
         }
 
         if (_player2.gameObject.GetComponent<GamePlayer>().P2T)

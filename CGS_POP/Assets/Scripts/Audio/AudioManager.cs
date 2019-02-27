@@ -8,7 +8,9 @@ public class AudioManager : MonoBehaviour
 	public AudioSource levelMusic;
 	public AudioSource effectsSound;
 	public static AudioManager instance = null;
-	[SerializeField] List<AudioClip> audioClips;
+	[SerializeField] List<AudioClip> abilityClips;
+	[SerializeField] List<AudioClip> musicClips;
+	[SerializeField] List<AudioClip> effectClips;
 
 	private void Awake()
 	{
