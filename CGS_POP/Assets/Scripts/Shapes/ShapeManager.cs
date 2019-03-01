@@ -61,7 +61,7 @@ public class ShapeManager : MonoBehaviour
 
         if (_player1.gameObject.GetComponent<GamePlayer>().P1T) {
             Player1Action();
-			abilityPlayer.PlayAbilitySound();
+//			abilityPlayer.PlayAbilitySound();
         }
 
         if (_player2.gameObject.GetComponent<GamePlayer>().P2T)
