@@ -59,27 +59,31 @@ public class ShapeManager : MonoBehaviour
     {
         stopFloating = true;
 
-        if (_player1.gameObject.GetComponent<GamePlayer>().P1T) {
-            Player1Action();
-//			abilityPlayer.PlayAbilitySound();
-        }
+		if (_player1.gameObject.GetComponent<GamePlayer>().P1T)
+		{
+			abilityPlayer.Grow.Play();
+			Player1Action();
+		}
 
         if (_player2.gameObject.GetComponent<GamePlayer>().P2T)
         {
-            Player2Action();
+			abilityPlayer.Pull.Play();
+			Player2Action();
         }
 
-        if (_player3.gameObject.GetComponent<GamePlayer>().P3T)
+		if (_player3.gameObject.GetComponent<GamePlayer>().P3T)
         {
             Player3Action();
         }
 
-        if (_player4.gameObject.GetComponent<GamePlayer>().P4T)
-        {
-            Player4Action();
-        }
+		if (_player4.gameObject.GetComponent<GamePlayer>().P4T)
+		{
+			abilityPlayer.Float_Up.Play();
+			Player4Action();
+		}
 
-        if (stopFloating)
+
+		if (stopFloating)
         {
             foreach (Transform _ts in shapesTransforms)
             {
@@ -101,7 +105,7 @@ public class ShapeManager : MonoBehaviour
     /// </summary>
     public void Player1Action()
     {
-        foreach (Transform _ts in shapesTransforms)
+		foreach (Transform _ts in shapesTransforms)
         {
             if (_ts.tag == CheckForColour(_player1))
             {
@@ -115,7 +119,7 @@ public class ShapeManager : MonoBehaviour
     /// </summary>
     public void Player2Action()
     {
-        foreach (Transform _ts in shapesTransforms)
+		foreach (Transform _ts in shapesTransforms)
         {
             if (_ts.tag == CheckForColour(_player2))
             {
@@ -151,6 +155,7 @@ public class ShapeManager : MonoBehaviour
                         _gb = Instantiate(square, _pos, _rot, transform);
                         _gb.transform.localScale = _sca;
                         _gb.tag = _tag;
+						abilityPlayer.Switch_1.Play();
                     }
                     if (_name.Contains("Square"))
                     {
@@ -158,14 +163,16 @@ public class ShapeManager : MonoBehaviour
                         _gb = Instantiate(triangle, _pos, _rot, transform);
                         _gb.transform.localScale = _sca;
                         _gb.tag = _tag;
-                    }
+						abilityPlayer.Switch_2.Play();
+					}
                     if (_name.Contains("Triangle"))
                     {
                         GameObject _gb;
                         _gb = Instantiate(circle, _pos, _rot, transform);
                         _gb.transform.localScale = _sca;
                         _gb.tag = _tag;
-                    }
+						abilityPlayer.Switch_3.Play();
+					}
                 }
             }
         }
@@ -178,7 +185,7 @@ public class ShapeManager : MonoBehaviour
     /// </summary>
     public void Player4Action()
     {
-        foreach (Transform _ts in shapesTransforms)
+		foreach (Transform _ts in shapesTransforms)
         {
             if (_ts.tag == CheckForColour(_player4))
             {

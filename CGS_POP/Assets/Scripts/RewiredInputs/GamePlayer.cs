@@ -7,6 +7,8 @@ using Rewired;
 [RequireComponent(typeof(CharacterController))]
 public class GamePlayer : MonoBehaviour
 {
+	// Audio Management
+	AudioManager audiMan;
 
     // The Rewired player id of this character
     public int playerId = 0;
@@ -46,6 +48,11 @@ public class GamePlayer : MonoBehaviour
     [HideInInspector] public bool colourYellow = false;
     [HideInInspector] public bool colourBlue = false;
 
+	bool P1WasPressed = false;
+	bool P2WasPressed = false;
+	bool P3WasPressed = false;
+	bool P4WasPressed = false;
+
     //Classes
 	private UniversalPhysics uPhysics;
     private Player player; // The Rewired Player
@@ -61,6 +68,7 @@ public class GamePlayer : MonoBehaviour
         cc = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         uPhysics = GetComponent<UniversalPhysics>();
+		audiMan = FindObjectOfType<AudioManager>();
 	}
 
     void Update()
@@ -130,15 +138,16 @@ public class GamePlayer : MonoBehaviour
         // Process actions
         if (jump)
         {
-            if (jumping == 0f)
+			if (jumping == 0f)
             {
-                jumping = jumpHeight;
+				audiMan.Jump.Play();
+				jumping = jumpHeight;
                 jumpState = true;
             }
         }
         if (jumpState)
         {
-            Jump();
+			Jump();
         }
 
         if(blue || green || red || yellow)
@@ -166,8 +175,8 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     void Jump()
     {
-        //if (jumping > 0f)
-        jumping += uPhysics.velocity.y*jumpSpeed; //Mathf.Lerp(jumpSpeed * Time.deltaTime, -(uPhysics.velocity.y) * Time.deltaTime, 0.5f);
+		//if (jumping > 0f)
+		jumping += uPhysics.velocity.y*jumpSpeed; //Mathf.Lerp(jumpSpeed * Time.deltaTime, -(uPhysics.velocity.y) * Time.deltaTime, 0.5f);
 
         if (cc.isGrounded && jumping < 0f)
         {
@@ -200,16 +209,20 @@ public class GamePlayer : MonoBehaviour
         switch (playerId)
         {
             case 0:
+				P1WasPressed = true;
                 AbilityGrow();
                 break;
             case 1:
-                AbilityPull();
+				P2WasPressed = true;
+				AbilityPull();
                 break;
             case 2:
-                AbilitySwitch();
+				P3WasPressed = true;
+				AbilitySwitch();
                 break;
             case 3:
-                AbilityFloat();
+				P4WasPressed = true;
+				AbilityFloat();
                 break;
         }
     }
