@@ -32,9 +32,15 @@ public class ShapeManager : MonoBehaviour
     private GameObject circle;
     private GameObject square;
     private GameObject triangle;
-    
-    // Start is called before the first frame update
-    void Start()
+
+	//SFX Reset bools
+	bool growFXPlayed = false;
+	bool pullFXPlayed = false;
+	bool floatFXPlayed = false;
+	bool floatReleaseFXPlayed = false;
+
+	// Start is called before the first frame update
+	void Start()
     {
 		//Audio Management
 		abilityPlayer = FindObjectOfType<AudioManager>();
@@ -53,6 +59,7 @@ public class ShapeManager : MonoBehaviour
         circle = Resources.Load("Prefabs/Circle") as GameObject;
         square = Resources.Load("Prefabs/Square") as GameObject;
         triangle = Resources.Load("Prefabs/Triangle") as GameObject;
+
     }
 
     void Update()
@@ -61,15 +68,33 @@ public class ShapeManager : MonoBehaviour
 
 		if (_player1.gameObject.GetComponent<GamePlayer>().P1T)
 		{
-			abilityPlayer.Grow.Play();
+			if (growFXPlayed == false)
+			{
+				abilityPlayer.Grow.Play();
+				growFXPlayed = true;
+			}
 			Player1Action();
+		}
+		else
+		{
+			growFXPlayed = false;
+			abilityPlayer.Grow.Stop();
 		}
 
         if (_player2.gameObject.GetComponent<GamePlayer>().P2T)
         {
-			abilityPlayer.Pull.Play();
+			if (pullFXPlayed == false)
+			{
+				abilityPlayer.Pull.Play();
+				pullFXPlayed = true;
+			}
 			Player2Action();
         }
+		else
+		{
+			pullFXPlayed = false;
+			abilityPlayer.Pull.Stop();
+		}
 
 		if (_player3.gameObject.GetComponent<GamePlayer>().P3T)
         {
@@ -78,8 +103,26 @@ public class ShapeManager : MonoBehaviour
 
 		if (_player4.gameObject.GetComponent<GamePlayer>().P4T)
 		{
-			abilityPlayer.Float_Up.Play();
+			if (floatFXPlayed == false)
+			{
+				if (floatReleaseFXPlayed == true) {
+					abilityPlayer.FloatRelease.Stop();
+					floatReleaseFXPlayed = false;
+				}
+				abilityPlayer.Float_Up.Play();
+				floatFXPlayed = true;
+			}
 			Player4Action();
+		}
+		else
+		{
+			floatFXPlayed = false;
+			abilityPlayer.Float_Up.Stop();
+			//if (floatReleaseFXPlayed == false)
+			//{
+			//	abilityPlayer.FloatRelease.Play();
+			//	floatReleaseFXPlayed = true;
+			//}
 		}
 
 
