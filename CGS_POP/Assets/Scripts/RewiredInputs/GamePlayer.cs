@@ -48,10 +48,12 @@ public class GamePlayer : MonoBehaviour
     [HideInInspector] public bool colourYellow = false;
     [HideInInspector] public bool colourBlue = false;
 
+	//Bools for audio purposes
 	bool P1WasPressed = false;
 	bool P2WasPressed = false;
 	bool P3WasPressed = false;
 	bool P4WasPressed = false;
+	bool playerMoving = false;
 
     //Classes
 	private UniversalPhysics uPhysics;
@@ -129,11 +131,19 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     private void ProcessInput()
     {
-        // Process movement
-        if (moveVector.x != 0.0f || moveVector.y != 0.0f)
-        {
-            moveVector *= moveSpeed;
-        }
+		// Process movement
+		if (moveVector.x != 0.0f || moveVector.y != 0.0f)
+		{
+			moveVector *= moveSpeed;
+			playerMoving = true;
+		}
+		else playerMoving = false;
+
+		// Audio for walking
+		if (playerMoving && cc.isGrounded) {
+			audiMan.Step_1.pitch = Random.Range(0.5f, 1.5f);
+			audiMan.Step_1.Play();
+		}
 
         // Process actions
         if (jump)
@@ -182,6 +192,7 @@ public class GamePlayer : MonoBehaviour
         {
             jumping = 0f;
             jumpState = false;
+			audiMan.Land.Play();
         }
     }
 
