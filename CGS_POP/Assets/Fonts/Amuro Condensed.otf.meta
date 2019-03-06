@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: c8e4d9ad6fd9cf54b877fdd6a71ca122
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Amuro Condensed
+  fontNames:
+  - Amuro Condensed
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a63c93eba5c59a543ad399242d5285bf, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
