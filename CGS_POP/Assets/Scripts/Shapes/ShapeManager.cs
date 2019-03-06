@@ -155,7 +155,8 @@ public class ShapeManager : MonoBehaviour
                 _ts.localScale += growthSpeed;
             }
         }
-    }
+		shapesTransforms = GetShapesList();
+	}
 
     /// <summary>
     /// Contains action to be performed when Player2 presses their button - PULLs shapes towards the player
@@ -169,7 +170,8 @@ public class ShapeManager : MonoBehaviour
                 _ts.position = Vector3.MoveTowards(_ts.position, _player2.transform.position , pullSpeed*Time.deltaTime);
             }
         }
-    }
+		shapesTransforms = GetShapesList();
+	}
 
 
     /// <summary>
@@ -228,6 +230,7 @@ public class ShapeManager : MonoBehaviour
     /// </summary>
     public void Player4Action()
     {
+		shapesTransforms = GetShapesList();
 		foreach (Transform _ts in shapesTransforms)
         {
             if (_ts.tag == CheckForColour(_player4))
@@ -274,7 +277,7 @@ public class ShapeManager : MonoBehaviour
     /// Makes a list of all shapes in the Shape Manager
     /// </summary>
     /// <returns>List of GameObject type</returns>
-    private Transform[] GetShapesList()
+    public Transform[] GetShapesList()
     {
         Transform[] tf = GetComponentsInChildren<Transform>();
         return tf;
