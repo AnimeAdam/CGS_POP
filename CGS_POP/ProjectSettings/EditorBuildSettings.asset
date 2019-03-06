@@ -33,6 +33,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/3_Grow.unity
     guid: fde41373c7ab28243bc38612ccb32802
   - enabled: 1
-    path: Assets/Scenes/Levels/New Scene.unity
+    path: Assets/Scenes/Levels/Level1.unity
     guid: 1e04f32cd6dac5f4586c651db3a6ce6b
   m_configObjects: {}

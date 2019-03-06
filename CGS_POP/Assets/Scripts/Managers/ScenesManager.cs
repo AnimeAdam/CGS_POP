@@ -25,16 +25,20 @@ public static class ScenesManager
         previousScene = currentScene;
     }
     
+    static public void GoToNextScene(int _scene)
+    {
+        SetPreviousScene();
+        SceneManager.LoadScene(_scene);
+    }
+
     static public void GoToNextScene()
     {
         if (currentScene == 0 || nextScene == 0)
         {
             Debug.Log("SOMETHING HAS GONE WRONG WITH GOTO NEXT SCENE");
         }
-        else
-        {
-            SetPreviousScene();
-            SceneManager.LoadScene(nextScene);
-        }
+
+        SetPreviousScene();
+        SceneManager.LoadScene(nextScene);
     }
 }
