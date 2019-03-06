@@ -25,7 +25,7 @@ public static class ScenesManager
         previousScene = currentScene;
     }
     
-    static public void GoToNextScene()
+    static public void GoToNextScene(int _scene)
     {
         if (currentScene == 0 || nextScene == 0)
         {
@@ -33,8 +33,16 @@ public static class ScenesManager
         }
         else
         {
-            SetPreviousScene();
-            SceneManager.LoadScene(nextScene);
+            if (_scene != 0)
+            {
+                SetPreviousScene();
+                SceneManager.LoadScene(nextScene);
+            }
+            else
+            {
+                SetPreviousScene();
+                SceneManager.LoadScene(nextScene);
+            }
         }
     }
 }
