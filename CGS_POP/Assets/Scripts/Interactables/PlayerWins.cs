@@ -25,6 +25,8 @@ public class PlayerWins : MonoBehaviour
     {
 		flagCloth = this.gameObject.transform.GetChild(0);
 		audiMan = FindObjectOfType<AudioManager>();
+
+        ScenesManager.SetScenes(1);
     }
 
     // Update is called once per frame
@@ -93,7 +95,8 @@ public class PlayerWins : MonoBehaviour
 						//GameObject playerWinner = GameObject.Find("Canvas/PlayerWinner");
 						Text playerText = GameObject.Find("Canvas/PlayerWinner").GetComponent<Text>();
 						playerText.text = "Level Complete!";
-						//winner = false;
+					    StartCoroutine(GoToNextLevel());
+					    //winner = false;
 					}
 			//  }   
 			  
@@ -116,6 +119,10 @@ public class PlayerWins : MonoBehaviour
 		flag4Sound = false;
 	}
 
-
+    IEnumerator GoToNextLevel()
+    {
+        yield return new WaitForSeconds(2f);
+        ScenesManager.GoToNextScene();
+    }
 
 }
