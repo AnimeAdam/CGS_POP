@@ -36,7 +36,7 @@ public static class ScenesManager
             if (_scene != 0)
             {
                 SetPreviousScene();
-                SceneManager.LoadScene(nextScene);
+                SceneManager.LoadScene(_scene);
             }
             else
             {
