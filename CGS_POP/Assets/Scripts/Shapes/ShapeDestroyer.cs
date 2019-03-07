@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class ShapeDestroyer : MonoBehaviour
 {
-	public Material[] deathMaterials = new Material[12];
+	public ParticleSystem[] deathParticles = new ParticleSystem[12];
 	ParticleSystemRenderer ps;
 	int i;
 	Transform _ts;
@@ -16,13 +16,9 @@ public class ShapeDestroyer : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		foreach (Material deathMaterial in deathMaterials)
-		{
-			deathMaterials[i] = GetComponent<Material>();
-			i++;
-		}
 		ps = GetComponentInChildren<ParticleSystemRenderer>();
 		shaMan = FindObjectOfType<ShapeManager>();
+		_partiSys = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -37,26 +33,74 @@ public class ShapeDestroyer : MonoBehaviour
 		Vector3 _pos = other.gameObject.transform.position;
 
 		shaTra = shaMan.GetShapesList();
+		if (other.gameObject.tag == "Blue")
+		{
+			if (_name.Contains("Circle"))
+			{
+				Instantiate(deathParticles[0], _pos, Quaternion.Euler(0,0,0));
+			}
+			if (_name.Contains("Square"))
+			{
+				Instantiate(deathParticles[1], _pos, Quaternion.Euler(0, 0, 0));
+			}
+			if (_name.Contains("Triangle"))
+			{
+				Instantiate(deathParticles[2], _pos, Quaternion.Euler(0, 0, 0));
+			}
+			Destroy(other.gameObject);
+		}
+		else if (other.gameObject.tag == "Green")
+		{
+			if (_name.Contains("Circle"))
+			{
+				Instantiate(deathParticles[3], _pos, Quaternion.Euler(0, 0, 0));
+			}
+			if (_name.Contains("Square"))
+			{
+				Instantiate(deathParticles[4], _pos, Quaternion.Euler(0, 0, 0));
+			}
+			if (_name.Contains("Triangle"))
+			{
+				Instantiate(deathParticles[5], _pos, Quaternion.Euler(0, 0, 0));
+			}
+			Destroy(other.gameObject);
+		}
+		else if (other.gameObject.tag == "Red")
+		{
+			if (_name.Contains("Circle"))
+			{
+				Instantiate(deathParticles[6], _pos, Quaternion.Euler(0, 0, 0));
+			}
+			if (_name.Contains("Square"))
+			{
+				Instantiate(deathParticles[7], _pos, Quaternion.Euler(0, 0, 0));
+			}
+			if (_name.Contains("Triangle"))
+			{
+				Instantiate(deathParticles[8], _pos, Quaternion.Euler(0, 0, 0));
+			}
+			Destroy(other.gameObject);
+		}
+		else if (other.gameObject.tag == "Yellow")
+		{
+			if (_name.Contains("Circle"))
+			{
+				Instantiate(deathParticles[9], _pos, Quaternion.Euler(0, 0, 0));
+			}
+			if (_name.Contains("Square"))
+			{
+				Instantiate(deathParticles[10], _pos, Quaternion.Euler(0, 0, 0));
+			}
+			if (_name.Contains("Triangle"))
+			{
+				Instantiate(deathParticles[11], _pos, Quaternion.Euler(0, 0, 0));
 
-		if (_name.Contains("Circle"))
-		{
-			ParticleSystemRenderer _gb;
-//			_gb = PrefabUtility.InstantiatePrefab(ParticleSystem ps) as ParticleSystem;
-			ps.material = deathMaterials[1];
+				//ParticleSystemRenderer _gb;
+				//_gb = Instantiate(ps, _pos, transform.rotation, transform);
+				//ps.material = deathMaterials[12];
+			}
+			Destroy(other.gameObject);
 		}
-		if (_name.Contains("Square"))
-		{
-			ParticleSystemRenderer _gb;
-			_gb = Instantiate(ps, _pos, transform.rotation, transform);
-			ps.material = deathMaterials[4];
-		}
-		if (_name.Contains("Triangle"))
-		{
-			ParticleSystemRenderer _gb;
-			_gb = Instantiate(ps, _pos, transform.rotation, transform);
-			ps.material = deathMaterials[7];
-		}
-		Destroy(other.gameObject);
 	}
 
 }

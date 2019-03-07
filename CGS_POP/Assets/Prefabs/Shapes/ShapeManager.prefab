@@ -214,11 +214,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Triangle
       objectReference: {fileID: 0}
-    - target: {fileID: 6156181547971553912, guid: b20bc5876e20cea48ae9ecb96ea5d4e4,
-        type: 3}
-      propertyPath: m_TagString
-      value: Blue
-      objectReference: {fileID: 0}
     - target: {fileID: 8979578289510899405, guid: b20bc5876e20cea48ae9ecb96ea5d4e4,
         type: 3}
       propertyPath: m_LocalPosition.x
