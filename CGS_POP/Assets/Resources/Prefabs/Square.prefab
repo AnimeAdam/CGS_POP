@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 731292309777456479}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Green
+  m_TagString: Red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!1 &3050999701590491832
 GameObject:

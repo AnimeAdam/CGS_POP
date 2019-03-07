@@ -60,10 +60,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Square
       objectReference: {fileID: 0}
-    - target: {fileID: 1265694801, guid: eb1324c61cbcc8c4ea58d4449c6c42f7, type: 3}
-      propertyPath: m_TagString
-      value: Red
-      objectReference: {fileID: 0}
     - target: {fileID: 7055125055032535015, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
         type: 3}
       propertyPath: m_LocalPosition.x
