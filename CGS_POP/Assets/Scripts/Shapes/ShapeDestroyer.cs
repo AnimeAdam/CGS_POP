@@ -12,6 +12,7 @@ public class ShapeDestroyer : MonoBehaviour
 	ParticleSystem _partiSys;
 	ShapeManager shaMan;
 	Transform[] shaTra;
+	AudioManager audiMan;
 
 	// Start is called before the first frame update
 	void Start()
@@ -19,6 +20,7 @@ public class ShapeDestroyer : MonoBehaviour
 		ps = GetComponentInChildren<ParticleSystemRenderer>();
 		shaMan = FindObjectOfType<ShapeManager>();
 		_partiSys = GetComponent<ParticleSystem>();
+		audiMan = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -29,6 +31,7 @@ public class ShapeDestroyer : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
+		audiMan.Circular_Saw.Play();
 		string _name = other.gameObject.name;
 		Vector3 _pos = other.gameObject.transform.position;
 

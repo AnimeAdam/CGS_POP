@@ -139,11 +139,6 @@ public class GamePlayer : MonoBehaviour
 		}
 		else playerMoving = false;
 
-		// Audio for walking
-		if (playerMoving && cc.isGrounded) {
-			StartCoroutine(PlaySteps());
-		}
-
         // Process actions
         if (jump)
         {
@@ -270,9 +265,9 @@ public class GamePlayer : MonoBehaviour
         P4T = true;
     }
 
-	IEnumerator PlaySteps() {
-		audiMan.Step_1.pitch = Random.Range(0.5f, 1.5f);
-		audiMan.Step_1.Play();
-		yield return new WaitForSeconds(0.6f);
-	}
+	//IEnumerator PlaySteps() {
+	//	audiMan.Step_1.pitch = Random.Range(0.5f, 1.5f);
+	//	audiMan.Step_1.Play();
+	//	yield return new WaitForSeconds(0.6f);
+	//}
 }
