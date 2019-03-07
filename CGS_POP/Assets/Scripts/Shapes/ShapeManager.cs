@@ -39,6 +39,8 @@ public class ShapeManager : MonoBehaviour
 	bool floatFXPlayed = false;
 	bool floatReleaseFXPlayed = false;
 
+	RigidbodyConstraints originalConstraints;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -58,7 +60,7 @@ public class ShapeManager : MonoBehaviour
         //Shapes
         circle = Resources.Load("Prefabs/Circle") as GameObject;
         square = Resources.Load("Prefabs/Square") as GameObject;
-        triangle = Resources.Load("Prefabs/Triangle") as GameObject;
+		triangle = Resources.Load("Prefabs/Triangle") as GameObject;
 
     }
 
@@ -135,6 +137,8 @@ public class ShapeManager : MonoBehaviour
                     if (_ts.GetComponent<Rigidbody>().useGravity == false)
                     {
                         _ts.GetComponent<Rigidbody>().useGravity = true;
+						_ts.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
+						;
                     }
                 }
             }
@@ -238,7 +242,9 @@ public class ShapeManager : MonoBehaviour
                 Vector3 _vec3 = _ts.position;
                 _vec3.y += floatSpeed * Time.deltaTime;
                 _ts.GetComponent<Rigidbody>().useGravity = false;
-                _ts.position = _vec3;
+				originalConstraints = _ts.GetComponent<Rigidbody>().constraints;
+				_ts.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+				_ts.position = _vec3;
             }
         }
         stopFloating = false;
