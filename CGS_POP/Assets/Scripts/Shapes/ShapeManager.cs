@@ -14,7 +14,7 @@ public class ShapeManager : MonoBehaviour
 
 	//Player Actions
 	[Header("Player Abilities")]
-    [SerializeField] private Vector3 growthSpeed = new Vector3(0.01f, 0.01f, 0.01f);        //How much to increase the shapes size over time
+    [SerializeField] private Vector3 growthSpeed = new Vector3(0.04f, 0.04f, 0.04f);        //How much to increase the shapes size over time
     [SerializeField] private float pullSpeed = 4f;                                          //How fast the shapes pulls towards the player
     [SerializeField] private float floatSpeed = 1f;                                         //How fast the shapes float upwards the player
     private bool stopFloating = false;
@@ -152,7 +152,8 @@ public class ShapeManager : MonoBehaviour
     /// </summary>
     public void Player1Action()
     {
-		foreach (Transform _ts in shapesTransforms)
+        shapesTransforms = GetShapesList();
+        foreach (Transform _ts in shapesTransforms)
         {
             if (_ts.tag == CheckForColour(_player1))
             {
