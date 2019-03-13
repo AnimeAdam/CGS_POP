@@ -20,6 +20,7 @@ public class AudioManager : MonoBehaviour
 	public AudioSource Step_1;
 	public AudioSource Step_2;
 	public AudioSource Step_3;
+    public AudioSource Wall_Hit;
     //public AudioSource abilitySound;
     //public AudioSource levelMusic;
     //public AudioSource effectsSound;
