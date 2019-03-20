@@ -14,7 +14,6 @@ public class UniversalPhysics : MonoBehaviour
 
     //Components
     protected Rigidbody rb;
-    public Collider col;
     protected CharacterController cc;
 
     //Applied Velocity
@@ -26,7 +25,6 @@ public class UniversalPhysics : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         cc = GetComponent<CharacterController>();
-        col = GetComponent<Collider>();
 
         SetGravity();
     }
@@ -34,12 +32,13 @@ public class UniversalPhysics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ApplyGravity();
 
     }
 
     void FixedUpdate()
     {
-        ApplyGravity();
+
     }
 
 

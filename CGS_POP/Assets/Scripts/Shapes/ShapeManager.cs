@@ -318,20 +318,6 @@ public class ShapeManager : MonoBehaviour
 
     #endregion
 
-    #region Collision Triggers
-
-    private void OnTriggerEnter(Collider other)
-    {
-
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-
-    }
-
-    #endregion
-
     #region IEnumerators
 
     //IEnumerator SmallPause() {
