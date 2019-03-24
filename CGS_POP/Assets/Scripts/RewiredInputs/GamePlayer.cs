@@ -7,8 +7,14 @@ using Rewired;
 [RequireComponent(typeof(CharacterController))]
 public class GamePlayer : MonoBehaviour
 {
+	//Player Health
+	public int playerHealth = 1;
+
 	// Audio Management
 	AudioManager audiMan;
+
+	//Particle Systems
+	ParticleSystem landCloud;
 
     // The Rewired player id of this character
     public int playerId = 0;
@@ -71,12 +77,17 @@ public class GamePlayer : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         uPhysics = GetComponent<UniversalPhysics>();
 		audiMan = FindObjectOfType<AudioManager>();
+		landCloud = GetComponentInChildren<ParticleSystem>();
 	}
 
     void Update()
     {
         GetInput();
         ProcessInput();
+		if (playerHealth < 1) {
+			Destroy(gameObject);
+
+		}
     }
 
     /// <summary>
@@ -187,6 +198,7 @@ public class GamePlayer : MonoBehaviour
             jumping = 0f;
             jumpState = false;
 			audiMan.Land.Play();
+			landCloud.Play();
         }
     }
 
