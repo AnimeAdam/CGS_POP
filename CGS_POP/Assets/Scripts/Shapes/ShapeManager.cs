@@ -41,6 +41,12 @@ public class ShapeManager : MonoBehaviour
 
 	RigidbodyConstraints originalConstraints;
 
+	//death checking bools
+	bool player1Dead = false;
+	bool player2Dead = false;
+	bool player3Dead = false;
+	bool player4Dead = false;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -67,64 +73,94 @@ public class ShapeManager : MonoBehaviour
     void Update()
     {
         stopFloating = true;
-
-		if (_player1.gameObject.GetComponent<GamePlayer>().P1T)
+		if (_player1.gameObject != null)
 		{
-			if (growFXPlayed == false)
+			if (_player1.gameObject.GetComponent<GamePlayer>().P1T)
 			{
-				abilityPlayer.Grow.Play();
-				growFXPlayed = true;
+				if (growFXPlayed == false)
+				{
+					abilityPlayer.Grow.Play();
+					growFXPlayed = true;
+				}
+				Player1Action();
 			}
-			Player1Action();
+			else
+			{
+				growFXPlayed = false;
+				abilityPlayer.Grow.Stop();
+			}
 		}
-		else
-		{
-			growFXPlayed = false;
-			abilityPlayer.Grow.Stop();
-		}
+		else if (player1Dead == false)
+			{
+				Debug.Log("Player 1 has been killed!");
+				player1Dead = true;
+			}
 
-        if (_player2.gameObject.GetComponent<GamePlayer>().P2T)
-        {
+		if (_player2.gameObject != null)
+		{
+			if (_player2.gameObject.GetComponent<GamePlayer>().P2T)
+			{
 			if (pullFXPlayed == false)
 			{
 				abilityPlayer.Pull.Play();
 				pullFXPlayed = true;
 			}
 			Player2Action();
-        }
-		else
-		{
-			pullFXPlayed = false;
-			abilityPlayer.Pull.Stop();
-		}
-
-		if (_player3.gameObject.GetComponent<GamePlayer>().P3T)
-        {
-            Player3Action();
-        }
-
-		if (_player4.gameObject.GetComponent<GamePlayer>().P4T)
-		{
-			if (floatFXPlayed == false)
-			{
-				if (floatReleaseFXPlayed == true) {
-					abilityPlayer.FloatRelease.Stop();
-					floatReleaseFXPlayed = false;
-				}
-				abilityPlayer.Float_Up.Play();
-				floatFXPlayed = true;
 			}
-			Player4Action();
+			else
+			{
+				pullFXPlayed = false;
+				abilityPlayer.Pull.Stop();
+			}
 		}
-		else
+		else if(player2Dead == false)
 		{
-			floatFXPlayed = false;
-			abilityPlayer.Float_Up.Stop();
-			//if (floatReleaseFXPlayed == false)
-			//{
-			//	abilityPlayer.FloatRelease.Play();
-			//	floatReleaseFXPlayed = true;
-			//}
+			Debug.Log("Player 2 has been killed!");
+			player2Dead = true;
+		}
+
+		if (_player3.gameObject != null)
+		{
+			if (_player3.gameObject.GetComponent<GamePlayer>().P3T)
+			{
+				Player3Action();
+			}
+		}
+		else if(player3Dead == false){
+			Debug.Log("Player 3 has been killed!");
+			player3Dead = true;
+		}
+
+		if (_player4.gameObject != null)
+		{
+			if (_player4.gameObject.GetComponent<GamePlayer>().P4T)
+			{
+			if (floatFXPlayed == false)
+				{
+					if (floatReleaseFXPlayed == true) {
+						abilityPlayer.FloatRelease.Stop();
+						floatReleaseFXPlayed = false;
+						}
+					abilityPlayer.Float_Up.Play();
+					floatFXPlayed = true;
+				}
+				Player4Action();
+			}
+			else
+			{
+				floatFXPlayed = false;
+				abilityPlayer.Float_Up.Stop();
+				//if (floatReleaseFXPlayed == false)
+				//{
+				//	abilityPlayer.FloatRelease.Play();
+				//	floatReleaseFXPlayed = true;
+				//}
+			}
+		}
+		else if(player4Dead == false)
+		{
+			Debug.Log("Player 4 has been killed!");
+			player4Dead = true;
 		}
 
 
