@@ -18,9 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level3.unity
     guid: cdd20fae95c36e44087392311f14c517
   - enabled: 1
-    path: Assets/Scenes/Levels/alex scene/Sky wheel.unity
+    path: Assets/Scenes/Levels/alex scene/L7.unity
     guid: d4d1ea046a5247947aaa8fd9d517ffdd
   - enabled: 1
-    path: Assets/Scenes/Levels/alex scene/Advanced level.unity
+    path: Assets/Scenes/Levels/alex scene/L8.unity
     guid: 7d7fab61442d01844bac3d5101128767
   m_configObjects: {}
