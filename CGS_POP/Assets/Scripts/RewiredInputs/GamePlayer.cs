@@ -68,6 +68,8 @@ public class GamePlayer : MonoBehaviour
     private CharacterController cc;
     private Rigidbody rb;
 
+    //Mesh and Collider nonsense
+    private Mesh _mesh;
 
     void Awake()
     {
@@ -80,6 +82,13 @@ public class GamePlayer : MonoBehaviour
         uPhysics = GetComponent<UniversalPhysics>();
 		audiMan = FindObjectOfType<AudioManager>();
 		landCloud = GetComponentInChildren<ParticleSystem>();
+
+        CreateNewMesh();
+    }
+
+    private void Start()
+    {
+                
     }
 
     void Update()
@@ -283,9 +292,33 @@ public class GamePlayer : MonoBehaviour
         P4T = true;
     }
 
-	//IEnumerator PlaySteps() {
-	//	audiMan.Step_1.pitch = Random.Range(0.5f, 1.5f);
-	//	audiMan.Step_1.Play();
-	//	yield return new WaitForSeconds(0.6f);
-	//}
+    //IEnumerator PlaySteps() {
+    //	audiMan.Step_1.pitch = Random.Range(0.5f, 1.5f);
+    //	audiMan.Step_1.Play();
+    //	yield return new WaitForSeconds(0.6f);
+    //}
+
+    void CreateNewMesh()
+    {
+        _mesh = new Mesh();
+        _mesh.vertices = GetComponent<MeshFilter>().mesh.vertices;
+        _mesh.triangles = GetComponent<MeshFilter>().mesh.triangles;
+        _mesh.uv = GetComponent<MeshFilter>().mesh.uv;
+        _mesh.normals = GetComponent<MeshFilter>().mesh.normals;
+        _mesh.colors = GetComponent<MeshFilter>().mesh.colors;
+        _mesh.tangents = GetComponent<MeshFilter>().mesh.tangents;
+
+        Vector3[] _vertices = _mesh.vertices;
+        for (int i = 0; i < _vertices.Length; i++)
+        {
+            _vertices[i].z -= (((_vertices[i].z * 2f) - _vertices[i].z) / 2f);
+            _vertices[i] *= 2f;          //Might need scalar
+        }
+        _mesh.vertices = _vertices;
+
+        MeshCollider _meshCollider = gameObject.AddComponent<MeshCollider>();
+        _meshCollider.sharedMesh = _mesh;
+        _meshCollider.convex = true;
+        _meshCollider.isTrigger = true;
+    }
 }

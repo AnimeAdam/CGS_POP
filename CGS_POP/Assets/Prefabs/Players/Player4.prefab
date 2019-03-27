@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 8831742444620608447}
   - component: {fileID: 8831742444620608446}
   - component: {fileID: 8831742444620608441}
-  - component: {fileID: 5619313671872855519}
   m_Layer: 0
   m_Name: Player4
   m_TagString: Player
@@ -167,17 +166,3 @@ MonoBehaviour:
   gravity: {x: 0, y: 0, z: 0}
   gravityModifier: 1
   velocity: {x: 0, y: 0, z: 0}
---- !u!64 &5619313671872855519
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8831742444620608440}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: f7d34261029d7284a85f56e34668a310, type: 3}
