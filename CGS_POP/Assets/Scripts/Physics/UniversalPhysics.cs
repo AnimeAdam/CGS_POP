@@ -6,7 +6,7 @@ using UnityEngine;
 public class UniversalPhysics : MonoBehaviour
 {
     //Gravity Settings
-    private Vector3 gravity;
+    public Vector3 gravity;
     public float gravityModifier = 1f;
     //protected Vector3 gravityAcceleration;
     //protected bool grounded;

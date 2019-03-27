@@ -21,6 +21,7 @@ public class GamePlayer : MonoBehaviour
 
     // The movement speed of this character
     public float moveSpeed = 3.0f;
+    public float rollingSpeed = 1f;
 
     // Jump Stats
     public float jumpHeight = 0.6f;
@@ -67,6 +68,7 @@ public class GamePlayer : MonoBehaviour
     private CharacterController cc;
     private Rigidbody rb;
 
+
     void Awake()
     {
         // Get the Rewired Player object for this player and keep it for the duration of the character's lifetime
@@ -78,7 +80,7 @@ public class GamePlayer : MonoBehaviour
         uPhysics = GetComponent<UniversalPhysics>();
 		audiMan = FindObjectOfType<AudioManager>();
 		landCloud = GetComponentInChildren<ParticleSystem>();
-	}
+    }
 
     void Update()
     {
@@ -182,7 +184,11 @@ public class GamePlayer : MonoBehaviour
             colourYellow = false;
         }
 
-        cc.Move(new Vector3 (moveVector.x, jumping, 0f));
+        //Work out the force from the movement from CC then use that for continus force on the egg
+        transform.Rotate(new Vector3(0f, 1f, 0f), (moveVector.x * rollingSpeed)); //uPhysics.gravity.y);
+        cc.Move(new Vector3(moveVector.x, jumping, 0f));
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+
     }
 
     /// <summary>
