@@ -122,7 +122,7 @@ public class PlayerWins : MonoBehaviour
     IEnumerator GoToNextLevel()
     {
         yield return new WaitForSeconds(2f);
-        ScenesManager.GoToNextScene();
+        ScenesManager.GoToNextScene(6);
     }
 
 }
