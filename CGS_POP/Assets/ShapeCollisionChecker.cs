@@ -9,7 +9,7 @@ public class ShapeCollisionChecker : MonoBehaviour
     //public Collider box3;
     //public Collider box4;
 
-    public bool stopGrowth = false;
+    /*public bool stopGrowth = false;
 
     private List<Collider> CollisionList = new List<Collider>();
     private List<Vector3> CollisionPoints = new List<Vector3>();
@@ -32,7 +32,7 @@ public class ShapeCollisionChecker : MonoBehaviour
                 break;
             }
         }
-    }
+    }*/
 
     /*void bool IsItBeingSqueezed()
     {
@@ -59,7 +59,7 @@ public class ShapeCollisionChecker : MonoBehaviour
     }*/
 
 
-    #endregion
+    //#endregion
 
 
 }
