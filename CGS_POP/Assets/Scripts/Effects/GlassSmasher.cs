@@ -6,10 +6,12 @@ public class GlassSmasher : MonoBehaviour
 {
     public ParticleSystem shardParticles;
     bool particleSpawned = false;
+    AudioManager audiMan;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        audiMan = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,7 @@ public class GlassSmasher : MonoBehaviour
             if (shapeName.Contains("Triangle"))
             {
                 Instantiate(shardParticles, this.transform.position, Quaternion.Euler(0, 0, 0));
+                audiMan.GlassSmash.Play();
                 particleSpawned = true;
                 Destroy(gameObject);
             }
