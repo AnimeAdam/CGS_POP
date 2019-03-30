@@ -178,7 +178,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae65f39a2f645f941942b37812a78066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  box1: {fileID: 2331781179633244693}
-  box2: {fileID: 6171025349915839898}
-  box3: {fileID: 7202608964354383597}
-  box4: {fileID: 305244500241637691}
