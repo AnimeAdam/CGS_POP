@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growthSpeed: {x: 0.04, y: 0.04, z: 0.04}
+  growthLimit: 0
   pullSpeed: 4
   floatSpeed: 1
 --- !u!1001 &165271538162005811
