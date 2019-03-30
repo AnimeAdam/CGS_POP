@@ -9,57 +9,116 @@ public class ShapeCollisionChecker : MonoBehaviour
     //public Collider box3;
     //public Collider box4;
 
-    /*public bool stopGrowth = false;
+    public bool stopGrowth = false;
 
     private List<Collider> CollisionList = new List<Collider>();
-    private List<Vector3> CollisionPoints = new List<Vector3>();
 
     #region Collision Triggers
 
 
     void OnTriggerEnter(Collider other)
     {
-        CollisionList.Add(other);
+        if (other.tag != "Red" && other.tag != "Green" && other.tag != "Blue" && other.tag != "Yellow")
+        {
+            CollisionList.Add(other);
+        }
+
+        IsItBeingSqueezed();
     }
 
     void OnTriggerExit(Collider other)
     {
-        foreach (Collider _other in CollisionList)
+        if (ClearCollider(other))
         {
-            if (_other.name == other.name)
-            {
-                CollisionList.Remove(_other);
-                break;
-            }
+            IsItFree();
+            return;
         }
-    }*/
-
-    /*void bool IsItBeingSqueezed()
-    {
-        foreach (Collider _other in CollisionList)
+        if (other.tag != "Red" && other.tag != "Green" && other.tag != "Blue" && other.tag != "Yellow")
         {
-            CollisionPoints.Add(_other.ClosestPoint(transform.position));
-        }
-
-        int i = 0;
-        foreach (Vector3 _vec3 in CollisionPoints)
-        {
-            i++;
-            int j = 0;
-            foreach (Vector3 __vec3 in CollisionPoints)
+            foreach (Collider _other in CollisionList)
             {
-                j++;
-                if ((_vec3.y < __vec3.y && __vec3.y < _vec3.y) && ()        //FIND THE COLLIDERS NAME 
+                if (ClearCollider(_other))
                 {
-                    return true;
+                    IsItFree();
+                    continue;
+                }
+                if (_other.name == other.name)
+                {
+                    CollisionList.Remove(_other);
+                    break;
                 }
             }
         }
+        IsItFree();
+    }
+    
+    void IsItBeingSqueezed()
+    {
+        for (int i = 0; i < CollisionList.Count; i++)
+        {
+            if (ClearCollider(CollisionList[i]))
+            {
+                continue;
+            }
+            for (int j = i + 1; j < CollisionList.Count; j++)
+            {
+                if (ClearCollider(CollisionList[j]))
+                {
+                    continue;
+                }
+                Vector3 closestPoint1Vec3 = CollisionList[i].ClosestPoint(transform.position);
+                Vector3 closestPoint2Vec3 = CollisionList[j].ClosestPoint(transform.position);
+
+                Vector3 closestPointBound1Vec3 = CollisionList[i].ClosestPointOnBounds(transform.position);
+                Vector3 closestPointBound2Vec3 = CollisionList[j].ClosestPointOnBounds(transform.position);
+
+                //Debug Code
+                /*if (name == "Circle")
+                {
+                    Debug.Log(CollisionList[i].name + closestPoint1Vec3);
+                    Debug.DrawLine(transform.position, closestPoint1Vec3, Color.blue);
+                    Debug.Log(CollisionList[j].name + closestPoint2Vec3);
+                    Debug.DrawLine(transform.position, closestPoint2Vec3, Color.cyan);
+                    Debug.Break();
+                    Debug.Log(CollisionList[i].name + closestPointBound1Vec3);
+                    Debug.Log(CollisionList[j].name + closestPointBound1Vec3);
+                }*/
+
+                if((closestPoint1Vec3.y < closestPoint2Vec3.y) || (closestPoint1Vec3.y > closestPoint2Vec3.y))
+                {
+                    //Debug.Log(name + " is being Squeezed");
+                    stopGrowth = true;
+                    break;
+                }
+
+                if ((closestPoint1Vec3.x < closestPoint2Vec3.x) || (closestPoint1Vec3.x > closestPoint2Vec3.x))
+                {
+                    //Debug.Log(name + " is being Squeezed");
+                    stopGrowth = true;
+                    break;
+                }
+            }
+        }
+    }
+
+    void IsItFree()
+    {
+        if (CollisionList.Count <= 1)
+        {
+            stopGrowth = false;
+        }
+    }
+
+    bool ClearCollider(Collider _col)
+    {
+        if (_col == null)
+        {
+            CollisionList.Remove(_col);
+            return true;
+        }
+
         return false;
-    }*/
+    }
 
-
-    //#endregion
-
-
+    #endregion
 }
