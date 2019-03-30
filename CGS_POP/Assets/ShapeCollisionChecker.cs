@@ -9,12 +9,23 @@ public class ShapeCollisionChecker : MonoBehaviour
     //public Collider box3;
     //public Collider box4;
 
+    public float growthLimit = 0f;
     public bool stopGrowth = false;
 
     private List<Collider> CollisionList = new List<Collider>();
 
     #region Collision Triggers
 
+    void Update()
+    {
+        if (growthLimit > 0)
+        {
+            if (transform.localScale.x >= growthLimit)
+            {
+                stopGrowth = true;
+            }
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {

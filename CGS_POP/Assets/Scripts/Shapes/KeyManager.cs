@@ -15,6 +15,7 @@ public class KeyManager : MonoBehaviour
 	//Player Actions
 	[Header("Player Abilities")]
     [SerializeField] private Vector3 growthSpeed = new Vector3(0.04f, 0.04f, 0.04f);        //How much to increase the shapes size over time
+    [SerializeField] private float growthLimit = 0f;                                        //This is for how big we can make the shapes per level
     [SerializeField] private float pullSpeed = 4f;                                          //How fast the shapes pulls towards the player
     [SerializeField] private float floatSpeed = 1f;                                         //How fast the shapes float upwards the player
     private bool stopFloating = false;
@@ -166,6 +167,7 @@ public class KeyManager : MonoBehaviour
 
 		if (stopFloating)
         {
+            shapesTransforms = GetShapesList();
             foreach (Transform _ts in shapesTransforms)
             {
                 if (_ts.GetComponent<Rigidbody>() != null)
@@ -189,11 +191,22 @@ public class KeyManager : MonoBehaviour
     public void Player1Action()
     {
         shapesTransforms = GetShapesList();
+
         foreach (Transform _ts in shapesTransforms)
         {
             if (_ts.tag == CheckForColour(_player1))
             {
-                _ts.localScale += growthSpeed;
+                if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().stopGrowth)
+                {
+                    if (growthLimit == 0)
+                    {
+                        _ts.localScale += growthSpeed;
+                    }
+                    else if (_ts.localScale.x < growthLimit)
+                    {
+                        _ts.localScale += growthSpeed;
+                    }
+                }
             }
         }
 		shapesTransforms = GetShapesList();

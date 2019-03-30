@@ -245,20 +245,7 @@ public class ShapeManager : MonoBehaviour
                     Vector3 _pos = _ts.position;
                     Quaternion _rot = _ts.rotation;
                     Vector3 _sca = _ts.localScale;
-
-                    //Public send message to all functions like this
-                    /*foreach (Transform __ts in shapesTransforms)
-                    {
-                        if (__ts != null)
-                        {
-                            if (__ts.GetComponent<ShapeCollisionChecker>() != null)
-                            {
-                                __ts.GetComponent<ShapeCollisionChecker>().DeleteColliderFromList
-                                    (_ts.gameObject.GetComponent<Collider>());
-                            }
-                        }
-                    }*/
-
+                    
                     DestroyImmediate(_ts.gameObject);
 
                     if (_name.Contains("Circle"))

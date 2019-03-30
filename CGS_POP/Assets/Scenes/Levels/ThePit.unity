@@ -6540,6 +6540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growthSpeed: {x: 0.01, y: 0.01, z: 0.01}
+  growthLimit: 0
   pullSpeed: 4
   floatSpeed: 5
 --- !u!4 &603772536
@@ -17811,6 +17812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afe598e2cad69f64192446b35c2ff268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  locked: 1
   unlockParticle: {fileID: 9041284794814945113, guid: a115127f07ec89e4e8740297fa25adde,
     type: 3}
 --- !u!4 &1050903845 stripped
@@ -45984,6 +45986,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546120823423467921, guid: a5c8348bebf445f49bcca47e8d622511,
+        type: 3}
+      propertyPath: growthLimit
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5c8348bebf445f49bcca47e8d622511, type: 3}
