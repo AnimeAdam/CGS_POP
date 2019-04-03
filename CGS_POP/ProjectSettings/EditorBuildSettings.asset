@@ -24,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/alex scene/L8.unity
     guid: 7d7fab61442d01844bac3d5101128767
   - enabled: 1
-    path: Assets/Scenes/Levels/ThePit.unity
+    path: Assets/Scenes/Levels/ThePool.unity
     guid: 36a852bdc46d0064b97390fbf6f5de5a
   m_configObjects: {}
