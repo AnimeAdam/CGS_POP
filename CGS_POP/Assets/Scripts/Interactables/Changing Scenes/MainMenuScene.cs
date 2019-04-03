@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerWins : MonoBehaviour
+public class MainMenuScene : MonoBehaviour
 {
     private bool winner = true;
 	public int flagHeight = 0;
@@ -27,7 +27,7 @@ public class PlayerWins : MonoBehaviour
 		flagCloth = this.gameObject.transform.GetChild(0);
 		audiMan = FindObjectOfType<AudioManager>();
 
-        ScenesManager.SetScenes(1);
+        ScenesManager.SetScenes(0);
     }
 
     // Update is called once per frame
@@ -80,10 +80,15 @@ public class PlayerWins : MonoBehaviour
 			//	{
 					if (flagHeight == 4)
 					{
-						//int playerNum = other.GetComponent<GamePlayer>().playerId + 1;
-						//GameObject playerWinner = GameObject.Find("Canvas/PlayerWinner");
-						Text playerText = GameObject.Find("Canvas/PlayerWinner").GetComponent<Text>();
-						playerText.text = "Level Complete!";
+            //int playerNum = other.GetComponent<GamePlayer>().playerId + 1;
+            //GameObject playerWinner = GameObject.Find("Canvas/PlayerWinner");
+                        var go = GameObject.Find("Canvas/PlayerWinner");
+                        if(go)
+            {
+                Text playerText = go.GetComponent<Text>();
+                playerText.text = "Level Complete!";
+            }
+            
 					    StartCoroutine(GoToNextLevel());
 					    //winner = false;
 					}
@@ -111,7 +116,7 @@ public class PlayerWins : MonoBehaviour
     IEnumerator GoToNextLevel()
     {
         yield return new WaitForSeconds(2f);
-        ScenesManager.GoToNextScene(6);
+        ScenesManager.GoToNextScene(0);
     }
 
 }

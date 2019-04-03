@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerMainMenu : MonoBehaviour
+public class LevelSelectScene : MonoBehaviour
 {
     private bool winner = true;
 	public int flagHeight = 0;
@@ -20,13 +20,14 @@ public class PlayerMainMenu : MonoBehaviour
 	bool flag3Sound = false;
 	bool flag4Sound = false;
 
+
 	// Start is called before the first frame update
 	void Start()
     {
 		flagCloth = this.gameObject.transform.GetChild(0);
 		audiMan = FindObjectOfType<AudioManager>();
 
-        ScenesManager.SetScenes(1);
+        ScenesManager.SetScenes(0);
     }
 
     // Update is called once per frame
@@ -38,9 +39,6 @@ public class PlayerMainMenu : MonoBehaviour
 				flagCloth.localPosition = position0;
 				break;
 			case 1:
-				flagCloth.localPosition = position1;
-				break;
-			case 2:
 				if (flag1Sound == false)
 				{
 					audiMan.Flag_1.PlayOneShot(audiMan.Flag_1.clip);
@@ -49,10 +47,7 @@ public class PlayerMainMenu : MonoBehaviour
 
 				flagCloth.localPosition = position1;
 				break;
-			case 3:
-				flagCloth.localPosition = position2;
-				break;
-			case 4:
+			case 2:
 				if (flag2Sound == false)
 				{
 					audiMan.Flag_2.PlayOneShot(audiMan.Flag_2.clip);
@@ -60,10 +55,7 @@ public class PlayerMainMenu : MonoBehaviour
 				}
 				flagCloth.localPosition = position2;
 				break;
-			case 5:
-				flagCloth.localPosition = position3;
-				break;
-			case 6:
+			case 3:
 				if (flag3Sound == false)
 				{
 					audiMan.Flag_3.PlayOneShot(audiMan.Flag_3.clip);
@@ -71,10 +63,7 @@ public class PlayerMainMenu : MonoBehaviour
 				}
 				flagCloth.localPosition = position3;
 				break;
-			case 7:
-				flagCloth.localPosition = position4;
-				break;
-			case 8:
+			case 4:
 				if (flag4Sound == false)
 				{
 					audiMan.Flag_4.PlayOneShot(audiMan.Flag_4.clip);
@@ -89,21 +78,26 @@ public class PlayerMainMenu : MonoBehaviour
     {
 		    //    if (winner)
 			//	{
-					if (flagHeight >=7)
+					if (flagHeight == 4)
 					{
-						//int playerNum = other.GetComponent<GamePlayer>().playerId + 1;
-						//GameObject playerWinner = GameObject.Find("Canvas/PlayerWinner");
-						Text playerText = GameObject.Find("Canvas/PlayerWinner").GetComponent<Text>();
-						playerText.text = "Level Complete!";
+            //int playerNum = other.GetComponent<GamePlayer>().playerId + 1;
+            //GameObject playerWinner = GameObject.Find("Canvas/PlayerWinner");
+                        var go = GameObject.Find("Canvas/PlayerWinner");
+                        if(go)
+            {
+                Text playerText = go.GetComponent<Text>();
+                playerText.text = "Level Complete!";
+            }
+            
 					    StartCoroutine(GoToNextLevel());
 					    //winner = false;
 					}
 			//  }   
 			  
 
-		if (other.gameObject.tag == "Player") {
+		if (other.gameObject.tag == "Player" && other is MeshCollider) {
 			flagHeight += 1;
-
+            Debug.Log("IT THIS MAY TIMES");
 		}
     }
 
@@ -122,7 +116,9 @@ public class PlayerMainMenu : MonoBehaviour
     IEnumerator GoToNextLevel()
     {
         yield return new WaitForSeconds(2f);
-        ScenesManager.GoToNextScene(0);
+     
+    
+        ScenesManager.GoToNextScene(7);
     }
 
 }
