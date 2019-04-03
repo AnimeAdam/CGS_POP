@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class KeyToUnlock : MonoBehaviour
 {
-    Unlock doorToUnlock;
+    Unlock[] doorToUnlock;
 
     // Start is called before the first frame update
     void Start()
     {
-        doorToUnlock = FindObjectOfType<Unlock>();
+        doorToUnlock = FindObjectsOfType<Unlock>();
     }
 
     // Update is called once per frame
@@ -20,8 +20,11 @@ public class KeyToUnlock : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
-            doorToUnlock.locked = false;
-            Destroy(gameObject);
+            foreach (Unlock lockedDoor in doorToUnlock)
+            {
+                lockedDoor.locked = false;
+                Destroy(gameObject);
+            }
         }
     }
 }

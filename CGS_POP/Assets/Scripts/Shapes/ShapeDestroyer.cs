@@ -98,7 +98,8 @@ public class ShapeDestroyer : MonoBehaviour
 					Instantiate(deathParticles[2], _pos, Quaternion.Euler(0, 0, 0));
 				}
 			}
-			Destroy(other.gameObject);
+            audiMan.Circular_Saw.Play();
+            Destroy(other.gameObject);
 		}
 		else if (other.gameObject.tag == "Green")
 		{
@@ -162,7 +163,8 @@ public class ShapeDestroyer : MonoBehaviour
 					Instantiate(deathParticles[5], _pos, Quaternion.Euler(0, 0, 0));
 				}
 			}
-			Destroy(other.gameObject);
+            audiMan.Circular_Saw.Play();
+            Destroy(other.gameObject);
 		}
 		else if (other.gameObject.tag == "Red")
 		{
@@ -226,7 +228,8 @@ public class ShapeDestroyer : MonoBehaviour
 					Instantiate(deathParticles[8], _pos, Quaternion.Euler(0, 0, 0));
 				}
 			}
-			Destroy(other.gameObject);
+            audiMan.Circular_Saw.Play();
+            Destroy(other.gameObject);
 		}
 		else if (other.gameObject.tag == "Yellow")
 		{
@@ -294,9 +297,9 @@ public class ShapeDestroyer : MonoBehaviour
 				//_gb = Instantiate(ps, _pos, transform.rotation, transform);
 				//ps.material = deathMaterials[12];
 			}
-			Destroy(other.gameObject);
+            audiMan.Circular_Saw.Play();
+            Destroy(other.gameObject);
 		}
-		audiMan.Circular_Saw.Play();
 		shaTra = shaMan.GetShapesList();
 	}
 
