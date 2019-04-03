@@ -38,9 +38,6 @@ public class PlayerWins : MonoBehaviour
 				flagCloth.localPosition = position0;
 				break;
 			case 1:
-				flagCloth.localPosition = position1;
-				break;
-			case 2:
 				if (flag1Sound == false)
 				{
 					audiMan.Flag_1.PlayOneShot(audiMan.Flag_1.clip);
@@ -49,10 +46,7 @@ public class PlayerWins : MonoBehaviour
 
 				flagCloth.localPosition = position1;
 				break;
-			case 3:
-				flagCloth.localPosition = position2;
-				break;
-			case 4:
+			case 2:
 				if (flag2Sound == false)
 				{
 					audiMan.Flag_2.PlayOneShot(audiMan.Flag_2.clip);
@@ -60,10 +54,7 @@ public class PlayerWins : MonoBehaviour
 				}
 				flagCloth.localPosition = position2;
 				break;
-			case 5:
-				flagCloth.localPosition = position3;
-				break;
-			case 6:
+			case 3:
 				if (flag3Sound == false)
 				{
 					audiMan.Flag_3.PlayOneShot(audiMan.Flag_3.clip);
@@ -71,10 +62,7 @@ public class PlayerWins : MonoBehaviour
 				}
 				flagCloth.localPosition = position3;
 				break;
-			case 7:
-				flagCloth.localPosition = position4;
-				break;
-			case 8:
+			case 4:
 				if (flag4Sound == false)
 				{
 					audiMan.Flag_4.PlayOneShot(audiMan.Flag_4.clip);
@@ -89,7 +77,7 @@ public class PlayerWins : MonoBehaviour
     {
 		    //    if (winner)
 			//	{
-					if (flagHeight >=7)
+					if (flagHeight == 4)
 					{
 						//int playerNum = other.GetComponent<GamePlayer>().playerId + 1;
 						//GameObject playerWinner = GameObject.Find("Canvas/PlayerWinner");
@@ -101,9 +89,9 @@ public class PlayerWins : MonoBehaviour
 			//  }   
 			  
 
-		if (other.gameObject.tag == "Player") {
+		if (other.gameObject.tag == "Player" && other is MeshCollider) {
 			flagHeight += 1;
-
+            Debug.Log("IT THIS MAY TIMES");
 		}
     }
 
