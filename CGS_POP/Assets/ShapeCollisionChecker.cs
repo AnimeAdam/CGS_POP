@@ -100,10 +100,6 @@ public class ShapeCollisionChecker : MonoBehaviour
         int i = 15;
         while (i > 0)
         {
-            //if (col.collider != null && _collider != null)
-            //{
-            //    Physics.IgnoreCollision(_collider, col.collider);
-            //}
             _rigidbody.Sleep();
             if (_rigidbody.velocity.y > 0)
             {

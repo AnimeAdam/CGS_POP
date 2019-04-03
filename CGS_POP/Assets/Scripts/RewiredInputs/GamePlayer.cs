@@ -71,6 +71,9 @@ public class GamePlayer : MonoBehaviour
     //Mesh and Collider nonsense
     private Mesh _mesh;
 
+    //Spawning
+    public Vector3 spawnPoints;
+
     void Awake()
     {
         // Get the Rewired Player object for this player and keep it for the duration of the character's lifetime
@@ -84,6 +87,8 @@ public class GamePlayer : MonoBehaviour
 		landCloud = GetComponentInChildren<ParticleSystem>();
 
         CreateNewMesh();
+
+        spawnPoints = transform.position;
     }
 
     private void Start()
@@ -96,24 +101,13 @@ public class GamePlayer : MonoBehaviour
         GetInput();
         ProcessInput();
 		if (playerHealth < 1) {
-			Destroy(gameObject);
-
+            Spawning();
 		}
     }
 
-    /// <summary>
-    /// Finding objects in range for the pull Ability
-    /// </summary>
-    private void FindObjectsInRange()
-    {
-        //areaOfInfluence = Physics.OverlapSphere(transform.position, areaOfInfluenceRadius);
-        areaOfInfluence = RotaryHeart.Lib.PhysicsExtension.Physics.OverlapSphere(transform.position,
-            areaOfInfluenceRadius, -1, RotaryHeart.Lib.PhysicsExtension.Physics.PreviewCondition.Editor);
-        GameObject orb = (GameObject)Resources.Load("SphereOfInfluence");
-        orb.transform.localScale = new Vector3(areaOfInfluenceRadius*2, areaOfInfluenceRadius*2, areaOfInfluenceRadius*2);
 
-        Instantiate(orb, transform.position,Quaternion.identity); //REMEMBER as GameObject
-    }
+
+    #region Inputs
 
     /// <summary>
     /// Gets the inputs from Rewired
@@ -199,6 +193,10 @@ public class GamePlayer : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
 
     }
+
+    #endregion
+
+    #region Actions
 
     /// <summary>
     /// Will make the player Jump
@@ -292,6 +290,22 @@ public class GamePlayer : MonoBehaviour
         P4T = true;
     }
 
+    /// <summary>
+    /// Finding objects in range for the pull Ability
+    /// </summary>
+    private void FindObjectsInRange()
+    {
+        //areaOfInfluence = Physics.OverlapSphere(transform.position, areaOfInfluenceRadius);
+        areaOfInfluence = RotaryHeart.Lib.PhysicsExtension.Physics.OverlapSphere(transform.position,
+            areaOfInfluenceRadius, -1, RotaryHeart.Lib.PhysicsExtension.Physics.PreviewCondition.Editor);
+        GameObject orb = (GameObject)Resources.Load("SphereOfInfluence");
+        orb.transform.localScale = new Vector3(areaOfInfluenceRadius * 2, areaOfInfluenceRadius * 2, areaOfInfluenceRadius * 2);
+
+        Instantiate(orb, transform.position, Quaternion.identity); //REMEMBER as GameObject
+    }
+
+    #endregion
+
     //IEnumerator PlaySteps() {
     //	audiMan.Step_1.pitch = Random.Range(0.5f, 1.5f);
     //	audiMan.Step_1.Play();
@@ -324,5 +338,11 @@ public class GamePlayer : MonoBehaviour
         _meshCollider.sharedMesh = _mesh;
         _meshCollider.convex = true;
         _meshCollider.isTrigger = true;
+    }
+
+    void Spawning()
+    {
+        transform.position = spawnPoints;
+        playerHealth = 1;
     }
 }
