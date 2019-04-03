@@ -19,6 +19,6 @@ public class TitleSceneManager : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(6);
     }
 }
