@@ -15,6 +15,6 @@ public class RotationLock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        particleTransform.position = lockedRot;
+        particleTransform.rotation = Quaternion.Euler(lockedRot);
     }
 }
