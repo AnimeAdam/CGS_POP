@@ -154,11 +154,12 @@ public class ShapeCollisionChecker : MonoBehaviour
                     break;
                 }
 
-                //if ((closestPoint1Vec3.x < closestPoint2Vec3.x) || (closestPoint1Vec3.x > closestPoint2Vec3.x))
-                //{
-                //    growthY = true;
-                //    break;
-                //}
+                if ((closestPoint1Vec3.x < closestPoint2Vec3.x) || (closestPoint1Vec3.x > closestPoint2Vec3.x))
+                {
+                    growthY = true;
+                    break;
+                }
+
                 if (((closestPoint1Vec3.y < closestPoint2Vec3.y) || (closestPoint1Vec3.y > closestPoint2Vec3.y)) &&
                     ((closestPoint1Vec3.x < closestPoint2Vec3.x) || (closestPoint1Vec3.x > closestPoint2Vec3.x)))
                 {

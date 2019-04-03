@@ -20,6 +20,8 @@ public class PlayerWins : MonoBehaviour
 	bool flag3Sound = false;
 	bool flag4Sound = false;
 
+    public int nextScene = 6;
+
 
 	// Start is called before the first frame update
 	void Start()
@@ -97,7 +99,6 @@ public class PlayerWins : MonoBehaviour
 
 		if (other.gameObject.tag == "Player" && other is MeshCollider) {
 			flagHeight += 1;
-            Debug.Log("IT THIS MAY TIMES");
 		}
     }
 
@@ -116,7 +117,8 @@ public class PlayerWins : MonoBehaviour
     IEnumerator GoToNextLevel()
     {
         yield return new WaitForSeconds(2f);
-        ScenesManager.GoToNextScene(6);
+        DestroyImmediate(GameObject.Find("PlayerManager"));
+        ScenesManager.GoToNextScene(nextScene);
     }
 
 }

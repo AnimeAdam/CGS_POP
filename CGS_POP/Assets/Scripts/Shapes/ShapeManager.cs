@@ -201,9 +201,7 @@ public class ShapeManager : MonoBehaviour
         {
             if (_ts.tag == CheckForColour(_player1))
             {
-                if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().stopGrowth &&
-                    !_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthX &&
-                    !_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthY)
+                if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().stopGrowth)
                 {
                     if (growthLimit == 0)
                     {
@@ -214,13 +212,17 @@ public class ShapeManager : MonoBehaviour
                         _ts.localScale += growthSpeed;
                     }
                 }
-                if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthX)
+                else
                 {
-                    _ts.localScale += growthSpeedX;
-                }
-                if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthY)
-                {
-                    _ts.localScale += growthSpeedY;
+                    if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthX)
+                    {
+                        _ts.localScale += growthSpeedX;
+                    }
+
+                    if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthY)
+                    {
+                        _ts.localScale += growthSpeedY;
+                    }
                 }
             }
         }
