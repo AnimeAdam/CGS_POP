@@ -24,8 +24,8 @@ public class GamePlayer : MonoBehaviour
     public float rollingSpeed = 1f;
 
     // Jump Stats
-    public float jumpHeight = 0.6f;
-    public float jumpSpeed = 0.1f;
+    public float jumpHeight = 0.05f;
+    public float jumpSpeed = 0.05f;
     [SerializeField]protected float jumping;
     private bool jumpState = false;
     
