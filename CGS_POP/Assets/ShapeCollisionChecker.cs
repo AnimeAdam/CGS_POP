@@ -13,6 +13,8 @@ public class ShapeCollisionChecker : MonoBehaviour
 
     public float growthLimit = 0f;
     public bool stopGrowth = false;
+    public bool growthX = false;
+    public bool growthY = false;
 
     private List<Collider> CollisionList = new List<Collider>();
 
@@ -148,16 +150,19 @@ public class ShapeCollisionChecker : MonoBehaviour
 
                 if((closestPoint1Vec3.y < closestPoint2Vec3.y) || (closestPoint1Vec3.y > closestPoint2Vec3.y))
                 {
-                    //Debug.Log(name + " is being Squeezed");
-                    stopGrowth = true;
+                    growthX = true;
                     break;
                 }
 
-                if ((closestPoint1Vec3.x < closestPoint2Vec3.x) || (closestPoint1Vec3.x > closestPoint2Vec3.x))
+                //if ((closestPoint1Vec3.x < closestPoint2Vec3.x) || (closestPoint1Vec3.x > closestPoint2Vec3.x))
+                //{
+                //    growthY = true;
+                //    break;
+                //}
+                if (((closestPoint1Vec3.y < closestPoint2Vec3.y) || (closestPoint1Vec3.y > closestPoint2Vec3.y)) &&
+                    ((closestPoint1Vec3.x < closestPoint2Vec3.x) || (closestPoint1Vec3.x > closestPoint2Vec3.x)))
                 {
-                    //Debug.Log(name + " is being Squeezed");
                     stopGrowth = true;
-                    break;
                 }
             }
         }

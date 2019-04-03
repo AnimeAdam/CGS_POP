@@ -15,6 +15,8 @@ public class ShapeManager : MonoBehaviour
 	//Player Actions
 	[Header("Player Abilities")]
     [SerializeField] private Vector3 growthSpeed = new Vector3(0.04f, 0.04f, 0.04f);        //How much to increase the shapes size over time
+    private Vector3 growthSpeedX;
+    private Vector3 growthSpeedY;
     [SerializeField] private float growthLimit = 0f;                                        //This is for how big we can make the shapes per level
     [SerializeField] private float pullSpeed = 4f;                                          //How fast the shapes pulls towards the player
     [SerializeField] private float floatSpeed = 1f;                                         //How fast the shapes float upwards the player
@@ -69,6 +71,9 @@ public class ShapeManager : MonoBehaviour
         square = Resources.Load("Prefabs/Square") as GameObject;
 		triangle = Resources.Load("Prefabs/Triangle") as GameObject;
 
+        //Growth Management
+        growthSpeedX = new Vector3 (growthSpeed.x,0f,0f);
+        growthSpeedY = new Vector3(0f, growthSpeed.y, 0f);
     }
 
     void Update()
@@ -196,7 +201,9 @@ public class ShapeManager : MonoBehaviour
         {
             if (_ts.tag == CheckForColour(_player1))
             {
-                if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().stopGrowth)
+                if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().stopGrowth &&
+                    !_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthX &&
+                    !_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthY)
                 {
                     if (growthLimit == 0)
                     {
@@ -206,6 +213,14 @@ public class ShapeManager : MonoBehaviour
                     {
                         _ts.localScale += growthSpeed;
                     }
+                }
+                if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthX)
+                {
+                    _ts.localScale += growthSpeedX;
+                }
+                if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthY)
+                {
+                    _ts.localScale += growthSpeedY;
                 }
             }
         }
