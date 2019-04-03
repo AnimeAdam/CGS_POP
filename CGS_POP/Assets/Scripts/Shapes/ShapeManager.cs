@@ -233,7 +233,6 @@ public class ShapeManager : MonoBehaviour
     /// </summary>
     public void Player3Action()
     {
-
         foreach (Transform _ts in shapesTransforms)
         {
             if (_ts != null)
@@ -254,7 +253,9 @@ public class ShapeManager : MonoBehaviour
                         _gb = Instantiate(square, _pos, _rot, transform);
                         _gb.transform.localScale = _sca;
                         _gb.tag = _tag;
-						abilityPlayer.Switch_1.Play();
+                        _gb.GetComponent<Rigidbody>().Sleep();
+                        _gb.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                        abilityPlayer.Switch_1.Play();
                     }
                     if (_name.Contains("Square"))
                     {
@@ -262,7 +263,9 @@ public class ShapeManager : MonoBehaviour
                         _gb = Instantiate(triangle, _pos, _rot, transform);
                         _gb.transform.localScale = _sca;
                         _gb.tag = _tag;
-						abilityPlayer.Switch_2.Play();
+                        _gb.GetComponent<Rigidbody>().Sleep();
+                        _gb.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                        abilityPlayer.Switch_2.Play();
 					}
                     if (_name.Contains("Triangle"))
                     {
@@ -270,7 +273,9 @@ public class ShapeManager : MonoBehaviour
                         _gb = Instantiate(circle, _pos, _rot, transform);
                         _gb.transform.localScale = _sca;
                         _gb.tag = _tag;
-						abilityPlayer.Switch_3.Play();
+                        _gb.GetComponent<Rigidbody>().Sleep();
+                        _gb.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                        abilityPlayer.Switch_3.Play();
 					}
                 }
             }

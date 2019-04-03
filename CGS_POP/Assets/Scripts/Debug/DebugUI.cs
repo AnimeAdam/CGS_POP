@@ -10,7 +10,10 @@ public class DebugUI : MonoBehaviour
     void Start()
     {
         _debugMenu = GameObject.Find("DebugMenu");
-        _debugMenu.SetActive(false);
+        if (_debugMenu)
+        {
+            _debugMenu.SetActive(false);
+        }
     }
 
     // Update is called once per frame
