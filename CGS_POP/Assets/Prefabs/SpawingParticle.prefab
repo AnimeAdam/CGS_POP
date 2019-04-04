@@ -4800,7 +4800,7 @@ GameObject:
   - component: {fileID: 1387912114476377436}
   - component: {fileID: 1387912114476377437}
   m_Layer: 0
-  m_Name: Revive
+  m_Name: Sparkle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
