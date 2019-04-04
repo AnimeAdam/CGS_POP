@@ -5,17 +5,21 @@ using UnityEngine;
 public class SpriteChanger : MonoBehaviour
 {
     ParticleSystemRenderer _psm;
-    Material _parMat1, _parMat2, _parMat3;
+    public Material[] particleMaterials = new Material[3];
+    int i = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        _psm = GetComponent<ParticleSystemRenderer>();    
+        _psm = GetComponent<ParticleSystemRenderer>();
+        InvokeRepeating("ParticleMaterialChanger", 0.2f, 0.2f);    
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void ParticleMaterialChanger() {
+        if (i >= particleMaterials.Length) {
+            i = 0;
+        }
+        _psm.material = particleMaterials[i];
+        i++;
     }
 }

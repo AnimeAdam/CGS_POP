@@ -17,6 +17,12 @@ public class GamePlayer : MonoBehaviour
 
 	//Particle Systems
 	ParticleSystem landCloud;
+    public ParticleSystem growParticle;
+    public ParticleSystem pullParticle;
+    public ParticleSystem switchParticle;
+    public ParticleSystem floatParticle;
+    Vector3 spawnOffset = new Vector3();
+    float pauseTime;
 
     // The Rewired player id of this character
     public int playerId = 0;
@@ -104,31 +110,36 @@ public class GamePlayer : MonoBehaviour
     {
         GetInput();
         ProcessInput();
-		if (playerHealth < 1) {
+            if (playerHealth < 1)
+        {
             Spawning();
             DustStart();
             SparkleStart();
         }
 
-        void DustStart()
-        {
-           
-            {
-                Instantiate(Dust, transform.position, Quaternion.Euler(0, 0, 0));
-                
-            }
-        }
-        void SparkleStart()
-        {
+        if (P1WasPressed == false)
+            growParticle.Stop();
 
-            {
-                Instantiate(Sparkle, transform.position, Quaternion.Euler(0, 0, 0));
+        if (P2WasPressed == false)
+            pullParticle.Stop();
 
-            }
-        }
-
+        if (P4WasPressed == false)
+            floatParticle.Stop();
     }
 
+        void DustStart()
+        {
+            {
+                Instantiate(Dust, transform.position, Quaternion.Euler(0, 0, 0));
+            }
+        }
+
+        void SparkleStart()
+        {
+            {
+                Instantiate(Sparkle, transform.position, Quaternion.Euler(0, 0, 0));
+            }
+        }
 
 
     #region Inputs
@@ -286,6 +297,9 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     void AbilityGrow()
     {
+        spawnOffset.x = transform.position.x;
+        spawnOffset.y = transform.position.y + 1;
+        spawnOffset.z = transform.position.z;
         P1T = true;
     }
 
@@ -294,6 +308,9 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     void AbilityPull()
     {
+        spawnOffset.x = transform.position.x;
+        spawnOffset.y = transform.position.y + 1;
+        spawnOffset.z = transform.position.z;
         FindObjectsInRange();
         P2T = true;
     }
@@ -304,6 +321,11 @@ public class GamePlayer : MonoBehaviour
     void AbilitySwitch()
     {
         P3T = true;
+        spawnOffset.x = transform.position.x;
+        spawnOffset.y = transform.position.y + 1;
+        spawnOffset.z = transform.position.z;
+        Instantiate(switchParticle, spawnOffset, Quaternion.Euler(90, 0, 0));
+        switchParticle.Stop();
     }
 
     /// <summary>
@@ -311,6 +333,9 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     void AbilityFloat()
     {
+        spawnOffset.x = transform.position.x;
+        spawnOffset.y = transform.position.y + 1;
+        spawnOffset.z = transform.position.z;
         P4T = true;
     }
 

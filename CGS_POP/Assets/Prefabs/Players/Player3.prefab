@@ -128,7 +128,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 498ad08aa4b3b6f4f871415a8e3e8a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Dust: {fileID: 0}
+  Sparkle: {fileID: 0}
   playerHealth: 1
+  growParticle: {fileID: 6707731740227168323, guid: ad94615b47a81074495b5cbf2f394618,
+    type: 3}
+  pullParticle: {fileID: 4670804112689767975, guid: 838e40510aa521a4284bccafc0ac7e09,
+    type: 3}
+  switchParticle: {fileID: 4593620709561417452, guid: a8e7cf91ef5a41f43910fccab1ede3fa,
+    type: 3}
+  floatParticle: {fileID: 7999958222518538069, guid: c93cd3009363c044caf95975bf8944e2,
+    type: 3}
   playerId: 2
   moveSpeed: 0.2
   rollingSpeed: 50
@@ -144,6 +154,7 @@ MonoBehaviour:
   colourGreen: 0
   colourYellow: 0
   colourBlue: 0
+  spawnPoints: {x: 0, y: 0, z: 0}
 --- !u!114 &2250899446391724271
 MonoBehaviour:
   m_ObjectHideFlags: 0

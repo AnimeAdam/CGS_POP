@@ -439,6 +439,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawingParticle (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1387912114476377436, guid: ed6f9869d0649fd4f9a4ff0249b91753,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1387912113139210634, guid: ed6f9869d0649fd4f9a4ff0249b91753,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -618,11 +623,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.109
-      objectReference: {fileID: 0}
-    - target: {fileID: 1387912114476377436, guid: ed6f9869d0649fd4f9a4ff0249b91753,
-        type: 3}
-      propertyPath: looping
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed6f9869d0649fd4f9a4ff0249b91753, type: 3}
@@ -6170,6 +6170,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawingParticle
       objectReference: {fileID: 0}
+    - target: {fileID: 1387912114476377436, guid: ed6f9869d0649fd4f9a4ff0249b91753,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1387912113139210634, guid: ed6f9869d0649fd4f9a4ff0249b91753,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6349,11 +6354,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.524
-      objectReference: {fileID: 0}
-    - target: {fileID: 1387912114476377436, guid: ed6f9869d0649fd4f9a4ff0249b91753,
-        type: 3}
-      propertyPath: looping
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed6f9869d0649fd4f9a4ff0249b91753, type: 3}
@@ -29886,11 +29886,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8307537725048517890, guid: f413425927ed6d54d9a061ab6ffa4e63,
-        type: 3}
-      propertyPath: m_Name
-      value: SawBlade (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 4272028087228314840, guid: f413425927ed6d54d9a061ab6ffa4e63,
         type: 3}
       propertyPath: m_Radius
@@ -29915,6 +29910,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: 1.2114474
+      objectReference: {fileID: 0}
+    - target: {fileID: 8307537725048517890, guid: f413425927ed6d54d9a061ab6ffa4e63,
+        type: 3}
+      propertyPath: m_Name
+      value: SawBlade (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3394410993351295233, guid: f413425927ed6d54d9a061ab6ffa4e63,
         type: 3}
@@ -30320,6 +30320,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawingParticle (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1387912114476377436, guid: ed6f9869d0649fd4f9a4ff0249b91753,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1387912113139210634, guid: ed6f9869d0649fd4f9a4ff0249b91753,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30504,11 +30509,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.481
-      objectReference: {fileID: 0}
-    - target: {fileID: 1387912114476377436, guid: ed6f9869d0649fd4f9a4ff0249b91753,
-        type: 3}
-      propertyPath: looping
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed6f9869d0649fd4f9a4ff0249b91753, type: 3}
@@ -42025,6 +42025,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawingParticle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1387912114476377436, guid: ed6f9869d0649fd4f9a4ff0249b91753,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1387912113139210634, guid: ed6f9869d0649fd4f9a4ff0249b91753,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42214,11 +42219,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1387912114476377436, guid: ed6f9869d0649fd4f9a4ff0249b91753,
-        type: 3}
-      propertyPath: looping
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed6f9869d0649fd4f9a4ff0249b91753, type: 3}
