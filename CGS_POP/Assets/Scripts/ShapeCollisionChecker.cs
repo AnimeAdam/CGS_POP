@@ -17,7 +17,7 @@ public class ShapeCollisionChecker : MonoBehaviour
     public bool growthY = false;
 
     private List<Collider> CollisionList = new List<Collider>();
-
+    
     void Start()
     {
         _player3 = GameObject.Find("Player3");
@@ -99,6 +99,7 @@ public class ShapeCollisionChecker : MonoBehaviour
     {
         Collider _collider = GetComponent<Collider>();
         Rigidbody _rigidbody = GetComponent<Rigidbody>();
+
         int i = 15;
         while (i > 0)
         {
@@ -118,6 +119,9 @@ public class ShapeCollisionChecker : MonoBehaviour
 
     void IsItBeingSqueezed()
     {
+        Collider _collider = GetComponent<Collider>();
+        Rigidbody _rigidbody = GetComponent<Rigidbody>();
+
         for (int i = 0; i < CollisionList.Count; i++)
         {
             if (ClearCollider(CollisionList[i]))
@@ -148,22 +152,24 @@ public class ShapeCollisionChecker : MonoBehaviour
                     Debug.Log(CollisionList[j].name + closestPointBound1Vec3);
                 }*/
 
-                if((closestPoint1Vec3.y < closestPoint2Vec3.y) || (closestPoint1Vec3.y > closestPoint2Vec3.y))
-                {
-                    growthX = true;
-                    break;
-                }
-
-                if ((closestPoint1Vec3.x < closestPoint2Vec3.x) || (closestPoint1Vec3.x > closestPoint2Vec3.x))
-                {
-                    growthY = true;
-                    break;
-                }
-
-                if (((closestPoint1Vec3.y < closestPoint2Vec3.y) || (closestPoint1Vec3.y > closestPoint2Vec3.y)) &&
-                    ((closestPoint1Vec3.x < closestPoint2Vec3.x) || (closestPoint1Vec3.x > closestPoint2Vec3.x)))
+                if ((closestPoint1Vec3.y < closestPoint2Vec3.y-_collider.bounds.center.y) 
+                    && (closestPoint1Vec3.x < closestPoint2Vec3.x-_collider.bounds.center.x))
                 {
                     stopGrowth = true;
+                    growthX = false;
+                    growthY = false;
+                }
+                else
+                {
+                    if ((closestPoint1Vec3.y < closestPoint2Vec3.y) && !(closestPoint1Vec3.x < closestPoint2Vec3.x))
+                    {
+                        growthX = true;
+                    }
+
+                    if ((closestPoint1Vec3.x < closestPoint2Vec3.x) && !(closestPoint1Vec3.y < closestPoint2Vec3.y))
+                    {
+                        growthY = true;
+                    }
                 }
             }
         }

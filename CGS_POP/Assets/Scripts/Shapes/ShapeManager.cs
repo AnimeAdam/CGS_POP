@@ -203,17 +203,19 @@ public class ShapeManager : MonoBehaviour
             {
                 if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().stopGrowth)
                 {
-                    if (growthLimit == 0)
+                    if (growthLimit == 0 &&
+                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthX &&
+                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthY)
                     {
                         _ts.localScale += growthSpeed;
                     }
-                    else if (_ts.localScale.x < growthLimit)
+                    if ((_ts.localScale.x < growthLimit) && 
+                            !_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthX &&
+                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthY)
                     {
                         _ts.localScale += growthSpeed;
                     }
-                }
-                else
-                {
+
                     if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthX)
                     {
                         _ts.localScale += growthSpeedX;

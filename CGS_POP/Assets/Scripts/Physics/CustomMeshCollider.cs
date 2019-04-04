@@ -41,18 +41,29 @@ public class CustomMeshCollider : MonoBehaviour
         {
             _vertices[i] *= MeshSizeIncrease;          //Might need scalar
         }
-        _mesh.vertices = _vertices;
-
-        MeshCollider _meshCollider = gameObject.AddComponent<MeshCollider>();
-        _meshCollider.sharedMesh = _mesh;
-        _meshCollider.sharedMaterial = physicMaterial;
-        _meshCollider.convex = true;
-        if (NumberOfMeshes != 1)
+        if (NumberOfMeshes > 1)
         {
             if (isTriggered)
             {
+                for (int i = 0; i < _vertices.Length; i++)
+                {
+                    _vertices[i] *= MeshSizeIncrease*1.05f;          //Might need scalar
+                }
+                _mesh.vertices = _vertices;
+                MeshCollider _meshCollider = gameObject.AddComponent<MeshCollider>();
+                _meshCollider.sharedMesh = _mesh;
+                _meshCollider.sharedMaterial = physicMaterial;
+                _meshCollider.convex = true;
                 _meshCollider.isTrigger = true;
             }
+        }
+        else
+        {
+            _mesh.vertices = _vertices;
+            MeshCollider _meshCollider = gameObject.AddComponent<MeshCollider>();
+            _meshCollider.sharedMesh = _mesh;
+            _meshCollider.sharedMaterial = physicMaterial;
+            _meshCollider.convex = true;
         }
     }
 }
