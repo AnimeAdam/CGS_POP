@@ -7,8 +7,10 @@ using Rewired;
 [RequireComponent(typeof(CharacterController))]
 public class GamePlayer : MonoBehaviour
 {
-	//Player Health
-	public int playerHealth = 1;
+    public ParticleSystem Dust;
+    public ParticleSystem Sparkle;
+    //Player Health
+    public int playerHealth = 1;
 
 	// Audio Management
 	AudioManager audiMan;
@@ -93,7 +95,9 @@ public class GamePlayer : MonoBehaviour
 
     private void Start()
     {
-                
+        ParticleSystem Dust = GetComponent<ParticleSystem>();
+        ParticleSystem Sparkle = GetComponent<ParticleSystem>();
+
     }
 
     void Update()
@@ -102,7 +106,27 @@ public class GamePlayer : MonoBehaviour
         ProcessInput();
 		if (playerHealth < 1) {
             Spawning();
-		}
+            DustStart();
+            SparkleStart();
+        }
+
+        void DustStart()
+        {
+           
+            {
+                Instantiate(Dust, transform.position, Quaternion.Euler(0, 0, 0));
+                
+            }
+        }
+        void SparkleStart()
+        {
+
+            {
+                Instantiate(Sparkle, transform.position, Quaternion.Euler(0, 0, 0));
+
+            }
+        }
+
     }
 
 
@@ -345,4 +369,5 @@ public class GamePlayer : MonoBehaviour
         transform.position = spawnPoints;
         playerHealth = 1;
     }
+  
 }

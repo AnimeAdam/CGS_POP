@@ -144,6 +144,7 @@ MonoBehaviour:
   colourGreen: 0
   colourYellow: 0
   colourBlue: 0
+  spawnPoints: {x: 0, y: 0, z: 0}
 --- !u!114 &866206636616487705
 MonoBehaviour:
   m_ObjectHideFlags: 0
