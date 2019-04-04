@@ -109,8 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff32f9b28635c58429eb424fc1ec4f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  physicMaterial: {fileID: 13400000, guid: 7f850a7e112b9764a95b5a5222ce73b4, type: 2}
-  MeshSizeIncrease: 1.1
+  physicMaterial: {fileID: 0}
+  MeshSizeIncrease: 1.02
   NumberOfMeshes: 2
   isTriggered: 1
 --- !u!114 &8423445103632625141
@@ -139,3 +139,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   growthLimit: 0
   stopGrowth: 0
+  growthX: 0
+  growthY: 0

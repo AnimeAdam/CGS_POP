@@ -219,9 +219,11 @@ public class KeyManager : MonoBehaviour
     {
 		foreach (Transform _ts in shapesTransforms)
         {
-            if (_ts.tag == CheckForColour(_player2))
-            {
-                _ts.position = Vector3.MoveTowards(_ts.position, _player2.transform.position , pullSpeed*Time.deltaTime);
+            if (_ts != null){
+                if (_ts.tag == CheckForColour(_player2))
+                {
+                    _ts.position = Vector3.MoveTowards(_ts.position, _player2.transform.position, pullSpeed * Time.deltaTime);
+                }
             }
         }
 		shapesTransforms = GetShapesList();
