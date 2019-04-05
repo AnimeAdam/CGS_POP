@@ -5277,6 +5277,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SparklePlayer4
       objectReference: {fileID: 0}
+    - target: {fileID: 1387912114476377438, guid: ed6f9869d0649fd4f9a4ff0249b91753,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387912114476377438, guid: ed6f9869d0649fd4f9a4ff0249b91753,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387912114476377438, guid: ed6f9869d0649fd4f9a4ff0249b91753,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed6f9869d0649fd4f9a4ff0249b91753, type: 3}
 --- !u!1 &158753358
@@ -5370,12 +5385,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158753358}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!198 &188455591 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1387912113714805032, guid: ed6f9869d0649fd4f9a4ff0249b91753,
-    type: 3}
-  m_PrefabInstance: {fileID: 1387912113864123279}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &188461404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6244,12 +6253,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387226897}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!198 &396144824 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1387912113714805032, guid: ed6f9869d0649fd4f9a4ff0249b91753,
-    type: 3}
-  m_PrefabInstance: {fileID: 913145802}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &401097146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6697,6 +6700,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SparklePlayer3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387912114476377438, guid: ed6f9869d0649fd4f9a4ff0249b91753,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387912114476377438, guid: ed6f9869d0649fd4f9a4ff0249b91753,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387912114476377438, guid: ed6f9869d0649fd4f9a4ff0249b91753,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed6f9869d0649fd4f9a4ff0249b91753, type: 3}
@@ -12924,12 +12942,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e19e14900bbcbc142ae9dc0c44a7dfb7, type: 3}
---- !u!198 &828429349 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1387912113714805032, guid: ed6f9869d0649fd4f9a4ff0249b91753,
-    type: 3}
-  m_PrefabInstance: {fileID: 531595702}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &834820253 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1387912114476377436, guid: ed6f9869d0649fd4f9a4ff0249b91753,
@@ -13334,6 +13346,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SparklePlayer2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387912114476377438, guid: ed6f9869d0649fd4f9a4ff0249b91753,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387912114476377438, guid: ed6f9869d0649fd4f9a4ff0249b91753,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387912114476377438, guid: ed6f9869d0649fd4f9a4ff0249b91753,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed6f9869d0649fd4f9a4ff0249b91753, type: 3}
@@ -42173,12 +42200,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e19e14900bbcbc142ae9dc0c44a7dfb7, type: 3}
---- !u!198 &1989086316 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1387912113714805032, guid: ed6f9869d0649fd4f9a4ff0249b91753,
-    type: 3}
-  m_PrefabInstance: {fileID: 139248360}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1991189799
 GameObject:
   m_ObjectHideFlags: 0
@@ -47930,7 +47951,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Dust
       value: 
-      objectReference: {fileID: 396144824}
+      objectReference: {fileID: 407843023}
     - target: {fileID: 9149312420806866191, guid: 2930b6ef7ae0d7b41b65e70158130536,
         type: 3}
       propertyPath: Sparkle
@@ -48014,6 +48035,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SparklePlayer1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387912114476377438, guid: ed6f9869d0649fd4f9a4ff0249b91753,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387912114476377438, guid: ed6f9869d0649fd4f9a4ff0249b91753,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387912114476377438, guid: ed6f9869d0649fd4f9a4ff0249b91753,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed6f9869d0649fd4f9a4ff0249b91753, type: 3}
@@ -48231,7 +48267,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Sparkle
       value: 
-      objectReference: {fileID: 188455591}
+      objectReference: {fileID: 1015432915}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6063a53f4fca35e40aa4a6c635f0d34c, type: 3}
 --- !u!1001 &5345011814334795083
@@ -48422,7 +48458,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Dust
       value: 
-      objectReference: {fileID: 1989086316}
+      objectReference: {fileID: 921265002}
     - target: {fileID: 8831742444620608446, guid: 892cf0784ae9d66478ecab459d537e69,
         type: 3}
       propertyPath: Sparkle
@@ -48656,7 +48692,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Dust
       value: 
-      objectReference: {fileID: 828429349}
+      objectReference: {fileID: 834820253}
     - target: {fileID: 2250899446391724268, guid: 1c47b9e3fc4f8b643bdc57e5b41dc1ce,
         type: 3}
       propertyPath: Sparkle
