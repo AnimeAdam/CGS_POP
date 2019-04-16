@@ -19,6 +19,7 @@ public class GamePlayer : MonoBehaviour
 
 	//Particle Systems
 	ParticleSystem landCloud;
+    public float lengthOfLandingCloud = 30f;
     public ParticleSystem growParticle;
     public ParticleSystem pullParticle;
     public ParticleSystem switchParticle;
@@ -248,7 +249,7 @@ public class GamePlayer : MonoBehaviour
             jumping = 0f;
             jumpState = false;
 			audiMan.Land.Play();
-			landCloud.Play();
+            StartCoroutine("LandingDustCloud");
         }
     }
 
@@ -355,6 +356,12 @@ public class GamePlayer : MonoBehaviour
         Instantiate(orb, transform.position, Quaternion.identity); //REMEMBER as GameObject
     }
 
+    void Spawning()
+    {
+        transform.position = spawnPoints;
+        playerHealth = 1;
+    }
+
     #endregion
 
     //IEnumerator PlaySteps() {
@@ -362,6 +369,8 @@ public class GamePlayer : MonoBehaviour
     //	audiMan.Step_1.Play();
     //	yield return new WaitForSeconds(0.6f);
     //}
+
+    #region CreateComponents
 
     void CreateNewMesh()
     {
@@ -391,10 +400,46 @@ public class GamePlayer : MonoBehaviour
         _meshCollider.isTrigger = true;
     }
 
-    void Spawning()
+    #endregion
+
+    #region IE
+
+    IEnumerator LandingDustCloud()  //15 frames
     {
-        transform.position = spawnPoints;
-        playerHealth = 1;
+        Vector3 vec3 = new Vector3(transform.position.x, 5000f, transform.position.z);
+        Vector3[] verticsPos = GetComponent<MeshFilter>().mesh.vertices;
+        landCloud.Play();
+
+        for (int i = 0; i < verticsPos.Length; i++)
+        {
+            verticsPos[i] = transform.TransformPoint(verticsPos[i]);
+            if (verticsPos[i].y < vec3.y)
+            {
+                vec3.y = verticsPos[i].y;
+            }
+        }
+        
+
+        for (int i = 0; i < lengthOfLandingCloud; i++)
+        {
+
+            //vec3 = new Vector3(transform.position.x, transform.position.y,
+            //    transform.position.z);
+            //vec3 = landCloud.transform.worldToLocalMatrix * transform.position;
+            //vec3 = new Vector3(vec3.x, vec3.y - 1f, vec3.z);
+            //vec3 = Vector3.zero + landCloud.transform.parent.localPosition;    
+            //new Vector3(landCloud.transform.localPosition.x, landCloud.transform.localPosition.y,
+            //    landCloud.transform.localPosition.z - 1f);
+
+            landCloud.transform.position = vec3;
+
+            landCloud.transform.rotation = Quaternion.identity;
+            yield return 0;
+        }
+        
+        landCloud.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
     }
-  
+
+    #endregion
+
 }

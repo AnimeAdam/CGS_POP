@@ -6366,7 +6366,7 @@ PrefabInstance:
     - target: {fileID: 1387912113714805034, guid: ed6f9869d0649fd4f9a4ff0249b91753,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.146
+      value: -0.134
       objectReference: {fileID: 0}
     - target: {fileID: 1387912113714805032, guid: ed6f9869d0649fd4f9a4ff0249b91753,
         type: 3}
@@ -7066,6 +7066,11 @@ PrefabInstance:
       propertyPath: Sparkle
       value: 
       objectReference: {fileID: 286632700}
+    - target: {fileID: 5024821138236471557, guid: 97113bc2729f0844e909e1f119430a39,
+        type: 3}
+      propertyPath: lengthOfLandingCloud
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
         type: 3}
       propertyPath: m_LocalPosition.x
