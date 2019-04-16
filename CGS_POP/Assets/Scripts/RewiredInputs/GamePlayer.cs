@@ -7,8 +7,10 @@ using Rewired;
 [RequireComponent(typeof(CharacterController))]
 public class GamePlayer : MonoBehaviour
 {
+    //Player Effects
     public ParticleSystem Dust;
     public ParticleSystem Sparkle;
+
     //Player Health
     public int playerHealth = 1;
 

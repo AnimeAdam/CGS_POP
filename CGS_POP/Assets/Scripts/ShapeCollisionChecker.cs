@@ -12,9 +12,11 @@ public class ShapeCollisionChecker : MonoBehaviour
     private GameObject _player3;
 
     public float growthLimit = 0f;
+    public bool keepGrowing = false;
     public bool stopGrowth = false;
     public bool growthX = false;
     public bool growthY = false;
+    
 
     private List<Collider> CollisionList = new List<Collider>();
     
