@@ -196,17 +196,17 @@ public class KeyManager : MonoBehaviour
         {
             if (_ts.tag == CheckForColour(_player1))
             {
-                if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().stopGrowth)
-                {
-                    if (growthLimit == 0)
-                    {
-                        _ts.localScale += growthSpeed;
-                    }
-                    else if (_ts.localScale.x < growthLimit)
-                    {
-                        _ts.localScale += growthSpeed;
-                    }
-                }
+                //if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().stopGrowth)
+                //{
+                //    if (growthLimit == 0)
+                //    {
+                //        _ts.localScale += growthSpeed;
+                //    }
+                //    else if (_ts.localScale.x < growthLimit)
+                //    {
+                //        _ts.localScale += growthSpeed;
+                //    }
+                //}
             }
         }
 		shapesTransforms = GetShapesList();

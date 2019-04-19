@@ -201,32 +201,40 @@ public class ShapeManager : MonoBehaviour
         {
             if (_ts.tag == CheckForColour(_player1))
             {
-                if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().stopGrowth)
+                if (growthLimit == 0 || _ts.gameObject.GetComponent<ShapeCollisionChecker>().unlimitedGrowth)
                 {
-                    if (growthLimit == 0 &&
-                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthX &&
-                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthY)
+                    if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
+                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
                     {
                         _ts.localScale += growthSpeed;
                     }
-
-                    if ((_ts.localScale.x < growthLimit) && (_ts.localScale.y < growthLimit) &&
-                            !_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthX &&
-                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthY)
+                    if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY &&
+                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX)
                     {
-                        _ts.localScale += growthSpeed;
+                        _ts.localScale += growthSpeedY;
                     }
-
-                    if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthX && 
-                        (_ts.localScale.x < growthLimit || _ts.gameObject.GetComponent<ShapeCollisionChecker>().keepGrowing))
+                    if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
+                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
                     {
                         _ts.localScale += growthSpeedX;
                     }
-
-                    if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().growthY && 
-                        (_ts.localScale.y < growthLimit || _ts.gameObject.GetComponent<ShapeCollisionChecker>().keepGrowing))
+                }
+                else if (_ts.localScale.x < growthLimit && _ts.localScale.y < growthLimit)
+                {
+                    if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
+                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
+                    {
+                        _ts.localScale += growthSpeed;
+                    }
+                    if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY &&
+                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX)
                     {
                         _ts.localScale += growthSpeedY;
+                    }
+                    if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
+                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
+                    {
+                        _ts.localScale += growthSpeedX;
                     }
                 }
             }
@@ -266,7 +274,8 @@ public class ShapeManager : MonoBehaviour
                     Vector3 _pos = _ts.position;
                     Quaternion _rot = _ts.rotation;
                     Vector3 _sca = _ts.localScale;
-                    
+                    bool _grow = _ts.GetComponent<ShapeCollisionChecker>().unlimitedGrowth;
+
                     DestroyImmediate(_ts.gameObject);
 
                     if (_name.Contains("Circle"))
@@ -277,6 +286,7 @@ public class ShapeManager : MonoBehaviour
                         _gb.tag = _tag;
                         _gb.GetComponent<Rigidbody>().Sleep();
                         _gb.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                        _gb.GetComponent<ShapeCollisionChecker>().unlimitedGrowth = _grow;
                         abilityPlayer.Switch_1.Play();
                     }
                     if (_name.Contains("Square"))
@@ -287,6 +297,7 @@ public class ShapeManager : MonoBehaviour
                         _gb.tag = _tag;
                         _gb.GetComponent<Rigidbody>().Sleep();
                         _gb.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                        _gb.GetComponent<ShapeCollisionChecker>().unlimitedGrowth = _grow;
                         abilityPlayer.Switch_2.Play();
 					}
                     if (_name.Contains("Triangle"))
@@ -297,6 +308,7 @@ public class ShapeManager : MonoBehaviour
                         _gb.tag = _tag;
                         _gb.GetComponent<Rigidbody>().Sleep();
                         _gb.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                        _gb.GetComponent<ShapeCollisionChecker>().unlimitedGrowth = _grow;
                         abilityPlayer.Switch_3.Play();
 					}
                 }

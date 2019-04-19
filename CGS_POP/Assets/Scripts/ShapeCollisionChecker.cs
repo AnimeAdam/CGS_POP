@@ -4,74 +4,32 @@ using UnityEngine;
 
 public class ShapeCollisionChecker : MonoBehaviour
 {
-    private GameObject _player3;
+    //MeshFilter
+    private MeshFilter meshFilter;
 
-    public float growthLimit = 0f;
-    public bool keepGrowing = false;
-    public bool stopGrowth = false;
-    public bool growthX = false;
-    public bool growthY = false;
-    
+    //Growing Checks
+    private GameObject _player3;
+    public bool unlimitedGrowth = false;
+    public bool squeezeX = false;
+    public bool squeezeY = false;
+
+    //Collision Lists
     private List<Collider> CollisionList = new List<Collider>();
-    
+
+
     void Start()
     {
         _player3 = GameObject.Find("Player3");
+        meshFilter = GetComponent<MeshFilter>();
     }
-    
+
     void Update()
     {
-        if (growthLimit > 0)
-        {
-            if (transform.localScale.x >= growthLimit)
-            {
-                stopGrowth = true;
-            }
-        }
-    }
-
-    #region Triggers
-    
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag != "Red" && other.tag != "Green" && other.tag != "Blue" && other.tag != "Yellow")
-        {
-            CollisionList.Add(other);
-        }
-
         IsItBeingSqueezed();
     }
 
-    void OnTriggerExit(Collider other)
-    {
-        if (ClearCollider(other))
-        {
-            IsItFree();
-            return;
-        }
-        if (other.tag != "Red" && other.tag != "Green" && other.tag != "Blue" && other.tag != "Yellow")
-        {
-            foreach (Collider _other in CollisionList)
-            {
-                if (ClearCollider(_other))
-                {
-                    IsItFree();
-                    continue;
-                }
-                if (_other.name == other.name)
-                {
-                    CollisionList.Remove(_other);
-                    break;
-                }
-            }
-        }
-        IsItFree();
-    }
+    #region Collisions
 
-    #endregion
-
-    #region Collision
-    
     void OnCollisionEnter(Collision col)
     {
         if (_player3.GetComponent<GamePlayer>().P3T)
@@ -89,6 +47,37 @@ public class ShapeCollisionChecker : MonoBehaviour
 
     #endregion
 
+    #region Triggers
+
+    void OnTriggerEnter(Collider other)
+    {
+         AddToList(other);
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+         RemoveFromList(other);
+    }
+
+    #endregion
+
+    #region ColliderFunctions
+    
+    void AddToList(Collider col_)
+    {
+        if (col_ != null)
+        {
+            CollisionList.Add(col_);
+        }
+    }
+
+    void RemoveFromList(Collider col_)
+    {
+         CollisionList.Remove(col_);
+    }
+
+    #endregion
+
     #region Checks
 
     IEnumerator IgnoreShapeChangingCollision(Collision col)
@@ -102,7 +91,8 @@ public class ShapeCollisionChecker : MonoBehaviour
             _rigidbody.Sleep();
             if (_rigidbody.velocity.y > 0)
             {
-                _rigidbody.velocity = new Vector3(0f, Physics.gravity.y*Time.deltaTime, 0f);
+                _rigidbody.velocity = new Vector3(0f,
+                Physics.gravity.y * Time.deltaTime, 0f);
             }
             else
             {
@@ -113,82 +103,62 @@ public class ShapeCollisionChecker : MonoBehaviour
         }
     }
 
-    
     void IsItBeingSqueezed()
     {
-        Collider _collider = GetComponent<Collider>();
-        Rigidbody _rigidbody = GetComponent<Rigidbody>();
+        bool Xleft = false;
+        bool Xright = false;
+        bool Yup = false;
+        bool Ydown = false;
 
         for (int i = 0; i < CollisionList.Count; i++)
         {
-            if (ClearCollider(CollisionList[i]))
+            if (CollisionList[i] == null)
             {
-                continue;
+                RemoveFromList(CollisionList[i]);
             }
-            for (int j = i + 1; j < CollisionList.Count; j++)
+            else
             {
-                if (ClearCollider(CollisionList[j]))
+                Vector3 closestPointVec3 = CollisionList[i].ClosestPoint(transform.position);
+                
+                if (closestPointVec3.x < (transform.position.x + meshFilter.mesh.bounds.min.x * transform.localScale.y))
                 {
-                    continue;
+                    Xleft = true;
                 }
-                Vector3 closestPoint1Vec3 = CollisionList[i].ClosestPoint(transform.position);
-                Vector3 closestPoint2Vec3 = CollisionList[j].ClosestPoint(transform.position);
 
-                Vector3 closestPointBound1Vec3 = CollisionList[i].ClosestPointOnBounds(transform.position);
-                Vector3 closestPointBound2Vec3 = CollisionList[j].ClosestPointOnBounds(transform.position);
-
-                //Debug Code
-                /*if (name == "Circle")
+                if (closestPointVec3.x > (transform.position.x + meshFilter.mesh.bounds.max.x * transform.localScale.y))
                 {
-                    Debug.Log(CollisionList[i].name + closestPoint1Vec3);
-                    Debug.DrawLine(transform.position, closestPoint1Vec3, Color.blue);
-                    Debug.Log(CollisionList[j].name + closestPoint2Vec3);
-                    Debug.DrawLine(transform.position, closestPoint2Vec3, Color.cyan);
-                    Debug.Break();
-                    Debug.Log(CollisionList[i].name + closestPointBound1Vec3);
-                    Debug.Log(CollisionList[j].name + closestPointBound1Vec3);
-                }*/
-
-                if ((closestPoint1Vec3.y < closestPoint2Vec3.y-_collider.bounds.center.y) 
-                    && (closestPoint1Vec3.x < closestPoint2Vec3.x-_collider.bounds.center.x))
-                {
-                    stopGrowth = true;
-                    growthX = false;
-                    growthY = false;
+                    Xright = true;
                 }
-                else
-                {
-                    if ((closestPoint1Vec3.y < closestPoint2Vec3.y) && !(closestPoint1Vec3.x < closestPoint2Vec3.x))
-                    {
-                        growthX = true;
-                    }
 
-                    if ((closestPoint1Vec3.x < closestPoint2Vec3.x) && !(closestPoint1Vec3.y < closestPoint2Vec3.y))
-                    {
-                        growthY = true;
-                    }
+                if (closestPointVec3.y < (transform.position.y + meshFilter.mesh.bounds.min.y * transform.localScale.x))
+                {
+                    Ydown = true;
+                }
+
+                if (closestPointVec3.y > (transform.position.y + meshFilter.mesh.bounds.max.y * transform.localScale.x))
+                {
+                    Yup = true;
                 }
             }
         }
-    }
 
-    void IsItFree()
-    {
-        if (CollisionList.Count <= 1)
+        if (!Xleft || !Xright)
         {
-            stopGrowth = false;
+            squeezeX = false;
         }
-    }
-
-    bool ClearCollider(Collider _col)
-    {
-        if (_col == null)
+        if (!Ydown || !Yup)
         {
-            CollisionList.Remove(_col);
-            return true;
+            squeezeY = false;
         }
 
-        return false;
+        if (Xleft && Xright)
+        {
+            squeezeX = true;
+        }
+        if (Ydown && Yup)
+        {
+            squeezeY = true;
+        }
     }
 
     #endregion
