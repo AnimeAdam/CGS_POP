@@ -402,7 +402,7 @@ public class GamePlayer : MonoBehaviour
 
     #endregion
 
-    #region IE
+    #region IEnumerator
 
     IEnumerator LandingDustCloud()  //15 frames
     {

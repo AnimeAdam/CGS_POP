@@ -5,21 +5,23 @@ using UnityEngine.UI;
 
 public class PlayerWins : MonoBehaviour
 {
-    private bool winner = true;
-	public int flagHeight = 0;
-	Transform flagCloth;
-	Vector3 position0 = new Vector3(-1.3f, -1.3f, 0);
-	Vector3 position1 = new Vector3(-1.3f, -1, 0);
-	Vector3 position2 = new Vector3(-1.3f, -0.65f, 0);
-	Vector3 position3 = new Vector3(-1.3f, -0.3f, 0);
-	Vector3 position4 = new Vector3(-1.3f, 0, 0);
-	AudioManager audiMan;
+    //Audio Manager
+    AudioManager audiMan;
+    
+    //Flag positions
+    private int flagHeight = 0;
+    private Vector3 position0 = new Vector3(-1.3f, -1.3f, 0);
+    private Vector3 position1 = new Vector3(-1.3f, -1, 0);
+    private Vector3 position2 = new Vector3(-1.3f, -0.65f, 0);
+    private Vector3 position3 = new Vector3(-1.3f, -0.3f, 0);
+    private Vector3 position4 = new Vector3(-1.3f, 0, 0);
+    private bool flag1Sound = false;
+    private bool flag2Sound = false;
+    private bool flag3Sound = false;
+    private bool flag4Sound = false;
+    Transform flagCloth;
 
-	bool flag1Sound = false;
-	bool flag2Sound = false;
-	bool flag3Sound = false;
-	bool flag4Sound = false;
-
+    //Scene Manager
     public int nextScene = 6;
 
 
@@ -28,7 +30,6 @@ public class PlayerWins : MonoBehaviour
     {
 		flagCloth = this.gameObject.transform.GetChild(0);
 		audiMan = FindObjectOfType<AudioManager>();
-
         ScenesManager.SetScenes(0);
     }
 
@@ -78,34 +79,28 @@ public class PlayerWins : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-		    //    if (winner)
-			//	{
-					if (flagHeight == 4)
-					{
-            //int playerNum = other.GetComponent<GamePlayer>().playerId + 1;
-            //GameObject playerWinner = GameObject.Find("Canvas/PlayerWinner");
-                        var go = GameObject.Find("Canvas/PlayerWinner");
-                        if(go)
+		if (flagHeight == 4)
+		{
+            var go = GameObject.Find("Canvas/PlayerWinner");
+            if(go)
             {
                 Text playerText = go.GetComponent<Text>();
                 playerText.text = "Level Complete!";
             }
-            
-					    StartCoroutine(GoToNextLevel());
-					    //winner = false;
-					}
-			//  }   
-			  
+			StartCoroutine(GoToNextLevel());
+        }
 
-		if (other.gameObject.tag == "Player" && other is MeshCollider) {
-			flagHeight += 1;
+		if (other.gameObject.tag == "Player" && other is MeshCollider)
+		{
+			flagHeight++;
 		}
     }
 
 	private void OnTriggerExit(Collider other)
 	{
-		if (other.gameObject.tag == "Player") {
-			flagHeight -= 1;
+		if (other.gameObject.tag == "Player" && other is MeshCollider)
+		{
+			flagHeight--;
 		}
 
 		flag1Sound = false;
@@ -120,5 +115,4 @@ public class PlayerWins : MonoBehaviour
         DestroyImmediate(GameObject.Find("PlayerManager"));
         ScenesManager.GoToNextScene(nextScene);
     }
-
 }

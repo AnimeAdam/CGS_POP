@@ -33,7 +33,6 @@ public class UniversalPhysics : MonoBehaviour
     void Update()
     {
         ApplyGravity();
-
     }
 
     void FixedUpdate()
@@ -47,7 +46,10 @@ public class UniversalPhysics : MonoBehaviour
     /// </summary>
     void ApplyGravity()
     {
-        velocity = (gravity * rb.mass) * Time.deltaTime;
+        if (!cc.isGrounded)
+        {
+            velocity = (gravity * rb.mass) * Time.deltaTime;
+        }
 
         cc.Move(velocity);
     }

@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class ShapeCollisionChecker : MonoBehaviour
 {
-    //public Collider box1;
-    //public Collider box2;
-    //public Collider box3;
-    //public Collider box4;
-
     private GameObject _player3;
 
     public float growthLimit = 0f;
@@ -17,16 +12,13 @@ public class ShapeCollisionChecker : MonoBehaviour
     public bool growthX = false;
     public bool growthY = false;
     
-
     private List<Collider> CollisionList = new List<Collider>();
     
     void Start()
     {
         _player3 = GameObject.Find("Player3");
     }
-
-    #region Collision Triggers
-
+    
     void Update()
     {
         if (growthLimit > 0)
@@ -97,6 +89,8 @@ public class ShapeCollisionChecker : MonoBehaviour
 
     #endregion
 
+    #region Checks
+
     IEnumerator IgnoreShapeChangingCollision(Collision col)
     {
         Collider _collider = GetComponent<Collider>();
@@ -119,6 +113,7 @@ public class ShapeCollisionChecker : MonoBehaviour
         }
     }
 
+    
     void IsItBeingSqueezed()
     {
         Collider _collider = GetComponent<Collider>();

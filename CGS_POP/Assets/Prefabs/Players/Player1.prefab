@@ -4917,8 +4917,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 498ad08aa4b3b6f4f871415a8e3e8a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dust: {fileID: 0}
-  Sparkle: {fileID: 0}
+  Dust: {fileID: 609469807043650192}
+  Sparkle: {fileID: 8685053771673913401}
   playerHealth: 1
   lengthOfLandingCloud: 15
   growParticle: {fileID: 6707731740227168323, guid: ad94615b47a81074495b5cbf2f394618,
