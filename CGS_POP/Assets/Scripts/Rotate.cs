@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rotate : MonoBehaviour
 {
-    int speed = 5;
+    float speed = 0.3f;
     // Start is called before the first frame update
     void Start()
     {
