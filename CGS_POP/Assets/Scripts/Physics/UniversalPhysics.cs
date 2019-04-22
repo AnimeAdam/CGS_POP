@@ -18,7 +18,6 @@ public class UniversalPhysics : MonoBehaviour
 
     //Applied Velocity
     public Vector3 velocity;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -62,4 +61,5 @@ public class UniversalPhysics : MonoBehaviour
     {
         gravity = Physics.gravity * gravityModifier;
     }
+    
 }

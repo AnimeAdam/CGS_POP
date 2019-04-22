@@ -113,7 +113,7 @@ public class GamePlayer : MonoBehaviour
     {
         GetInput();
         ProcessInput();
-            if (playerHealth < 1)
+        if (playerHealth < 1)
         {
             Spawning();
             DustStart();

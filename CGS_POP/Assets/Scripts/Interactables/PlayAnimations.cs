@@ -19,6 +19,7 @@ public class PlayAnimations : MonoBehaviour
     {
 
     }
+
     //plays animation when collider is hit
    public void OnTriggerEnter()
     {
