@@ -1146,11 +1146,6 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 550518173229564140, guid: 9e788cc3da5b1d04181c0e578ec4fe74,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e788cc3da5b1d04181c0e578ec4fe74, type: 3}
 --- !u!1001 &863243688
@@ -1414,6 +1409,18 @@ PrefabInstance:
     - target: {fileID: 8805595011534854221, guid: e69b1344693a33b40bbb79387b943c10,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433997633, guid: e69b1344693a33b40bbb79387b943c10, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871494041, guid: e69b1344693a33b40bbb79387b943c10, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2125901086, guid: e69b1344693a33b40bbb79387b943c10, type: 3}
+      propertyPath: m_Navigation.m_Mode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

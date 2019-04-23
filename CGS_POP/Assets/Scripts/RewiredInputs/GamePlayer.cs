@@ -80,7 +80,7 @@ public class GamePlayer : MonoBehaviour
     private CharacterController cc;
     private Rigidbody rb;
     private Menus menus;
-    private bool menuOpenClose = true;
+    [HideInInspector] static public bool menuOpenClose = true;
 
     //Mesh and Collider nonsense
     private Mesh _mesh;
@@ -196,14 +196,14 @@ public class GamePlayer : MonoBehaviour
         //Menu Navigation
         if (!menuOpenClose) //frames
         {
-            //if (moveVector.x > 0f)
-            //{
-            //    menus.NavigateLeftRightButton(true);
-            //}
-            //if (moveVector.x < 0f)
-            //{
-            //    menus.NavigateLeftRightButton(false);
-            //}
+            if (moveVector.x > 0f && player.GetButtonDown("MoveHorizontal"))
+            {
+                menus.NavigateLeftRightButton(true);
+            }
+            if (moveVector.x < 0f && player.GetNegativeButtonDown("MoveHorizontal")) // 
+            {
+                menus.NavigateLeftRightButton(false);
+            }
 
             if (blue)
             {

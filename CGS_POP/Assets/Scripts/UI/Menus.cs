@@ -72,7 +72,6 @@ public class Menus : MonoBehaviour
         {
             ClearMenuButtons();
             mainMenu.SetActive(false);
-            Time.timeScale = 1;
         }
     }
 
@@ -89,11 +88,13 @@ public class Menus : MonoBehaviour
     //Main Menu
     public void ResetLevel()
     {
+        ClearMenuButtons();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Options()
     {
+        ClearMenuButtons();
         SceneManager.LoadScene(2);
     }
 
@@ -135,6 +136,9 @@ public class Menus : MonoBehaviour
         currentButton = 0;
         highlightedButton = null;
         highlightedMenu = null;
+        Time.timeScale = 1;
+        //FindObjectOfType<GamePlayer>().
+        GamePlayer.menuOpenClose = true;
     }
 
     #endregion
@@ -147,7 +151,7 @@ public class Menus : MonoBehaviour
         if (direction)
         {
             previousButton = currentButton;
-            if (currentButton != highlightedMenu.Length)
+            if (currentButton != highlightedMenu.Length-1)
             {
                 currentButton++;
                 eventSys.SetSelectedGameObject(mainMenuButtons[currentButton].gameObject);
@@ -163,7 +167,7 @@ public class Menus : MonoBehaviour
         else
         {
             previousButton = currentButton;
-            if (currentButton != highlightedMenu.Length)
+            if (currentButton != 0)
             {
                 currentButton--;
                 eventSys.SetSelectedGameObject(mainMenuButtons[currentButton].gameObject);
@@ -171,7 +175,7 @@ public class Menus : MonoBehaviour
             }
             else
             {
-                currentButton = highlightedMenu.Length;
+                currentButton = highlightedMenu.Length-1;
                 eventSys.SetSelectedGameObject(mainMenuButtons[currentButton].gameObject);
                 highlightedButton = mainMenuButtons[currentButton];
             }
