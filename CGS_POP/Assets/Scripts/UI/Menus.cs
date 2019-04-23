@@ -144,7 +144,6 @@ public class Menus : MonoBehaviour
     //Keep around incase something else doesn't work
     public void NavigateLeftRightButton(bool direction) //true = right false = left
     {
-        Debug.Log("WHAT");
         if (direction)
         {
             previousButton = currentButton;
@@ -182,7 +181,10 @@ public class Menus : MonoBehaviour
     public void PressButton()
     {
         //highlightedButton.onClick.Invoke();
-        eventSys.currentSelectedGameObject.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
+        if (eventSys.currentSelectedGameObject != null)
+        {
+            eventSys.currentSelectedGameObject.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
+        }
     }
 
     #endregion
