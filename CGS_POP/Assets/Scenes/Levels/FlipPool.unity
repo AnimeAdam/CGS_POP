@@ -6921,7 +6921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 83700088, guid: e69b1344693a33b40bbb79387b943c10, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e69b1344693a33b40bbb79387b943c10, type: 3}
@@ -7912,6 +7912,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.890147
       objectReference: {fileID: 0}
+    - target: {fileID: 2521461100884319969, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
+        type: 3}
+      propertyPath: MeshSizeIncrease
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 835441215670946578, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
         type: 3}
       propertyPath: keepGrowing
@@ -7921,11 +7926,6 @@ PrefabInstance:
         type: 3}
       propertyPath: unlimitedGrowth
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2521461100884319969, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
-        type: 3}
-      propertyPath: MeshSizeIncrease
-      value: 1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb1324c61cbcc8c4ea58d4449c6c42f7, type: 3}

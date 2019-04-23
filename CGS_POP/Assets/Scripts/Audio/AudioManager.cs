@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    [Header ("Sound Effects")]
 	public AudioSource Grow;
 	public AudioSource Pull;
 	public AudioSource Switch_1;
@@ -27,6 +28,11 @@ public class AudioManager : MonoBehaviour
     //public AudioSource effectsSound;
 	public AudioSource Circular_Saw;
 
+    [Header("Music")]
+    public AudioSource TestMusic;
+
+
+    [Header("Audio Manager")]
     public static AudioManager instance = null;
     //[SerializeField] List<AudioClip> abilityClips;
     //[SerializeField] List<AudioClip> musicClips;
@@ -43,7 +49,8 @@ public class AudioManager : MonoBehaviour
 		}
 		DontDestroyOnLoad(gameObject);
 
-	}
+	    TestMusic.Play();
+    }
 
     //public void PlayAbilitySound(AudioClip soundClip)
     //{

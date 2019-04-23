@@ -14,11 +14,11 @@ public class GamePlayer : MonoBehaviour
     //Player Health
     public int playerHealth = 1;
 
-	// Audio Management
-	AudioManager audiMan;
+    // Audio Management
+    AudioManager audiMan;
 
-	//Particle Systems
-	ParticleSystem landCloud;
+    //Particle Systems
+    ParticleSystem landCloud;
     public float lengthOfLandingCloud = 30f;
     public ParticleSystem growParticle;
     public ParticleSystem pullParticle;
@@ -37,9 +37,9 @@ public class GamePlayer : MonoBehaviour
     // Jump Stats
     public float jumpHeight = 0.05f;
     public float jumpSpeed = 0.05f;
-    [SerializeField]protected float jumping;
+    [SerializeField] protected float jumping;
     private bool jumpState = false;
-    
+
     //Input Listeners
     private Vector3 moveVector;
     private bool jump;
@@ -51,6 +51,7 @@ public class GamePlayer : MonoBehaviour
     private bool greenLift;
     private bool redLift;
     private bool yellowLift;
+    private bool menuOpen;
 
     //Collider for detecting shapes at a distance
     private Collider[] areaOfInfluence;
@@ -66,18 +67,20 @@ public class GamePlayer : MonoBehaviour
     [HideInInspector] public bool colourYellow = false;
     [HideInInspector] public bool colourBlue = false;
 
-	//Bools for audio purposes
-	bool P1WasPressed = false;
-	bool P2WasPressed = false;
-	bool P3WasPressed = false;
-	bool P4WasPressed = false;
-	bool playerMoving = false;
+    //Bools for audio purposes
+    bool P1WasPressed = false;
+    bool P2WasPressed = false;
+    bool P3WasPressed = false;
+    bool P4WasPressed = false;
+    bool playerMoving = false;
 
     //Classes
-	private UniversalPhysics uPhysics;
+    private UniversalPhysics uPhysics;
     private Player player; // The Rewired Player
     private CharacterController cc;
     private Rigidbody rb;
+    private Menus menus;
+    private bool menuOpenClose = true;
 
     //Mesh and Collider nonsense
     private Mesh _mesh;
@@ -94,8 +97,11 @@ public class GamePlayer : MonoBehaviour
         cc = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         uPhysics = GetComponent<UniversalPhysics>();
-		audiMan = FindObjectOfType<AudioManager>();
-		landCloud = GetComponentInChildren<ParticleSystem>();
+        audiMan = FindObjectOfType<AudioManager>();
+        landCloud = GetComponentInChildren<ParticleSystem>();
+
+        //Menus
+        menus = FindObjectOfType<Menus>();
 
         CreateNewMesh();
 
@@ -106,13 +112,13 @@ public class GamePlayer : MonoBehaviour
     {
         ParticleSystem Dust = GetComponent<ParticleSystem>();
         ParticleSystem Sparkle = GetComponent<ParticleSystem>();
-
     }
 
     void Update()
     {
         GetInput();
         ProcessInput();
+
         if (playerHealth < 1)
         {
             Spawning();
@@ -130,19 +136,19 @@ public class GamePlayer : MonoBehaviour
             floatParticle.Stop();
     }
 
-        void DustStart()
+    void DustStart()
+    {
         {
-            {
-                Instantiate(Dust, transform.position, Quaternion.Euler(0, 0, 0));
-            }
+            Instantiate(Dust, transform.position, Quaternion.Euler(0, 0, 0));
         }
+    }
 
-        void SparkleStart()
+    void SparkleStart()
+    {
         {
-            {
-                Instantiate(Sparkle, transform.position, Quaternion.Euler(0, 0, 0));
-            }
+            Instantiate(Sparkle, transform.position, Quaternion.Euler(0, 0, 0));
         }
+    }
 
 
     #region Inputs
@@ -152,8 +158,7 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     private void GetInput()
     {
-        // Get the input from the Rewired Player. All controllers that the Player owns will contribute, so it doesn't matter
-        // whether the input is coming from a joystick, the keyboard, mouse, or a custom controller.
+        // Get the input from the Rewired Player. All controllers that the Player owns will contribute, so it doesn't matter whether the input is coming from a joystick, the keyboard, mouse, or acustom controller.
 
         moveVector.x = player.GetAxis("MoveHorizontal"); // get input by name or action id
         jump = player.GetButtonDown("Jump");
@@ -178,6 +183,9 @@ public class GamePlayer : MonoBehaviour
         greenLift = player.GetButtonUp("Green");
         redLift = player.GetButtonUp("Red");
         yellowLift = player.GetButtonUp("Yellow");
+
+        //Menu Button
+        menuOpen = player.GetButtonDown("Start");
     }
 
     /// <summary>
@@ -185,51 +193,87 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     private void ProcessInput()
     {
-		// Process movement
-		if (moveVector.x != 0.0f || moveVector.y != 0.0f)
-		{
-			moveVector *= moveSpeed;
-			playerMoving = true;
-		}
-		else playerMoving = false;
-
-        // Process actions
-        if (jump)
+        //Menu Navigation
+        if (!menuOpenClose) //frames
         {
-			if (jumping == 0f)
+            //if (moveVector.x > 0f)
+            //{
+            //    menus.NavigateLeftRightButton(true);
+            //}
+            //if (moveVector.x < 0f)
+            //{
+            //    menus.NavigateLeftRightButton(false);
+            //}
+
+            if (blue)
             {
-				audiMan.Jump.Play();
-				jumping = jumpHeight;
-                jumpState = true;
+                menus.PressButton();
             }
         }
-        if (jumpState)
+        else
         {
-			Jump();
+            // Process movement
+            if (moveVector.x != 0.0f || moveVector.y != 0.0f)
+            {
+                moveVector *= moveSpeed;
+                playerMoving = true;
+            }
+            else playerMoving = false;
+
+            // Process actions
+            if (jump)
+            {
+                if (jumping == 0f)
+                {
+                    audiMan.Jump.Play();
+                    jumping = jumpHeight;
+                    jumpState = true;
+                }
+            }
+
+            if (jumpState)
+            {
+                Jump();
+            }
+
+            if (blue || green || red || yellow)
+            {
+                DoAbility();
+            }
+
+            if (blueLift || greenLift || redLift || yellowLift)
+            {
+                P1T = false;
+                P2T = false;
+                P3T = false;
+                P4T = false;
+                colourBlue = false;
+                colourGreen = false;
+                colourRed = false;
+                colourYellow = false;
+            }
+
+            //Work out the force from the movement from CC then use that for continus force on the egg
+            transform.Rotate(new Vector3(0f, 1f, 0f), (moveVector.x * rollingSpeed));
+
+            //uPhysics.gravity.y);
+            cc.Move(new Vector3(moveVector.x, jumping, 0f));
+            transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         }
 
-        if(blue || green || red || yellow)
+        if (menuOpen)
         {
-            DoAbility();
+            if (menuOpenClose)
+            {
+                menus.OpenMainMenu(true);
+                menuOpenClose = false;
+            }
+            else
+            {
+                menus.OpenMainMenu(false);
+                menuOpenClose = true;
+            }
         }
-
-        if (blueLift || greenLift || redLift || yellowLift)
-        {
-            P1T = false;
-            P2T = false;
-            P3T = false;
-            P4T = false;
-            colourBlue = false;
-            colourGreen = false;
-            colourRed = false;
-            colourYellow = false;
-        }
-
-        //Work out the force from the movement from CC then use that for continus force on the egg
-        transform.Rotate(new Vector3(0f, 1f, 0f), (moveVector.x * rollingSpeed)); //uPhysics.gravity.y);
-        cc.Move(new Vector3(moveVector.x, jumping, 0f));
-        transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
-
     }
 
     #endregion
@@ -241,14 +285,14 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     void Jump()
     {
-		//if (jumping > 0f)
-		jumping += uPhysics.velocity.y*jumpSpeed; //Mathf.Lerp(jumpSpeed * Time.deltaTime, -(uPhysics.velocity.y) * Time.deltaTime, 0.5f);
+        //if (jumping > 0f)
+        jumping += uPhysics.velocity.y * jumpSpeed; //Mathf.Lerp(jumpSpeed * Time.deltaTime, -(uPhysics.velocity.y) * Time.deltaTime, 0.5f);
 
         if (cc.isGrounded && jumping < 0f)
         {
             jumping = 0f;
             jumpState = false;
-			audiMan.Land.Play();
+            audiMan.Land.Play();
             StartCoroutine("LandingDustCloud");
         }
     }
@@ -277,20 +321,20 @@ public class GamePlayer : MonoBehaviour
         switch (playerId)
         {
             case 0:
-				P1WasPressed = true;
+                P1WasPressed = true;
                 AbilityGrow();
                 break;
             case 1:
-				P2WasPressed = true;
-				AbilityPull();
+                P2WasPressed = true;
+                AbilityPull();
                 break;
             case 2:
-				P3WasPressed = true;
-				AbilitySwitch();
+                P3WasPressed = true;
+                AbilitySwitch();
                 break;
             case 3:
-				P4WasPressed = true;
-				AbilityFloat();
+                P4WasPressed = true;
+                AbilityFloat();
                 break;
         }
     }
@@ -348,10 +392,16 @@ public class GamePlayer : MonoBehaviour
     private void FindObjectsInRange()
     {
         //areaOfInfluence = Physics.OverlapSphere(transform.position, areaOfInfluenceRadius);
-        areaOfInfluence = RotaryHeart.Lib.PhysicsExtension.Physics.OverlapSphere(transform.position,
-            areaOfInfluenceRadius, -1, RotaryHeart.Lib.PhysicsExtension.Physics.PreviewCondition.Editor);
+        areaOfInfluence = RotaryHeart.Lib.PhysicsExtension.Physics.OverlapSphere
+
+(transform.position,
+            areaOfInfluenceRadius, -1,
+
+RotaryHeart.Lib.PhysicsExtension.Physics.PreviewCondition.Editor);
         GameObject orb = (GameObject)Resources.Load("SphereOfInfluence");
-        orb.transform.localScale = new Vector3(areaOfInfluenceRadius * 2, areaOfInfluenceRadius * 2, areaOfInfluenceRadius * 2);
+        orb.transform.localScale = new Vector3(areaOfInfluenceRadius * 2,
+
+areaOfInfluenceRadius * 2, areaOfInfluenceRadius * 2);
 
         Instantiate(orb, transform.position, Quaternion.identity); //REMEMBER as GameObject
     }
@@ -418,25 +468,14 @@ public class GamePlayer : MonoBehaviour
                 vec3.y = verticsPos[i].y;
             }
         }
-        
 
         for (int i = 0; i < lengthOfLandingCloud; i++)
         {
-
-            //vec3 = new Vector3(transform.position.x, transform.position.y,
-            //    transform.position.z);
-            //vec3 = landCloud.transform.worldToLocalMatrix * transform.position;
-            //vec3 = new Vector3(vec3.x, vec3.y - 1f, vec3.z);
-            //vec3 = Vector3.zero + landCloud.transform.parent.localPosition;    
-            //new Vector3(landCloud.transform.localPosition.x, landCloud.transform.localPosition.y,
-            //    landCloud.transform.localPosition.z - 1f);
-
             landCloud.transform.position = vec3;
-
             landCloud.transform.rotation = Quaternion.identity;
             yield return 0;
         }
-        
+
         landCloud.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
     }
 

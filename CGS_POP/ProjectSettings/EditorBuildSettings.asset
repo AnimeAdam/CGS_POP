@@ -9,9 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/TitleSceen.unity
     guid: 8c4829d76dd2e6a41b17af13e3195544
   - enabled: 1
+    path: Assets/Scenes/Levels/Level_Select.unity
+    guid: ab0d0fba3e645484395996b9477f0184
+  - enabled: 1
+    path: Assets/Scenes/Levels/Options.unity
+    guid: 08316bd7e16009c4e80571f4749a06df
+  - enabled: 1
     path: Assets/Scenes/Levels/ThePool.unity
     guid: 36a852bdc46d0064b97390fbf6f5de5a
   - enabled: 1
-    path: Assets/Scenes/Levels/Level_Select.unity
-    guid: ab0d0fba3e645484395996b9477f0184
+    path: Assets/Scenes/Levels/FlipPool.unity
+    guid: dd95dbc7d94127440885267f62bbb7b5
+  - enabled: 1
+    path: Assets/Scenes/Levels/Amusement Park.unity
+    guid: 6685e2be865d8ee4eb07bf8a8604a2dc
   m_configObjects: {}
