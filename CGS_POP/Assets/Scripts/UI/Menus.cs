@@ -23,11 +23,14 @@ public class Menus : MonoBehaviour
     private int currentButton;
     private int previousButton;
 
+    // Audio Management
+    AudioManager audiMan;
 
     void Awake()
     {
         SetObjects();
         HideMenus();
+        audiMan = FindObjectOfType<AudioManager>();
     }
 
 
@@ -67,9 +70,11 @@ public class Menus : MonoBehaviour
             Time.timeScale = 0;
             eventSys.SetSelectedGameObject(mainMenuButtons[0].gameObject);
             SetCurrentButtonMenu(0, mainMenuButtons[0], mainMenuButtons);
+            audiMan.TestMusic.Stop();
         }
         else
         {
+            audiMan.TestMusic.Play();
             ClearMenuButtons();
             mainMenu.SetActive(false);
         }
@@ -139,6 +144,7 @@ public class Menus : MonoBehaviour
         Time.timeScale = 1;
         //FindObjectOfType<GamePlayer>().
         GamePlayer.menuOpenClose = true;
+        audiMan.TestMusic.Play();
     }
 
     #endregion
@@ -148,6 +154,7 @@ public class Menus : MonoBehaviour
     //Keep around incase something else doesn't work
     public void NavigateLeftRightButton(bool direction) //true = right false = left
     {
+        audiMan.MenuSound.Play();
         if (direction)
         {
             previousButton = currentButton;

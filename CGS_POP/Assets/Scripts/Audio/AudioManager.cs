@@ -27,6 +27,7 @@ public class AudioManager : MonoBehaviour
     //public AudioSource levelMusic;
     //public AudioSource effectsSound;
 	public AudioSource Circular_Saw;
+    public AudioSource MenuSound;
 
     [Header("Music")]
     public AudioSource TestMusic;
