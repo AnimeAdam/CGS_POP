@@ -117,7 +117,8 @@ public class Menus : MonoBehaviour
 
     public void ExitGame()
     {
-        Application.Quit();
+        ClearMenuButtons();
+        SceneManager.LoadScene(0);
     }
 
     #endregion
