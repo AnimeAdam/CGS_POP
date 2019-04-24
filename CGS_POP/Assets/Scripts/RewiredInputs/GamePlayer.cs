@@ -366,7 +366,7 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     void AbilityPull()
     {
-        FindObjectsInRange();
+        //FindObjectsInRange();
         P2T = true;
         if (!(GameObject.Find("Ability_Pull(Clone)")))
         {
@@ -404,8 +404,8 @@ public class GamePlayer : MonoBehaviour
     private void FindObjectsInRange()
     {
         //areaOfInfluence = Physics.OverlapSphere(transform.position, areaOfInfluenceRadius);
-        areaOfInfluence = RotaryHeart.Lib.PhysicsExtension.Physics.OverlapSphere(transform.position, 
-            areaOfInfluenceRadius, -1, RotaryHeart.Lib.PhysicsExtension.Physics.PreviewCondition.Editor);
+        //areaOfInfluence = RotaryHeart.Lib.PhysicsExtension.Physics.OverlapSphere(transform.position, 
+        //    areaOfInfluenceRadius, -1, RotaryHeart.Lib.PhysicsExtension.Physics.PreviewCondition.Editor);
 
         GameObject orb = (GameObject)Resources.Load("SphereOfInfluence");
         orb.transform.localScale = new Vector3(areaOfInfluenceRadius * 2, 

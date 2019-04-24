@@ -170,25 +170,6 @@ public class Menus : MonoBehaviour
     {
         audiMan.MenuSound.Play();
 
-        mainMenu.GetComponent<Image>().sprite = menuSprites[currentButton];
-        //switch (currentButton)
-        //{
-        //    case 0:
-        //        break;
-
-        //    case 1:
-        //        mainMenu.GetComponent<Image>().sprite = menuSprites[currentButton];
-        //        break;
-
-        //    case 2:
-        //        mainMenu.GetComponent<Image>().sprite = menuSprites[currentButton];
-        //        break;
-
-        //    default:
-        //        Debug.Log("ERROR MENU SPRITE");
-        //        break;
-        //}
-
         if (direction)
         {
             previousButton = currentButton;
@@ -221,6 +202,8 @@ public class Menus : MonoBehaviour
                 highlightedButton = mainMenuButtons[currentButton];
             }
         }
+
+        mainMenu.GetComponent<Image>().sprite = menuSprites[currentButton];
     }
 
     public void PressButton()
