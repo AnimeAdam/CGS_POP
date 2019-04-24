@@ -25,7 +25,7 @@ public class GamePlayer : MonoBehaviour
     public ParticleSystem switchParticle;
     public ParticleSystem floatParticle;
     Vector3 spawnOffset = new Vector3();
-    float pauseTime;
+    private int pauseTime = 0;
 
     // The Rewired player id of this character
     public int playerId = 0;
@@ -118,6 +118,15 @@ public class GamePlayer : MonoBehaviour
     {
         GetInput();
         ProcessInput();
+
+        if (pauseTime == 30)
+        {
+            pauseTime = 0;
+        }
+        else
+        {
+            pauseTime++;
+        }
 
         if (playerHealth < 1)
         {
@@ -344,10 +353,12 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     void AbilityGrow()
     {
-        spawnOffset.x = transform.position.x;
-        spawnOffset.y = transform.position.y + 1;
-        spawnOffset.z = transform.position.z;
         P1T = true;
+        if (!(GameObject.Find("Ability_Grow(Clone)")))
+        {
+            spawnOffset = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1f);
+            Instantiate(growParticle, spawnOffset, Quaternion.Euler(90, 0, 0));
+        }
     }
 
     /// <summary>
@@ -355,11 +366,13 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     void AbilityPull()
     {
-        spawnOffset.x = transform.position.x;
-        spawnOffset.y = transform.position.y + 1;
-        spawnOffset.z = transform.position.z;
         FindObjectsInRange();
         P2T = true;
+        if (!(GameObject.Find("Ability_Pull(Clone)")))
+        {
+            spawnOffset = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1f);
+            Instantiate(pullParticle, spawnOffset, Quaternion.Euler(90, 0, 0));
+        }
     }
 
     /// <summary>
@@ -368,11 +381,8 @@ public class GamePlayer : MonoBehaviour
     void AbilitySwitch()
     {
         P3T = true;
-        spawnOffset.x = transform.position.x;
-        spawnOffset.y = transform.position.y + 1;
-        spawnOffset.z = transform.position.z;
-        Instantiate(switchParticle, spawnOffset, Quaternion.Euler(90, 0, 0));
-        switchParticle.Stop();
+        Instantiate(switchParticle, transform.position, Quaternion.Euler(90, 0, 0));
+        switchParticle.Stop(true, ParticleSystemStopBehavior.StopEmitting);
     }
 
     /// <summary>
@@ -380,10 +390,12 @@ public class GamePlayer : MonoBehaviour
     /// </summary>
     void AbilityFloat()
     {
-        spawnOffset.x = transform.position.x;
-        spawnOffset.y = transform.position.y + 1;
-        spawnOffset.z = transform.position.z;
         P4T = true;
+        if (!(GameObject.Find("Ability_Float(Clone)")))
+        {
+            spawnOffset = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1f);
+            Instantiate(floatParticle, spawnOffset, Quaternion.Euler(90, 0, 0));
+        }
     }
 
     /// <summary>

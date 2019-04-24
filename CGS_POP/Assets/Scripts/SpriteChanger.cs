@@ -12,7 +12,7 @@ public class SpriteChanger : MonoBehaviour
     void Start()
     {
         _psm = GetComponent<ParticleSystemRenderer>();
-        InvokeRepeating("ParticleMaterialChanger", 0.2f, 0.2f);    
+        InvokeRepeating("ParticleMaterialChanger", 0.2f, 0.2f);
     }
 
     void ParticleMaterialChanger() {
