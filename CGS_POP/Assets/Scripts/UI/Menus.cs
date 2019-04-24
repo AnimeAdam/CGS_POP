@@ -30,7 +30,8 @@ public class Menus : MonoBehaviour
     private int minutesPassed = 0;
     private float realTimeSeconds = 0f;
     private Text timer;
-    private bool startTimer = true;
+    private bool secondsMin = true;
+    private bool startTimer = true; //Start and stop timer
 
     void Awake()
     {
@@ -51,7 +52,10 @@ public class Menus : MonoBehaviour
     void Update()
     {
         LevelDebugMenu();
-        PassingOfTime();
+        if (startTimer)
+        {
+            PassingOfTime();
+        }
     }
 
     #region MenuOpenActions
@@ -214,15 +218,28 @@ public class Menus : MonoBehaviour
     {
         realTimeSeconds += Time.unscaledDeltaTime;
 
-        //if (realTimeSeconds % 60f)
-        //{
-        //    minutesPassed++;
-        //    timer.text = ("Time: " +  minutesPassed + ":00");
-        //}
-        //else
-        //{
-        //    timer.text = ("Time: " + minutesPassed + ":" + Mathf.Round(realTimeSeconds));
-        //}
+        if (Mathf.Round(realTimeSeconds) % 60 == 0 && secondsMin)
+        {
+           secondsMin = false;
+           minutesPassed++;
+		   realTimeSeconds = 0f;
+           timer.text = ("Time: " +  minutesPassed + ":00");
+        }
+        else if(!(Mathf.Round(realTimeSeconds) % 60 == 0))
+        {
+            if (!secondsMin)
+            {
+                secondsMin = true;
+            }
+            if (Mathf.Round(realTimeSeconds) < 10)
+            {
+                timer.text = ("Time: " + minutesPassed + ":0" + Mathf.Round(realTimeSeconds));
+            }
+            else
+            {
+                timer.text = ("Time: " + minutesPassed + ":" + Mathf.Round(realTimeSeconds));
+            }
+        }
     }
 
     #endregion
