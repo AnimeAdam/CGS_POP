@@ -26,11 +26,18 @@ public class Menus : MonoBehaviour
     // Audio Management
     AudioManager audiMan;
 
+    //Timer
+    private int minutesPassed = 0;
+    private float realTimeSeconds = 0f;
+    private Text timer;
+    private bool startTimer = true;
+
     void Awake()
     {
         SetObjects();
         HideMenus();
         audiMan = FindObjectOfType<AudioManager>();
+        timer = GameObject.Find("Timer").GetComponent<Text>();
     }
 
 
@@ -44,6 +51,7 @@ public class Menus : MonoBehaviour
     void Update()
     {
         LevelDebugMenu();
+        PassingOfTime();
     }
 
     #region MenuOpenActions
@@ -196,6 +204,25 @@ public class Menus : MonoBehaviour
         {
             eventSys.currentSelectedGameObject.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
         }
+    }
+
+    #endregion
+
+    #region TimerFunctions
+
+    void PassingOfTime()
+    {
+        realTimeSeconds += Time.unscaledDeltaTime;
+
+        //if (realTimeSeconds % 60f)
+        //{
+        //    minutesPassed++;
+        //    timer.text = ("Time: " +  minutesPassed + ":00");
+        //}
+        //else
+        //{
+        //    timer.text = ("Time: " + minutesPassed + ":" + Mathf.Round(realTimeSeconds));
+        //}
     }
 
     #endregion
