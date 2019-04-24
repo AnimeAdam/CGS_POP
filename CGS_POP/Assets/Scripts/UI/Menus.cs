@@ -22,6 +22,7 @@ public class Menus : MonoBehaviour
     private UnityEngine.UI.Button highlightedButton;
     private int currentButton;
     private int previousButton;
+    public Sprite[] menuSprites = new Sprite[3];
 
     // Audio Management
     AudioManager audiMan;
@@ -168,6 +169,26 @@ public class Menus : MonoBehaviour
     public void NavigateLeftRightButton(bool direction) //true = right false = left
     {
         audiMan.MenuSound.Play();
+
+        mainMenu.GetComponent<Image>().sprite = menuSprites[currentButton];
+        //switch (currentButton)
+        //{
+        //    case 0:
+        //        break;
+
+        //    case 1:
+        //        mainMenu.GetComponent<Image>().sprite = menuSprites[currentButton];
+        //        break;
+
+        //    case 2:
+        //        mainMenu.GetComponent<Image>().sprite = menuSprites[currentButton];
+        //        break;
+
+        //    default:
+        //        Debug.Log("ERROR MENU SPRITE");
+        //        break;
+        //}
+
         if (direction)
         {
             previousButton = currentButton;
