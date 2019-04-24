@@ -254,7 +254,7 @@ public class GamePlayer : MonoBehaviour
             }
 
             //Work out the force from the movement from CC then use that for continus force on the egg
-            transform.Rotate(new Vector3(0f, 1f, 0f), (moveVector.x * rollingSpeed));
+            transform.Rotate(new Vector3(0f, 0f, -1f), (moveVector.x * rollingSpeed));
 
             //uPhysics.gravity.y);
             cc.Move(new Vector3(moveVector.x, jumping, 0f));
@@ -392,16 +392,12 @@ public class GamePlayer : MonoBehaviour
     private void FindObjectsInRange()
     {
         //areaOfInfluence = Physics.OverlapSphere(transform.position, areaOfInfluenceRadius);
-        areaOfInfluence = RotaryHeart.Lib.PhysicsExtension.Physics.OverlapSphere
+        areaOfInfluence = RotaryHeart.Lib.PhysicsExtension.Physics.OverlapSphere(transform.position, 
+            areaOfInfluenceRadius, -1, RotaryHeart.Lib.PhysicsExtension.Physics.PreviewCondition.Editor);
 
-(transform.position,
-            areaOfInfluenceRadius, -1,
-
-RotaryHeart.Lib.PhysicsExtension.Physics.PreviewCondition.Editor);
         GameObject orb = (GameObject)Resources.Load("SphereOfInfluence");
-        orb.transform.localScale = new Vector3(areaOfInfluenceRadius * 2,
-
-areaOfInfluenceRadius * 2, areaOfInfluenceRadius * 2);
+        orb.transform.localScale = new Vector3(areaOfInfluenceRadius * 2, 
+            areaOfInfluenceRadius * 2, areaOfInfluenceRadius * 2);
 
         Instantiate(orb, transform.position, Quaternion.identity); //REMEMBER as GameObject
     }
@@ -439,7 +435,7 @@ areaOfInfluenceRadius * 2, areaOfInfluenceRadius * 2);
             _vertices[i].x *= 1.2f;
             _vertices[i].y *= 1.2f;
             _vertices[i].z *= 1.2f;
-            _vertices[i].z -= .2f;
+            //_vertices[i].z -= .2f;
             //_vertices[i] *= 2;          //Might need scalar
         }
         _mesh.vertices = _vertices;

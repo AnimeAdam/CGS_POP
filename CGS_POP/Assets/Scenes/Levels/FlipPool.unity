@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1755,16 +1755,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.13
-      objectReference: {fileID: 0}
     - target: {fileID: 5345011814176489391, guid: 97113bc2729f0844e909e1f119430a39,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1823,42 +1813,52 @@ PrefabInstance:
     - target: {fileID: 5345011814176489391, guid: 97113bc2729f0844e909e1f119430a39,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5345011814176489391, guid: 97113bc2729f0844e909e1f119430a39,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.7
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.63
       objectReference: {fileID: 0}
     - target: {fileID: 8513826966200007741, guid: 97113bc2729f0844e909e1f119430a39,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.01
+      value: 5.31
       objectReference: {fileID: 0}
     - target: {fileID: 8513826966200007741, guid: 97113bc2729f0844e909e1f119430a39,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.73
+      value: -1.17
       objectReference: {fileID: 0}
     - target: {fileID: 7113347804204104708, guid: 97113bc2729f0844e909e1f119430a39,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.7
+      value: 3.54
       objectReference: {fileID: 0}
     - target: {fileID: 7113347804204104708, guid: 97113bc2729f0844e909e1f119430a39,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.36
+      value: -2.97
       objectReference: {fileID: 0}
     - target: {fileID: 3011954105916891703, guid: 97113bc2729f0844e909e1f119430a39,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.99
+      value: 5.24
       objectReference: {fileID: 0}
     - target: {fileID: 3011954105916891703, guid: 97113bc2729f0844e909e1f119430a39,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.92
+      value: -4.84
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97113bc2729f0844e909e1f119430a39, type: 3}
@@ -6928,6 +6928,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1433997632, guid: e69b1344693a33b40bbb79387b943c10, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.2999878
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e69b1344693a33b40bbb79387b943c10, type: 3}
 --- !u!1001 &1888371881
@@ -7917,6 +7921,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.890147
       objectReference: {fileID: 0}
+    - target: {fileID: 2521461100884319969, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
+        type: 3}
+      propertyPath: MeshSizeIncrease
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 835441215670946578, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
         type: 3}
       propertyPath: keepGrowing
@@ -7926,11 +7935,6 @@ PrefabInstance:
         type: 3}
       propertyPath: unlimitedGrowth
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2521461100884319969, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
-        type: 3}
-      propertyPath: MeshSizeIncrease
-      value: 1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb1324c61cbcc8c4ea58d4449c6c42f7, type: 3}
