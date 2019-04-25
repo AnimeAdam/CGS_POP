@@ -22,6 +22,9 @@ public class PlayerWins : MonoBehaviour
     Transform flagCloth;
 
     //Scene Manager
+    public bool defaultLevel = false;
+    public bool exitGame = false;
+    public int levelToGoTo;
     private Menus menu;
 
 
@@ -89,9 +92,22 @@ public class PlayerWins : MonoBehaviour
                 playerText.color = Color.cyan;
                 playerText.text = "Level Complete!";
             }
-
-		    GoToNextLevel();
-		}
+		    if (exitGame)
+		    {
+		        Application.Quit();
+		    }
+		    else
+		    {
+		        if (!defaultLevel)
+		        {
+		            GoToNextLevel();
+		        }
+		        else
+		        {
+		            ScenesManager.GoToNextScene(levelToGoTo);
+		        }
+		    }
+        }
 
 		if (other.gameObject.tag == "Player" && other is MeshCollider)
 		{
