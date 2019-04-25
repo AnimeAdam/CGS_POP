@@ -86,6 +86,7 @@ public class PlayerWins : MonoBehaviour
             if(go)
             {
                 Text playerText = go.GetComponent<Text>();
+                playerText.color = Color.cyan;
                 playerText.text = "Level Complete!";
             }
 
