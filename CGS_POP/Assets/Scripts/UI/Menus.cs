@@ -84,12 +84,14 @@ public class Menus : MonoBehaviour
             eventSys.SetSelectedGameObject(mainMenuButtons[0].gameObject);
             SetCurrentButtonMenu(0, mainMenuButtons[0], mainMenuButtons);
             audiMan.TestMusic.Stop();
+            startTimer = false;
         }
         else
         {
             audiMan.TestMusic.Play();
             ClearMenuButtons();
             mainMenu.SetActive(false);
+            startTimer = true;
         }
     }
 
@@ -228,7 +230,7 @@ public class Menus : MonoBehaviour
            secondsMin = false;
            minutesPassed++;
 		   realTimeSeconds = 0f;
-           timer.text = ("Time: " +  minutesPassed + ":00");
+           timer.text = ("Time: " + minutesPassed + ":00");
         }
         else if(!(Mathf.Round(realTimeSeconds) % 60 == 0))
         {

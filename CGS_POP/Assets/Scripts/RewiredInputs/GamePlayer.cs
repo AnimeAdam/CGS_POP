@@ -33,6 +33,7 @@ public class GamePlayer : MonoBehaviour
     // The movement speed of this character
     public float moveSpeed = 3.0f;
     public float rollingSpeed = 1f;
+    private bool stopMoving = false;
 
     // Jump Stats
     public float jumpHeight = 0.05f;
@@ -128,11 +129,11 @@ public class GamePlayer : MonoBehaviour
             pauseTime++;
         }
 
-        if (playerHealth < 1)
+        if (playerHealth != 1)
         {
+            StartCoroutine("StopMoving");
             Spawning();
-            DustStart();
-            SparkleStart();
+            DustSparkle();
         }
 
         if (P1WasPressed == false)
@@ -145,18 +146,23 @@ public class GamePlayer : MonoBehaviour
             floatParticle.Stop();
     }
 
-    void DustStart()
+    void DustSparkle()
     {
+        Sparkle.Play();
+        //Just for landCloud
+        Vector3 vec3 = new Vector3(transform.position.x, 5000f, transform.position.z);
+        Vector3[] verticsPos = GetComponent<MeshFilter>().mesh.vertices;
+        for (int i = 0; i < verticsPos.Length; i++)
         {
-            Instantiate(Dust, transform.position, Quaternion.Euler(0, 0, 0));
+            verticsPos[i] = transform.TransformPoint(verticsPos[i]);
+            if (verticsPos[i].y < vec3.y)
+            {
+                vec3.y = verticsPos[i].y;
+            }
         }
-    }
+        landCloud.transform.position = vec3;
+        landCloud.Play();
 
-    void SparkleStart()
-    {
-        {
-            Instantiate(Sparkle, transform.position, Quaternion.Euler(0, 0, 0));
-        }
     }
 
 
@@ -169,8 +175,11 @@ public class GamePlayer : MonoBehaviour
     {
         // Get the input from the Rewired Player. All controllers that the Player owns will contribute, so it doesn't matter whether the input is coming from a joystick, the keyboard, mouse, or acustom controller.
 
-        moveVector.x = player.GetAxis("MoveHorizontal"); // get input by name or action id
-        jump = player.GetButtonDown("Jump");
+        if (!stopMoving)
+        {
+            moveVector.x = player.GetAxis("MoveHorizontal"); // get input by name or action id
+            jump = player.GetButtonDown("Jump");
+        }
 
         if (playerId == 2)
         {
@@ -221,53 +230,56 @@ public class GamePlayer : MonoBehaviour
         }
         else
         {
-            // Process movement
-            if (moveVector.x != 0.0f || moveVector.y != 0.0f)
+            if (!stopMoving)
             {
-                moveVector *= moveSpeed;
-                playerMoving = true;
-            }
-            else playerMoving = false;
-
-            // Process actions
-            if (jump)
-            {
-                if (jumping == 0f)
+                // Process movement
+                if (moveVector.x != 0.0f || moveVector.y != 0.0f)
                 {
-                    audiMan.Jump.Play();
-                    jumping = jumpHeight;
-                    jumpState = true;
+                    moveVector *= moveSpeed;
+                    playerMoving = true;
                 }
+                else playerMoving = false;
+
+                // Process actions
+                if (jump)
+                {
+                    if (jumping == 0f)
+                    {
+                        audiMan.Jump.Play();
+                        jumping = jumpHeight;
+                        jumpState = true;
+                    }
+                }
+
+                if (jumpState)
+                {
+                    Jump();
+                }
+
+                if (blue || green || red || yellow)
+                {
+                    DoAbility();
+                }
+
+                if (blueLift || greenLift || redLift || yellowLift)
+                {
+                    P1T = false;
+                    P2T = false;
+                    P3T = false;
+                    P4T = false;
+                    colourBlue = false;
+                    colourGreen = false;
+                    colourRed = false;
+                    colourYellow = false;
+                }
+
+                //Work out the force from the movement from CC then use that for continus force on the egg
+                transform.Rotate(new Vector3(0f, 0f, -1f), (moveVector.x * rollingSpeed));
+
+                //uPhysics.gravity.y);
+                cc.Move(new Vector3(moveVector.x, jumping, 0f));
+                transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
             }
-
-            if (jumpState)
-            {
-                Jump();
-            }
-
-            if (blue || green || red || yellow)
-            {
-                DoAbility();
-            }
-
-            if (blueLift || greenLift || redLift || yellowLift)
-            {
-                P1T = false;
-                P2T = false;
-                P3T = false;
-                P4T = false;
-                colourBlue = false;
-                colourGreen = false;
-                colourRed = false;
-                colourYellow = false;
-            }
-
-            //Work out the force from the movement from CC then use that for continus force on the egg
-            transform.Rotate(new Vector3(0f, 0f, -1f), (moveVector.x * rollingSpeed));
-
-            //uPhysics.gravity.y);
-            cc.Move(new Vector3(moveVector.x, jumping, 0f));
-            transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         }
 
         if (menuOpen)
@@ -416,6 +428,8 @@ public class GamePlayer : MonoBehaviour
 
     void Spawning()
     {
+        moveVector = Vector3.zero;
+        uPhysics.velocity = Vector3.zero;
         transform.position = spawnPoints;
         playerHealth = 1;
     }
@@ -444,9 +458,9 @@ public class GamePlayer : MonoBehaviour
         for (int i = 0; i < _vertices.Length; i++)
         {
             //_vertices[i].z -= (((_vertices[i].z * 2f) - _vertices[i].z) / 2f);
-            _vertices[i].x *= 1.2f;
-            _vertices[i].y *= 1.2f;
-            _vertices[i].z *= 1.2f;
+            _vertices[i].x *= 1.4f;
+            _vertices[i].y *= 1.4f;
+            _vertices[i].z *= 1.4f;
             //_vertices[i].z -= .2f;
             //_vertices[i] *= 2;          //Might need scalar
         }
@@ -485,6 +499,19 @@ public class GamePlayer : MonoBehaviour
         }
 
         landCloud.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+    }
+
+    IEnumerator StopMoving()
+    {
+        stopMoving = true;
+        for (int i = 0; i < 20; i++)
+        {
+            if (i == 19)
+            {
+                stopMoving = false;
+            }
+            yield return 0;
+        }
     }
 
     #endregion

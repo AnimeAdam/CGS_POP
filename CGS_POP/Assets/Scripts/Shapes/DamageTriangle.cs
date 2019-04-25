@@ -20,7 +20,15 @@ public class DamageTriangle : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Player") {
-			other.gameObject.GetComponent<GamePlayer>().playerHealth -= 1;
+			other.gameObject.GetComponent<GamePlayer>().playerHealth--;
 		}
 	}
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            other.gameObject.GetComponent<GamePlayer>().playerHealth--;
+        }
+    }
 }
