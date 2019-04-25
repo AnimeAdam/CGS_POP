@@ -19,6 +19,8 @@ public class KeyManager : MonoBehaviour
     [SerializeField] private float pullSpeed = 4f;                                          //How fast the shapes pulls towards the player
     [SerializeField] private float floatSpeed = 1f;                                         //How fast the shapes float upwards the player
     private bool stopFloating = false;
+    private Vector3 growthSpeedX;
+    private Vector3 growthSpeedY;
 
     [Header("Shape Management")]
     private Transform[] shapesTransforms;
@@ -68,6 +70,11 @@ public class KeyManager : MonoBehaviour
         circleKey = Resources.Load("Prefabs/CircleKey") as GameObject;
         squareKey = Resources.Load("Prefabs/SquareKey") as GameObject;
         triangleKey = Resources.Load("Prefabs/TriangleKey") as GameObject;
+
+
+        //Growth Management
+        growthSpeedX = new Vector3(growthSpeed.x, 0f, 0f);
+        growthSpeedY = new Vector3(0f, growthSpeed.y, 0f);
 
     }
 
@@ -196,17 +203,42 @@ public class KeyManager : MonoBehaviour
         {
             if (_ts.tag == CheckForColour(_player1))
             {
-                //if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().stopGrowth)
-                //{
-                //    if (growthLimit == 0)
-                //    {
-                //        _ts.localScale += growthSpeed;
-                //    }
-                //    else if (_ts.localScale.x < growthLimit)
-                //    {
-                //        _ts.localScale += growthSpeed;
-                //    }
-                //}
+                if (growthLimit == 0 || _ts.gameObject.GetComponent<ShapeCollisionChecker>().unlimitedGrowth)
+                {
+                    if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
+                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
+                    {
+                        _ts.localScale += growthSpeed;
+                    }
+                    if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY &&
+                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX)
+                    {
+                        _ts.localScale += growthSpeedY;
+                    }
+                    if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
+                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
+                    {
+                        _ts.localScale += growthSpeedX;
+                    }
+                }
+                else if (_ts.localScale.x < growthLimit && _ts.localScale.y < growthLimit)
+                {
+                    if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
+                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
+                    {
+                        _ts.localScale += growthSpeed;
+                    }
+                    if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY &&
+                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX)
+                    {
+                        _ts.localScale += growthSpeedY;
+                    }
+                    if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
+                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
+                    {
+                        _ts.localScale += growthSpeedX;
+                    }
+                }
             }
         }
 		shapesTransforms = GetShapesList();

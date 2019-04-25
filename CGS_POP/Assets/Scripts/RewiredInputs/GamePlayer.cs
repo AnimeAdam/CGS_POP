@@ -71,9 +71,8 @@ public class GamePlayer : MonoBehaviour
     //Bools for audio purposes
     bool P1WasPressed = false;
     bool P2WasPressed = false;
-    bool P3WasPressed = false;
+    bool P3WasPressed = false;    //This needs to be given SFX
     bool P4WasPressed = false;
-    bool playerMoving = false;
 
     //Classes
     private UniversalPhysics uPhysics;
@@ -216,11 +215,11 @@ public class GamePlayer : MonoBehaviour
         {
             if (moveVector.x > 0f && player.GetButtonDown("MoveHorizontal"))
             {
-                menus.NavigateLeftRightButton(true);
+                menus.NavigateLeftRightButton(true, menus.highlightedMenu);
             }
             if (moveVector.x < 0f && player.GetNegativeButtonDown("MoveHorizontal")) // 
             {
-                menus.NavigateLeftRightButton(false);
+                menus.NavigateLeftRightButton(false, menus.highlightedMenu);
             }
 
             if (blue)
@@ -236,9 +235,7 @@ public class GamePlayer : MonoBehaviour
                 if (moveVector.x != 0.0f || moveVector.y != 0.0f)
                 {
                     moveVector *= moveSpeed;
-                    playerMoving = true;
                 }
-                else playerMoving = false;
 
                 // Process actions
                 if (jump)
@@ -286,12 +283,12 @@ public class GamePlayer : MonoBehaviour
         {
             if (menuOpenClose)
             {
-                menus.OpenMainMenu(true);
+                menus.OpenMenu(true, menus.mainMenu);
                 menuOpenClose = false;
             }
             else
             {
-                menus.OpenMainMenu(false);
+                menus.OpenMenu(false, menus.mainMenu);
                 menuOpenClose = true;
             }
         }
@@ -430,6 +427,7 @@ public class GamePlayer : MonoBehaviour
     {
         moveVector = Vector3.zero;
         uPhysics.velocity = Vector3.zero;
+        cc.Move(Vector3.zero);
         transform.position = spawnPoints;
         playerHealth = 1;
     }

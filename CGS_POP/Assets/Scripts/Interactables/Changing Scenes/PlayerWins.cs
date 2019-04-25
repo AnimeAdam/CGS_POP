@@ -22,7 +22,7 @@ public class PlayerWins : MonoBehaviour
     Transform flagCloth;
 
     //Scene Manager
-    public int nextScene = 6;
+    private Menus menu;
 
 
 	// Start is called before the first frame update
@@ -30,6 +30,7 @@ public class PlayerWins : MonoBehaviour
     {
 		flagCloth = this.gameObject.transform.GetChild(0);
 		audiMan = FindObjectOfType<AudioManager>();
+        menu = FindObjectOfType<Menus>();
         ScenesManager.SetScenes(0);
     }
 
@@ -87,8 +88,9 @@ public class PlayerWins : MonoBehaviour
                 Text playerText = go.GetComponent<Text>();
                 playerText.text = "Level Complete!";
             }
-			StartCoroutine(GoToNextLevel());
-        }
+
+		    GoToNextLevel();
+		}
 
 		if (other.gameObject.tag == "Player" && other is MeshCollider)
 		{
@@ -109,10 +111,9 @@ public class PlayerWins : MonoBehaviour
 		flag4Sound = false;
 	}
 
-    IEnumerator GoToNextLevel()
+    void GoToNextLevel()
     {
-        yield return new WaitForSeconds(2f);
-        DestroyImmediate(GameObject.Find("PlayerManager"));
-        ScenesManager.GoToNextScene(nextScene);
+        menu.OpenMenu(true, menu.levelSelectMenu);
+        GamePlayer.menuOpenClose = false;
     }
 }
