@@ -9,16 +9,15 @@ using UnityEngine.SceneManagement;
 public class Menus : MonoBehaviour
 {
     //Menus
-    private GameObject debugLevelMenu;
-    private GameObject mainMenu;
+    [HideInInspector] public GameObject debugLevelMenu;
+    [HideInInspector] public GameObject mainMenu;
+    [HideInInspector] public GameObject levelSelectMenu;
 
     //Set up Gamepad Interface
     private EventSystem eventSys;
 
     //Menu Buttons
-    private UnityEngine.UI.Button[] debugLevelButtons;
-    private UnityEngine.UI.Button[] mainMenuButtons;
-    private UnityEngine.UI.Button[] highlightedMenu;
+    [HideInInspector] public UnityEngine.UI.Button[] highlightedMenu;
     private UnityEngine.UI.Button highlightedButton;
     private int currentButton;
     private int previousButton;
@@ -75,14 +74,15 @@ public class Menus : MonoBehaviour
         }
     }
 
-    public void OpenMainMenu(bool state)   //true = open; false = close
+    public void OpenMenu(bool state, GameObject menu)   //true = open; false = close
     {
         if (state)
         {
-            mainMenu.SetActive(true);
+            menu.SetActive(true);
             Time.timeScale = 0;
-            eventSys.SetSelectedGameObject(mainMenuButtons[0].gameObject);
-            SetCurrentButtonMenu(0, mainMenuButtons[0], mainMenuButtons);
+            eventSys.SetSelectedGameObject(menu);
+            SetCurrentButtonMenu(0, menu.GetComponentsInChildren<UnityEngine.UI.Button>()[0],
+                menu.GetComponentsInChildren<UnityEngine.UI.Button>());
             audiMan.TestMusic.Stop();
             startTimer = false;
         }
@@ -90,7 +90,7 @@ public class Menus : MonoBehaviour
         {
             audiMan.TestMusic.Play();
             ClearMenuButtons();
-            mainMenu.SetActive(false);
+            menu.SetActive(false);
             startTimer = true;
         }
     }
@@ -99,9 +99,10 @@ public class Menus : MonoBehaviour
 
     #region MenuButtonsActions
 
-    //Debug Level Menu
+    //Level Select Menu
     public void GoToScene(int _scene)
     {
+        ClearMenuButtons();
         SceneManager.LoadScene(_scene);
     }
 
@@ -124,8 +125,14 @@ public class Menus : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void ExitSoftware()
+    {
+        ClearMenuButtons();
+        Application.Quit();
+    }
+
     #endregion
-    
+
     #region SetObjects
 
     void SetObjects()
@@ -134,15 +141,14 @@ public class Menus : MonoBehaviour
 
         debugLevelMenu = GameObject.Find("DebugMenu");
         mainMenu = GameObject.Find("MainMenu");
-
-        mainMenuButtons = mainMenu.GetComponentsInChildren<UnityEngine.UI.Button>();
-        debugLevelButtons = debugLevelMenu.GetComponentsInChildren<UnityEngine.UI.Button>();
+        levelSelectMenu = GameObject.Find("LevelSelect");
     }
 
     void HideMenus()
     {
         debugLevelMenu.SetActive(false);
         mainMenu.SetActive(false);
+        levelSelectMenu.SetActive(false);
     }
 
     void SetCurrentButtonMenu(int butti, UnityEngine.UI.Button butt, UnityEngine.UI.Button[] menu)
@@ -150,6 +156,7 @@ public class Menus : MonoBehaviour
         currentButton = butti;
         highlightedButton = butt;
         highlightedMenu = menu;
+        eventSys.SetSelectedGameObject(menu[currentButton].gameObject);
     }
 
     void ClearMenuButtons()
@@ -158,7 +165,6 @@ public class Menus : MonoBehaviour
         highlightedButton = null;
         highlightedMenu = null;
         Time.timeScale = 1;
-        //FindObjectOfType<GamePlayer>().
         GamePlayer.menuOpenClose = true;
         audiMan.TestMusic.Play();
     }
@@ -167,8 +173,7 @@ public class Menus : MonoBehaviour
 
     #region ButtonNavigation
 
-    //Keep around incase something else doesn't work
-    public void NavigateLeftRightButton(bool direction) //true = right false = left
+    public void NavigateLeftRightButton(bool direction, UnityEngine.UI.Button[] menu) //true = right false = left
     {
         audiMan.MenuSound.Play();
 
@@ -178,14 +183,14 @@ public class Menus : MonoBehaviour
             if (currentButton != highlightedMenu.Length-1)
             {
                 currentButton++;
-                eventSys.SetSelectedGameObject(mainMenuButtons[currentButton].gameObject);
-                highlightedButton = mainMenuButtons[currentButton];
+                eventSys.SetSelectedGameObject(menu[currentButton].gameObject);
+                highlightedButton = menu[currentButton];
             }
             else
             {
                 currentButton = 0;
-                eventSys.SetSelectedGameObject(mainMenuButtons[currentButton].gameObject);
-                highlightedButton = mainMenuButtons[currentButton];
+                eventSys.SetSelectedGameObject(menu[currentButton].gameObject);
+                highlightedButton = menu[currentButton];
             }
         }
         else
@@ -194,18 +199,21 @@ public class Menus : MonoBehaviour
             if (currentButton != 0)
             {
                 currentButton--;
-                eventSys.SetSelectedGameObject(mainMenuButtons[currentButton].gameObject);
-                highlightedButton = mainMenuButtons[currentButton];
+                eventSys.SetSelectedGameObject(menu[currentButton].gameObject);
+                highlightedButton = menu[currentButton];
             }
             else
             {
                 currentButton = highlightedMenu.Length-1;
-                eventSys.SetSelectedGameObject(mainMenuButtons[currentButton].gameObject);
-                highlightedButton = mainMenuButtons[currentButton];
+                eventSys.SetSelectedGameObject(menu[currentButton].gameObject);
+                highlightedButton = menu[currentButton];
             }
         }
 
-        mainMenu.GetComponent<Image>().sprite = menuSprites[currentButton];
+        if (mainMenu.activeSelf)
+        {
+            mainMenu.GetComponent<Image>().sprite = menuSprites[currentButton];
+        }
     }
 
     public void PressButton()

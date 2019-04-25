@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   physicMaterial: {fileID: 0}
-  MeshSizeIncrease: 1.07
+  MeshSizeIncrease: 1.02
   NumberOfMeshes: 2
   isTriggered: 1
 --- !u!114 &8423445103632625141
