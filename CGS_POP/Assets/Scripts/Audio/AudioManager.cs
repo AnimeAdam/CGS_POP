@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    LevelID levelIdentity;
     [Header ("Sound Effects")]
 	public AudioSource Grow;
 	public AudioSource Pull;
@@ -27,10 +28,11 @@ public class AudioManager : MonoBehaviour
     //public AudioSource levelMusic;
     //public AudioSource effectsSound;
 	public AudioSource Circular_Saw;
+    public AudioSource PauseSound;
     public AudioSource MenuSound;
 
     [Header("Music")]
-    public AudioSource TestMusic;
+    public AudioSource[] TestMusic = new AudioSource[5];
 
 
     [Header("Audio Manager")]
@@ -41,6 +43,7 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
 	{
+        levelIdentity = FindObjectOfType<LevelID>();
 		if (instance == null)
 		{
 			instance = this;
@@ -50,7 +53,7 @@ public class AudioManager : MonoBehaviour
 		}
 		//DontDestroyOnLoad(gameObject);
 
-	    TestMusic.Play();
+	    TestMusic[levelIdentity.musicTrack].Play();
     }
 
     //public void PlayAbilitySound(AudioClip soundClip)

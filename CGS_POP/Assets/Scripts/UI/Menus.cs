@@ -12,6 +12,7 @@ public class Menus : MonoBehaviour
     [HideInInspector] public GameObject debugLevelMenu;
     [HideInInspector] public GameObject mainMenu;
     [HideInInspector] public GameObject levelSelectMenu;
+    LevelID levelIdentity;
 
     //Set up Gamepad Interface
     private EventSystem eventSys;
@@ -35,6 +36,7 @@ public class Menus : MonoBehaviour
 
     void Awake()
     {
+        levelIdentity = FindObjectOfType<LevelID>();
         SetObjects();
         HideMenus();
         audiMan = FindObjectOfType<AudioManager>();
@@ -83,12 +85,14 @@ public class Menus : MonoBehaviour
             eventSys.SetSelectedGameObject(menu);
             SetCurrentButtonMenu(0, menu.GetComponentsInChildren<UnityEngine.UI.Button>()[0],
                 menu.GetComponentsInChildren<UnityEngine.UI.Button>());
-            audiMan.TestMusic.Stop();
+            audiMan.TestMusic[levelIdentity.musicTrack].Pause();
+            audiMan.PauseSound.Play();
             startTimer = false;
         }
         else
         {
-            audiMan.TestMusic.Play();
+            audiMan.PauseSound.Play();
+            audiMan.TestMusic[levelIdentity.musicTrack].Play();
             ClearMenuButtons();
             menu.SetActive(false);
             startTimer = true;
@@ -166,7 +170,8 @@ public class Menus : MonoBehaviour
         highlightedMenu = null;
         Time.timeScale = 1;
         GamePlayer.menuOpenClose = true;
-        audiMan.TestMusic.Play();
+        audiMan.PauseSound.Play();
+        audiMan.TestMusic[levelIdentity.musicTrack].Play();
     }
 
     #endregion

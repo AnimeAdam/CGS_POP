@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1003,6 +1003,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.8100936
       objectReference: {fileID: 0}
+    - target: {fileID: 835441215670946578, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
+        type: 3}
+      propertyPath: squeezeY
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb1324c61cbcc8c4ea58d4449c6c42f7, type: 3}
 --- !u!4 &1056471839 stripped
@@ -1717,6 +1722,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.8100936
       objectReference: {fileID: 0}
+    - target: {fileID: 835441215670946578, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
+        type: 3}
+      propertyPath: squeezeY
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb1324c61cbcc8c4ea58d4449c6c42f7, type: 3}
 --- !u!1 &1732375850
@@ -1926,3 +1936,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97113bc2729f0844e909e1f119430a39, type: 3}
+--- !u!1001 &7160449400169644750
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7160449400664838806, guid: 6040326f2c61e5f4283ad4412201d998,
+        type: 3}
+      propertyPath: m_Name
+      value: Level ID
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160449400664838804, guid: 6040326f2c61e5f4283ad4412201d998,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.192247
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160449400664838804, guid: 6040326f2c61e5f4283ad4412201d998,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.857082
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160449400664838804, guid: 6040326f2c61e5f4283ad4412201d998,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1890625
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160449400664838804, guid: 6040326f2c61e5f4283ad4412201d998,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160449400664838804, guid: 6040326f2c61e5f4283ad4412201d998,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160449400664838804, guid: 6040326f2c61e5f4283ad4412201d998,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160449400664838804, guid: 6040326f2c61e5f4283ad4412201d998,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160449400664838804, guid: 6040326f2c61e5f4283ad4412201d998,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160449400664838804, guid: 6040326f2c61e5f4283ad4412201d998,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160449400664838804, guid: 6040326f2c61e5f4283ad4412201d998,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160449400664838804, guid: 6040326f2c61e5f4283ad4412201d998,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6040326f2c61e5f4283ad4412201d998, type: 3}
