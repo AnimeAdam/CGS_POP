@@ -28,7 +28,7 @@ public class Menus : MonoBehaviour
 
     //Timer
     private int minutesPassed = 0;
-    private float realTimeSeconds = 0f;
+    private float realTimeSeconds = 1f;
     private Text timer;
     private bool secondsMin = true;
     private bool startTimer = true; //Start and stop timer
@@ -218,7 +218,6 @@ public class Menus : MonoBehaviour
 
     public void PressButton()
     {
-        //highlightedButton.onClick.Invoke();
         if (eventSys.currentSelectedGameObject != null)
         {
             eventSys.currentSelectedGameObject.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();

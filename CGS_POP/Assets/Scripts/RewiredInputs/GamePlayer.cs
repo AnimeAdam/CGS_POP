@@ -79,6 +79,8 @@ public class GamePlayer : MonoBehaviour
     private Player player; // The Rewired Player
     private CharacterController cc;
     private Rigidbody rb;
+
+    //Menu
     private Menus menus;
     [HideInInspector] static public bool menuOpenClose = true;
 
@@ -288,8 +290,11 @@ public class GamePlayer : MonoBehaviour
             }
             else
             {
-                menus.OpenMenu(false, menus.mainMenu);
-                menuOpenClose = true;
+                if (menus.mainMenu.activeSelf)
+                {
+                    menus.OpenMenu(false, menus.mainMenu);
+                    menuOpenClose = true;
+                }
             }
         }
     }
