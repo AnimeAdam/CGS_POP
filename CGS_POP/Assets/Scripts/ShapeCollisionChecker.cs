@@ -12,10 +12,10 @@ public class ShapeCollisionChecker : MonoBehaviour
     public bool unlimitedGrowth = false;
     public bool squeezeX = false;
     public bool squeezeY = false;
+    public Vector3 growthSpeed = Vector3.zero;
 
     //Collision Lists
     private List<Collider> CollisionList = new List<Collider>();
-
 
     void Start()
     {

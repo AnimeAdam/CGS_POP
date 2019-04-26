@@ -206,17 +206,17 @@ public class ShapeManager : MonoBehaviour
                     if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
                         !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
                     {
-                        _ts.localScale += growthSpeed;
+                        _ts.localScale += growthSpeed + _ts.gameObject.GetComponent<ShapeCollisionChecker>().growthSpeed;
                     }
                     if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY &&
                         !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX)
                     {
-                        _ts.localScale += growthSpeedY;
+                        _ts.localScale += growthSpeedY + _ts.gameObject.GetComponent<ShapeCollisionChecker>().growthSpeed;
                     }
                     if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
                         !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
                     {
-                        _ts.localScale += growthSpeedX;
+                        _ts.localScale += growthSpeedX + _ts.gameObject.GetComponent<ShapeCollisionChecker>().growthSpeed;
                     }
                 }
                 else if (_ts.localScale.x < growthLimit && _ts.localScale.y < growthLimit)
@@ -224,17 +224,17 @@ public class ShapeManager : MonoBehaviour
                     if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
                         !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
                     {
-                        _ts.localScale += growthSpeed;
+                        _ts.localScale += growthSpeed + _ts.gameObject.GetComponent<ShapeCollisionChecker>().growthSpeed;
                     }
                     if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY &&
                         !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX)
                     {
-                        _ts.localScale += growthSpeedY;
+                        _ts.localScale += growthSpeedY + _ts.gameObject.GetComponent<ShapeCollisionChecker>().growthSpeed;
                     }
                     if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
                         !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
                     {
-                        _ts.localScale += growthSpeedX;
+                        _ts.localScale += growthSpeedX + _ts.gameObject.GetComponent<ShapeCollisionChecker>().growthSpeed;
                     }
                 }
             }

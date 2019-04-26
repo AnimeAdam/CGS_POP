@@ -2188,6 +2188,21 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4864418323686299300, guid: 1562ab730f4b163419ebae88ef1ef87c,
+        type: 3}
+      propertyPath: growthSpeed.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864418323686299300, guid: 1562ab730f4b163419ebae88ef1ef87c,
+        type: 3}
+      propertyPath: growthSpeed.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864418323686299300, guid: 1562ab730f4b163419ebae88ef1ef87c,
+        type: 3}
+      propertyPath: growthSpeed.z
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1562ab730f4b163419ebae88ef1ef87c, type: 3}
 --- !u!1001 &1338174977
