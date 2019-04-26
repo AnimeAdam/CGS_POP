@@ -1879,6 +1879,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.89
+      objectReference: {fileID: 0}
     - target: {fileID: 5345011814176489391, guid: 97113bc2729f0844e909e1f119430a39,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1933,16 +1943,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -13.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 13.89
       objectReference: {fileID: 0}
     - target: {fileID: 8513826966200007741, guid: 97113bc2729f0844e909e1f119430a39,
         type: 3}
@@ -7865,6 +7865,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2521461100884319969, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
+        type: 3}
+      propertyPath: MeshSizeIncrease
+      value: 1.02
+      objectReference: {fileID: 0}
     - target: {fileID: 835441215670946578, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
         type: 3}
       propertyPath: growthLimit
@@ -7880,10 +7885,15 @@ PrefabInstance:
       propertyPath: unlimitedGrowth
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2521461100884319969, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
+    - target: {fileID: 835441215670946578, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
         type: 3}
-      propertyPath: MeshSizeIncrease
-      value: 1.02
+      propertyPath: growthSpeed.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 835441215670946578, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
+        type: 3}
+      propertyPath: growthSpeed.y
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb1324c61cbcc8c4ea58d4449c6c42f7, type: 3}
@@ -8087,17 +8097,7 @@ PrefabInstance:
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5438568313836804346, guid: 9e788cc3da5b1d04181c0e578ec4fe74,
-        type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170254149478539789, guid: 9e788cc3da5b1d04181c0e578ec4fe74,
-        type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1975167856957058644, guid: 9e788cc3da5b1d04181c0e578ec4fe74,
+    - target: {fileID: 4749553055184411450, guid: 9e788cc3da5b1d04181c0e578ec4fe74,
         type: 3}
       propertyPath: Loop
       value: 1
@@ -8107,7 +8107,17 @@ PrefabInstance:
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4749553055184411450, guid: 9e788cc3da5b1d04181c0e578ec4fe74,
+    - target: {fileID: 1975167856957058644, guid: 9e788cc3da5b1d04181c0e578ec4fe74,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170254149478539789, guid: 9e788cc3da5b1d04181c0e578ec4fe74,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438568313836804346, guid: 9e788cc3da5b1d04181c0e578ec4fe74,
         type: 3}
       propertyPath: Loop
       value: 1
