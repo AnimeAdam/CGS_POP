@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class Menus : MonoBehaviour
 {
@@ -33,6 +34,13 @@ public class Menus : MonoBehaviour
     private Text timer;
     private bool secondsMin = true;
     private bool startTimer = true; //Start and stop timer
+
+    //Juice Effects
+    public int shakeAmount = 10;
+    public float shakeSpeed = 1000f;
+
+    //Coroutines
+    private IEnumerator coroutine;
 
     void Awake()
     {
@@ -88,6 +96,9 @@ public class Menus : MonoBehaviour
             audiMan.TestMusic[levelIdentity.musicTrack].Pause();
             audiMan.PauseSound.Play();
             startTimer = false;
+
+            coroutine = ObjectShake(shakeAmount, shakeSpeed, menu);
+            StartCoroutine(coroutine);
         }
         else
         {
@@ -215,6 +226,9 @@ public class Menus : MonoBehaviour
             }
         }
 
+        coroutine = ObjectShake(shakeAmount, shakeSpeed, menu[currentButton].gameObject);
+        StartCoroutine(coroutine);
+
         if (mainMenu.activeSelf)
         {
             mainMenu.GetComponent<Image>().sprite = menuSprites[currentButton];
@@ -258,6 +272,21 @@ public class Menus : MonoBehaviour
             {
                 timer.text = ("Time: " + minutesPassed + ":" + Mathf.Round(realTimeSeconds));
             }
+        }
+    }
+
+    #endregion
+
+    #region JuiceEffects
+
+    IEnumerator ObjectShake(int amount, float speed, GameObject gb)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            gb.GetComponent<RectTransform>().sizeDelta = new Vector2(
+                /*1f,*/ Mathf.Sin(Time.time * speed * Random.value) * Random.value *(float)amount, 
+                /*1f);*/Mathf.Sin(Time.time * speed * Random.value) * Random.value *(float)amount);
+            yield return 0;
         }
     }
 

@@ -47,7 +47,7 @@ public class CustomMeshCollider : MonoBehaviour
             {
                 for (int i = 0; i < _vertices.Length; i++)
                 {
-                    _vertices[i] *= MeshSizeIncrease*1.5f;          //Might need scalar
+                    _vertices[i] *= MeshSizeIncrease*1.2f;          //Might need scalar
                 }
                 _mesh.vertices = _vertices;
                 MeshCollider _meshCollider = gameObject.AddComponent<MeshCollider>();

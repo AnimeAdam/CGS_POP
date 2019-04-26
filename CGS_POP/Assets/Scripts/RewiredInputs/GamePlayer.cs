@@ -7,10 +7,6 @@ using Rewired;
 [RequireComponent(typeof(CharacterController))]
 public class GamePlayer : MonoBehaviour
 {
-    //Player Effects
-    public ParticleSystem Dust;
-    public ParticleSystem Sparkle;
-
     //Player Health
     public int playerHealth = 1;
 
@@ -20,12 +16,13 @@ public class GamePlayer : MonoBehaviour
     //Particle Systems
     ParticleSystem landCloud;
     public float lengthOfLandingCloud = 30f;
+    public ParticleSystem Dust;
+    public ParticleSystem Sparkle;
     public ParticleSystem growParticle;
     public ParticleSystem pullParticle;
     public ParticleSystem switchParticle;
     public ParticleSystem floatParticle;
     Vector3 spawnOffset = new Vector3();
-    private int pauseTime = 0;
 
     // The Rewired player id of this character
     public int playerId = 0;
@@ -69,7 +66,6 @@ public class GamePlayer : MonoBehaviour
     [HideInInspector] public bool colourBlue = false;
 
     //Bools for audio purposes
-    bool P1WasPressed = false;
     bool P2WasPressed = false;
     bool P3WasPressed = false;    //This needs to be given SFX
     bool P4WasPressed = false;
@@ -120,26 +116,14 @@ public class GamePlayer : MonoBehaviour
     {
         GetInput();
         ProcessInput();
-
-        if (pauseTime == 30)
-        {
-            pauseTime = 0;
-        }
-        else
-        {
-            pauseTime++;
-        }
-
+        
         if (playerHealth != 1)
         {
             StartCoroutine("StopMoving");
             Spawning();
             DustSparkle();
         }
-
-        if (P1WasPressed == false)
-            growParticle.Stop();
-
+        
         if (P2WasPressed == false)
             pullParticle.Stop();
 
@@ -344,7 +328,6 @@ public class GamePlayer : MonoBehaviour
         switch (playerId)
         {
             case 0:
-                P1WasPressed = true;
                 AbilityGrow();
                 break;
             case 1:
@@ -396,7 +379,6 @@ public class GamePlayer : MonoBehaviour
     {
         P3T = true;
         Instantiate(switchParticle, transform.position, Quaternion.Euler(90, 0, 0));
-        switchParticle.Stop(true, ParticleSystemStopBehavior.StopEmitting);
     }
 
     /// <summary>
@@ -474,6 +456,17 @@ public class GamePlayer : MonoBehaviour
         _meshCollider.convex = true;
         _meshCollider.isTrigger = true;
     }
+
+    void SpawningParticles()
+    {
+
+    }
+
+    void ParticleUpdates()
+    {
+
+    }
+
 
     #endregion
 
