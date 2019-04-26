@@ -284,7 +284,7 @@ public class GamePlayer : MonoBehaviour
             }
         }
 
-        if (scoreOpen && !menus.mainMenu.activeSelf)
+        if (scoreOpen && !menus.mainMenu.activeSelf && !menus.levelSelectMenu.activeSelf)
         {
             if (menuOpenClose)
             {
@@ -458,12 +458,9 @@ public class GamePlayer : MonoBehaviour
         Vector3[] _vertices = _mesh.vertices;
         for (int i = 0; i < _vertices.Length; i++)
         {
-            //_vertices[i].z -= (((_vertices[i].z * 2f) - _vertices[i].z) / 2f);
             _vertices[i].x *= 1.4f;
             _vertices[i].y *= 1.4f;
             _vertices[i].z *= 1.4f;
-            //_vertices[i].z -= .2f;
-            //_vertices[i] *= 2;          //Might need scalar
         }
         _mesh.vertices = _vertices;
 

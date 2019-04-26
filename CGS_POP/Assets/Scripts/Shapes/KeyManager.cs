@@ -17,7 +17,7 @@ public class KeyManager : MonoBehaviour
     [SerializeField] private Vector3 growthSpeed = new Vector3(0.04f, 0.04f, 0.04f);        //How much to increase the shapes size over time
     [SerializeField] private float growthLimit = 0f;                                        //This is for how big we can make the shapes per level
     private float pullSpeed = 4f;                                          //How fast the shapes pulls towards the player
-    private float floatSpeed = 10f;                                         //How fast the shapes float upwards the player
+    private float floatSpeed = 6f;                                         //How fast the shapes float upwards the player
     private bool stopFloating = false;
     private Vector3 growthSpeedX;
     private Vector3 growthSpeedY;

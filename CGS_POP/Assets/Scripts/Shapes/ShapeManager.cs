@@ -19,7 +19,7 @@ public class ShapeManager : MonoBehaviour
     private Vector3 growthSpeedY;
     [SerializeField] private float growthLimit = 0f;                                        //This is for how big we can make the shapes per level
     private float pullSpeed = 4f;                                          //How fast the shapes pulls towards the player
-    private float floatSpeed = 10f;                                         //How fast the shapes float upwards the player
+    private float floatSpeed = 6f;                                         //How fast the shapes float upwards the player
     private bool stopFloating = false;
 
     [Header("Shape Management")]
