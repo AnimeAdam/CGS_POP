@@ -50,6 +50,7 @@ public class GamePlayer : MonoBehaviour
     private bool redLift;
     private bool yellowLift;
     private bool menuOpen;
+    private bool scoreOpen;
 
     //Collider for detecting shapes at a distance
     private Collider[] areaOfInfluence;
@@ -189,6 +190,7 @@ public class GamePlayer : MonoBehaviour
 
         //Menu Button
         menuOpen = player.GetButtonDown("Start");
+        scoreOpen = player.GetButtonDown("Select");
     }
 
     /// <summary>
@@ -197,7 +199,7 @@ public class GamePlayer : MonoBehaviour
     private void ProcessInput()
     {
         //Menu Navigation
-        if (!menuOpenClose) //frames
+        if (!menuOpenClose && !menus.scoreMenu.activeSelf) //frames
         {
             if (moveVector.x > 0f && player.GetButtonDown("MoveHorizontal"))
             {
@@ -265,7 +267,7 @@ public class GamePlayer : MonoBehaviour
             }
         }
 
-        if (menuOpen)
+        if (menuOpen && !menus.scoreMenu.activeSelf)
         {
             if (menuOpenClose)
             {
@@ -279,6 +281,20 @@ public class GamePlayer : MonoBehaviour
                     menus.OpenMenu(false, menus.mainMenu);
                     menuOpenClose = true;
                 }
+            }
+        }
+
+        if (scoreOpen && !menus.mainMenu.activeSelf)
+        {
+            if (menuOpenClose)
+            {
+                menus.OpenMenu(true, menus.scoreMenu);
+                menuOpenClose = false;
+            }
+            else
+            {
+                menus.OpenMenu(false, menus.scoreMenu);
+                menuOpenClose = true;
             }
         }
     }

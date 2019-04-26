@@ -13,6 +13,7 @@ public class Menus : MonoBehaviour
     [HideInInspector] public GameObject debugLevelMenu;
     [HideInInspector] public GameObject mainMenu;
     [HideInInspector] public GameObject levelSelectMenu;
+    [HideInInspector] public GameObject scoreMenu;
     LevelID levelIdentity;
 
     //Set up Gamepad Interface
@@ -35,6 +36,10 @@ public class Menus : MonoBehaviour
     private bool secondsMin = true;
     private bool startTimer = true; //Start and stop timer
 
+    //Score
+    [HideInInspector] public Text[] scoreText;
+    private string levelScore;
+
     //Juice Effects
     public int shakeAmount = 10;
     public float shakeSpeed = 1000f;
@@ -44,11 +49,8 @@ public class Menus : MonoBehaviour
 
     void Awake()
     {
-        levelIdentity = FindObjectOfType<LevelID>();
         SetObjects();
         HideMenus();
-        audiMan = FindObjectOfType<AudioManager>();
-        timer = GameObject.Find("Timer").GetComponent<Text>();
     }
 
 
@@ -91,12 +93,20 @@ public class Menus : MonoBehaviour
             menu.SetActive(true);
             Time.timeScale = 0;
             eventSys.SetSelectedGameObject(menu);
-            SetCurrentButtonMenu(0, menu.GetComponentsInChildren<UnityEngine.UI.Button>()[0],
-                menu.GetComponentsInChildren<UnityEngine.UI.Button>());
+            if (menu == scoreMenu)
+            {
+                SetTime();
+            }
+            else
+            {
+                SetCurrentButtonMenu(0, menu.GetComponentsInChildren<UnityEngine.UI.Button>()[0],
+                    menu.GetComponentsInChildren<UnityEngine.UI.Button>());
+            }
+
             audiMan.TestMusic[levelIdentity.musicTrack].Pause();
             audiMan.PauseSound.Play();
             startTimer = false;
-
+            
             coroutine = ObjectShake(shakeAmount, shakeSpeed, menu);
             StartCoroutine(coroutine);
         }
@@ -157,6 +167,13 @@ public class Menus : MonoBehaviour
         debugLevelMenu = GameObject.Find("DebugMenu");
         mainMenu = GameObject.Find("MainMenu");
         levelSelectMenu = GameObject.Find("LevelSelect");
+        scoreMenu = GameObject.Find("Score");
+        timer = GameObject.Find("Timer").GetComponent<Text>();
+
+        levelIdentity = FindObjectOfType<LevelID>();
+        audiMan = FindObjectOfType<AudioManager>();
+        
+        InitScore();
     }
 
     void HideMenus()
@@ -164,6 +181,7 @@ public class Menus : MonoBehaviour
         debugLevelMenu.SetActive(false);
         mainMenu.SetActive(false);
         levelSelectMenu.SetActive(false);
+        scoreMenu.SetActive(false);
     }
 
     void SetCurrentButtonMenu(int butti, UnityEngine.UI.Button butt, UnityEngine.UI.Button[] menu)
@@ -275,6 +293,52 @@ public class Menus : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region ScoreScreen
+
+    void InitScore()
+    {
+        scoreText = scoreMenu.GetComponentsInChildren<Text>();
+        SetTime();
+    }
+
+    void SetTime()
+    {
+        switch (levelIdentity.musicTrack)
+        {
+            case 0:
+                levelScore = "00:00";
+                scoreText[1].text = "Best Time: " + levelScore;
+                break;
+
+            case 1:
+                levelScore = "00:00";
+                scoreText[1].text = "Best Time: " + levelScore;
+                break;
+
+            case 2:
+                levelScore = "00:00";
+                scoreText[1].text = "Best Time: " + levelScore;
+                break;
+
+            case 3:
+                levelScore = "00:00";
+                scoreText[1].text = "Best Time: " + levelScore;
+                break;
+
+            case 4:
+                levelScore = "00:00";
+                scoreText[1].text = "Best Time: " + levelScore;
+                break;
+
+            default:
+                Debug.Log("NO LEVEL ID SELECTED");
+                break;
+        }
+        scoreText[2].text = "Your Time: " + minutesPassed + ":" + Mathf.Round(realTimeSeconds);
+    }
+    
     #endregion
 
     #region JuiceEffects
