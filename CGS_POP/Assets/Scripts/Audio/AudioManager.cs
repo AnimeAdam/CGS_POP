@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
 	public AudioSource Step_3;
     public AudioSource Wall_Hit;
     public AudioSource GlassSmash;
+    public AudioSource RespawnSFX;
     //public AudioSource abilitySound;
     //public AudioSource levelMusic;
     //public AudioSource effectsSound;

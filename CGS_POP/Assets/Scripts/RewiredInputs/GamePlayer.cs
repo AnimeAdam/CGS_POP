@@ -120,6 +120,7 @@ public class GamePlayer : MonoBehaviour
         
         if (playerHealth != 1)
         {
+            audiMan.RespawnSFX.Play();
             StartCoroutine("StopMoving");
             Spawning();
             DustSparkle();
