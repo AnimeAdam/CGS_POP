@@ -16,8 +16,8 @@ public class KeyManager : MonoBehaviour
 	[Header("Player Abilities")]
     [SerializeField] private Vector3 growthSpeed = new Vector3(0.04f, 0.04f, 0.04f);        //How much to increase the shapes size over time
     [SerializeField] private float growthLimit = 0f;                                        //This is for how big we can make the shapes per level
-    [SerializeField] private float pullSpeed = 4f;                                          //How fast the shapes pulls towards the player
-    [SerializeField] private float floatSpeed = 1f;                                         //How fast the shapes float upwards the player
+    private float pullSpeed = 4f;                                          //How fast the shapes pulls towards the player
+    private float floatSpeed = 10f;                                         //How fast the shapes float upwards the player
     private bool stopFloating = false;
     private Vector3 growthSpeedX;
     private Vector3 growthSpeedY;
@@ -197,51 +197,51 @@ public class KeyManager : MonoBehaviour
     /// </summary>
     public void Player1Action()
     {
-        shapesTransforms = GetShapesList();
+  //      shapesTransforms = GetShapesList();
 
-        foreach (Transform _ts in shapesTransforms)
-        {
-            if (_ts.tag == CheckForColour(_player1))
-            {
-                if (growthLimit == 0 || _ts.gameObject.GetComponent<ShapeCollisionChecker>().unlimitedGrowth)
-                {
-                    if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
-                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
-                    {
-                        _ts.localScale += growthSpeed;
-                    }
-                    if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY &&
-                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX)
-                    {
-                        _ts.localScale += growthSpeedY;
-                    }
-                    if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
-                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
-                    {
-                        _ts.localScale += growthSpeedX;
-                    }
-                }
-                else if (_ts.localScale.x < growthLimit && _ts.localScale.y < growthLimit)
-                {
-                    if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
-                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
-                    {
-                        _ts.localScale += growthSpeed;
-                    }
-                    if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY &&
-                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX)
-                    {
-                        _ts.localScale += growthSpeedY;
-                    }
-                    if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
-                        !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
-                    {
-                        _ts.localScale += growthSpeedX;
-                    }
-                }
-            }
-        }
-		shapesTransforms = GetShapesList();
+  //      foreach (Transform _ts in shapesTransforms)
+  //      {
+  //          if (_ts.tag == CheckForColour(_player1))
+  //          {
+  //              if (growthLimit == 0 || _ts.gameObject.GetComponent<ShapeCollisionChecker>().unlimitedGrowth)
+  //              {
+  //                  if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
+  //                      !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
+  //                  {
+  //                      _ts.localScale += growthSpeed;
+  //                  }
+  //                  if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY &&
+  //                      !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX)
+  //                  {
+  //                      _ts.localScale += growthSpeedY;
+  //                  }
+  //                  if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
+  //                      !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
+  //                  {
+  //                      _ts.localScale += growthSpeedX;
+  //                  }
+  //              }
+  //              else if (_ts.localScale.x < growthLimit && _ts.localScale.y < growthLimit)
+  //              {
+  //                  if (!_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
+  //                      !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
+  //                  {
+  //                      _ts.localScale += growthSpeed;
+  //                  }
+  //                  if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY &&
+  //                      !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX)
+  //                  {
+  //                      _ts.localScale += growthSpeedY;
+  //                  }
+  //                  if (_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeX &&
+  //                      !_ts.gameObject.GetComponent<ShapeCollisionChecker>().squeezeY)
+  //                  {
+  //                      _ts.localScale += growthSpeedX;
+  //                  }
+  //              }
+  //          }
+  //      }
+		//shapesTransforms = GetShapesList();
 	}
 
     /// <summary>

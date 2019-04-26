@@ -284,7 +284,7 @@ public class Menus : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             gb.GetComponent<RectTransform>().sizeDelta = new Vector2(
-                /*1f,*/ Mathf.Sin(Time.time * speed * Random.value) * Random.value *(float)amount, 
+                /*1f,*/ Mathf.Sin(Time.time * speed * Random.value) * Random.value *(float)amount,
                 /*1f);*/Mathf.Sin(Time.time * speed * Random.value) * Random.value *(float)amount);
             yield return 0;
         }
