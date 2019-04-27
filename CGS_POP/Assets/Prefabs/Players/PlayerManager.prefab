@@ -127,6 +127,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5345011814176489391}
     m_Modifications:
+    - target: {fileID: 866206636616487713, guid: 6063a53f4fca35e40aa4a6c635f0d34c,
+        type: 3}
+      propertyPath: m_Name
+      value: Player1
+      objectReference: {fileID: 0}
     - target: {fileID: 866206636616487717, guid: 6063a53f4fca35e40aa4a6c635f0d34c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -182,11 +187,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 866206636616487713, guid: 6063a53f4fca35e40aa4a6c635f0d34c,
-        type: 3}
-      propertyPath: m_Name
-      value: Player1
-      objectReference: {fileID: 0}
     - target: {fileID: 609469807043650192, guid: 6063a53f4fca35e40aa4a6c635f0d34c,
         type: 3}
       propertyPath: InitialModule.startLifetime.minMaxState
@@ -212,6 +212,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5345011814176489391}
     m_Modifications:
+    - target: {fileID: 8795025314500618332, guid: 2c49292a98b5ba440a14919e8fa01821,
+        type: 3}
+      propertyPath: m_Name
+      value: Rewired Input Manager
+      objectReference: {fileID: 0}
     - target: {fileID: 8795025314500618338, guid: 2c49292a98b5ba440a14919e8fa01821,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -267,11 +272,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8795025314500618332, guid: 2c49292a98b5ba440a14919e8fa01821,
-        type: 3}
-      propertyPath: m_Name
-      value: Rewired Input Manager
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c49292a98b5ba440a14919e8fa01821, type: 3}
 --- !u!4 &3468755784093937414 stripped
@@ -287,6 +287,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5345011814176489391}
     m_Modifications:
+    - target: {fileID: 8831742444620608440, guid: 892cf0784ae9d66478ecab459d537e69,
+        type: 3}
+      propertyPath: m_Name
+      value: Player4
+      objectReference: {fileID: 0}
     - target: {fileID: 8831742444620608432, guid: 892cf0784ae9d66478ecab459d537e69,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -342,11 +347,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8831742444620608440, guid: 892cf0784ae9d66478ecab459d537e69,
+    - target: {fileID: 8831742444620608435, guid: 892cf0784ae9d66478ecab459d537e69,
         type: 3}
-      propertyPath: m_Name
-      value: Player4
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300004, guid: d89cb313e34ef3f498d1137e7fe3bcc6, type: 3}
+    - target: {fileID: 8831742444620608434, guid: 892cf0784ae9d66478ecab459d537e69,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8831742444620608434, guid: 892cf0784ae9d66478ecab459d537e69,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100002, guid: d89cb313e34ef3f498d1137e7fe3bcc6, type: 3}
     - target: {fileID: 8866096162093240822, guid: 892cf0784ae9d66478ecab459d537e69,
         type: 3}
       propertyPath: InitialModule.startLifetime.minMaxState
@@ -372,6 +387,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5345011814176489391}
     m_Modifications:
+    - target: {fileID: 2250899446391724270, guid: 1c47b9e3fc4f8b643bdc57e5b41dc1ce,
+        type: 3}
+      propertyPath: m_Name
+      value: Player3
+      objectReference: {fileID: 0}
     - target: {fileID: 2250899446391724278, guid: 1c47b9e3fc4f8b643bdc57e5b41dc1ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -426,11 +446,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2250899446391724270, guid: 1c47b9e3fc4f8b643bdc57e5b41dc1ce,
-        type: 3}
-      propertyPath: m_Name
-      value: Player3
       objectReference: {fileID: 0}
     - target: {fileID: 3067391414387953809, guid: 1c47b9e3fc4f8b643bdc57e5b41dc1ce,
         type: 3}
