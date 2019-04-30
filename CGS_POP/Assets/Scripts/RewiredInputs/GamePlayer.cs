@@ -471,17 +471,6 @@ public class GamePlayer : MonoBehaviour
         _meshCollider.isTrigger = true;
     }
 
-    void SpawningParticles()
-    {
-
-    }
-
-    void ParticleUpdates()
-    {
-
-    }
-
-
     #endregion
 
     #region IEnumerator

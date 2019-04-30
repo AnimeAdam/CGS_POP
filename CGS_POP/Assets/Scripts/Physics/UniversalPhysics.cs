@@ -8,9 +8,6 @@ public class UniversalPhysics : MonoBehaviour
     //Gravity Settings
     public Vector3 gravity;
     public float gravityModifier = 1f;
-    //protected Vector3 gravityAcceleration;
-    //protected bool grounded;
-    //protected Vector3 groundNormal;
 
     //Components
     protected Rigidbody rb;
@@ -34,12 +31,6 @@ public class UniversalPhysics : MonoBehaviour
         ApplyGravity();
     }
 
-    void FixedUpdate()
-    {
-
-    }
-
-
     /// <summary>
     /// Apply Gravity to the object every frame, when on ground
     /// </summary>
@@ -52,7 +43,6 @@ public class UniversalPhysics : MonoBehaviour
 
         cc.Move(velocity);
     }
-
 
     /// <summary>
     /// Sets the gravity times the gravityModifier

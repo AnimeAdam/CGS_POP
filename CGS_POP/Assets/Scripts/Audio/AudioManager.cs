@@ -43,36 +43,17 @@ public class AudioManager : MonoBehaviour
     //[SerializeField] List<AudioClip> effectClips;
 
     private void Awake()
-	{
+    {
         levelIdentity = FindObjectOfType<LevelID>();
-		if (instance == null)
-		{
-			instance = this;
-		}
-		else if (instance != this) {
-			Destroy(gameObject);
-		}
-		//DontDestroyOnLoad(gameObject);
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
 
-	    TestMusic[levelIdentity.musicTrack].Play();
+        TestMusic[levelIdentity.musicTrack].Play();
     }
-
-    //public void PlayAbilitySound(AudioClip soundClip)
-    //{
-    //    abilitySound.clip = soundClip;
-    //    abilitySound.Play();
-    //}
-
-    //public void PlayEffectSound(AudioClip effectClip)
-    //{
-    //    effectsSound.clip = effectClip;
-    //    effectsSound.Play();
-    //}
-
-    //public void PlayLevelMusic(AudioClip levelMusicClip)
-    //{
-    //    levelMusic.clip = levelMusicClip;
-    //    levelMusic.Play();
-    //    levelMusic.loop = true;
-    //}
 }
