@@ -46,10 +46,10 @@ public class Skywheel : MonoBehaviour
     //Make Sure all shapes stay in basket at list 2 sec(ShapesNeedToStayTime)
     private void ReCheck()
     {
-        if (Count() == 4)
-        {
-            Glass.SetActive(false);
-            //maybe some audio here
-        }
+        //if (Count() == 4)
+        //{
+        //    Glass.SetActive(false);
+        //    //maybe some audio here
+        //}
     }
 }

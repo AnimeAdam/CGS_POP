@@ -247,14 +247,14 @@ public class ShapeManager : MonoBehaviour
     /// </summary>
     public void Player2Action()
     {
-		foreach (Transform _ts in shapesTransforms)
+        shapesTransforms = GetShapesList();
+        foreach (Transform _ts in shapesTransforms)
         {
             if (_ts.tag == CheckForColour(_player2))
             {
                 _ts.position = Vector3.MoveTowards(_ts.position, _player2.transform.position , pullSpeed*Time.deltaTime);
             }
         }
-		shapesTransforms = GetShapesList();
 	}
 
 
