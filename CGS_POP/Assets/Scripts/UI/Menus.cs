@@ -14,6 +14,7 @@ public class Menus : MonoBehaviour
     [HideInInspector] public GameObject mainMenu;
     [HideInInspector] public GameObject levelSelectMenu;
     [HideInInspector] public GameObject scoreMenu;
+    [HideInInspector] public GameObject timerMenu;
     LevelID levelIdentity;
 
     //Set up Gamepad Interface
@@ -35,6 +36,7 @@ public class Menus : MonoBehaviour
     private Text timer;
     private bool secondsMin = true;
     private bool startTimer = true; //Start and stop timer
+    public bool showTimer;
 
     //Score
     [HideInInspector] public Text[] scoreText;
@@ -89,7 +91,7 @@ public class Menus : MonoBehaviour
     public void OpenMenu(bool state, GameObject menu)   //true = open; false = close
     {
         if (state)
-        {
+        {            
             menu.SetActive(true);
             Time.timeScale = 0;
             eventSys.SetSelectedGameObject(menu);
@@ -169,6 +171,7 @@ public class Menus : MonoBehaviour
         levelSelectMenu = GameObject.Find("LevelSelect");
         scoreMenu = GameObject.Find("Score");
         timer = GameObject.Find("Timer").GetComponent<Text>();
+        timerMenu = GameObject.Find("Timer_Image");
 
         levelIdentity = FindObjectOfType<LevelID>();
         audiMan = FindObjectOfType<AudioManager>();
@@ -182,6 +185,10 @@ public class Menus : MonoBehaviour
         mainMenu.SetActive(false);
         levelSelectMenu.SetActive(false);
         scoreMenu.SetActive(false);
+        if (!showTimer)
+        {
+            timerMenu.SetActive(false);
+        }
     }
 
     void SetCurrentButtonMenu(int butti, UnityEngine.UI.Button butt, UnityEngine.UI.Button[] menu)

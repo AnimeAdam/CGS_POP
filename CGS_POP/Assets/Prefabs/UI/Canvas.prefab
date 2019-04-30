@@ -1577,16 +1577,16 @@ RectTransform:
   m_GameObject: {fileID: 1242842439}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 63644682}
   m_Father: {fileID: 8805595011534854221}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.34500003, y: 0.82056516}
-  m_AnchorMax: {x: 0.65625006, y: 1}
-  m_AnchoredPosition: {x: -0.5, y: -0.2000122}
-  m_SizeDelta: {x: 1, y: -0.2000122}
+  m_AnchorMin: {x: 0.4225, y: 0.9077309}
+  m_AnchorMax: {x: 0.57875, y: 1}
+  m_AnchoredPosition: {x: -0.5, y: 0.099975586}
+  m_SizeDelta: {x: 125, y: 33.799988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1242842442
 CanvasRenderer:
@@ -3576,11 +3576,13 @@ MonoBehaviour:
   mainMenu: {fileID: 0}
   levelSelectMenu: {fileID: 0}
   scoreMenu: {fileID: 0}
+  timerMenu: {fileID: 0}
   highlightedMenu: []
   menuSprites:
   - {fileID: 21300000, guid: 6e085fd18627b794f91d29d51a729034, type: 3}
   - {fileID: 21300000, guid: a0f9930197abb34439da0e578c728d13, type: 3}
   - {fileID: 21300000, guid: 5699d121d05599e4d80f45c2dae8d405, type: 3}
+  showTimer: 1
   scoreText: []
   shakeAmount: 10
   shakeSpeed: 1000

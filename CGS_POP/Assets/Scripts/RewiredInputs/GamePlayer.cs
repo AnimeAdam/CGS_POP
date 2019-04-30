@@ -285,7 +285,7 @@ public class GamePlayer : MonoBehaviour
             }
         }
 
-        if (scoreOpen && !menus.mainMenu.activeSelf && !menus.levelSelectMenu.activeSelf)
+        if (scoreOpen && !menus.mainMenu.activeSelf && !menus.levelSelectMenu.activeSelf && menus.showTimer)
         {
             if (menuOpenClose)
             {
