@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1755,16 +1755,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.63
-      objectReference: {fileID: 0}
     - target: {fileID: 5345011814176489391, guid: 97113bc2729f0844e909e1f119430a39,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1829,6 +1819,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.63
       objectReference: {fileID: 0}
     - target: {fileID: 8513826966200007741, guid: 97113bc2729f0844e909e1f119430a39,
         type: 3}
@@ -2179,8 +2179,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   growthSpeed: {x: 0.05, y: 0.05, z: 0.05}
   growthLimit: 2.5
-  pullSpeed: 4
-  floatSpeed: 5
 --- !u!4 &603772536
 Transform:
   m_ObjectHideFlags: 0
@@ -7921,11 +7919,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.890147
       objectReference: {fileID: 0}
-    - target: {fileID: 2521461100884319969, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
-        type: 3}
-      propertyPath: MeshSizeIncrease
-      value: 1.1
-      objectReference: {fileID: 0}
     - target: {fileID: 835441215670946578, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
         type: 3}
       propertyPath: keepGrowing
@@ -7935,6 +7928,11 @@ PrefabInstance:
         type: 3}
       propertyPath: unlimitedGrowth
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521461100884319969, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
+        type: 3}
+      propertyPath: MeshSizeIncrease
+      value: 1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb1324c61cbcc8c4ea58d4449c6c42f7, type: 3}
@@ -8268,7 +8266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53dbeede06bcd2049bbdc9c2eb025c5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicTrack: 2
+  musicTrack: 3
 --- !u!1 &3779390341867994211
 GameObject:
   m_ObjectHideFlags: 0

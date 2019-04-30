@@ -325,7 +325,7 @@ public class Menus : MonoBehaviour
                 break;
 
             case 2:
-                levelScore = "00:00";
+                levelScore = "01:30";
                 scoreText[1].text = "Best Time: " + levelScore;
                 break;
 
