@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Amusement Park.unity
     guid: 6685e2be865d8ee4eb07bf8a8604a2dc
+  - enabled: 1
+    path: Assets/Scenes/Levels/Cinema.unity
+    guid: 0384295b23ba6d848b9c04fbc2ad9f19
   m_configObjects: {}
