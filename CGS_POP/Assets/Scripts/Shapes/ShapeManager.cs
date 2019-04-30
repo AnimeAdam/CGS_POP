@@ -331,8 +331,7 @@ public class ShapeManager : MonoBehaviour
                 Vector3 _vec3 = _ts.position;
                 _vec3.y += floatSpeed * Time.deltaTime;
                 _ts.GetComponent<Rigidbody>().useGravity = false;
-                _ts.GetComponent<Rigidbody>().Sleep();
-                originalConstraints = _ts.GetComponent<Rigidbody>().constraints;
+				originalConstraints = _ts.GetComponent<Rigidbody>().constraints;
 				_ts.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 				_ts.position = _vec3;
             }

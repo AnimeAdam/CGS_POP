@@ -407,7 +407,7 @@ public class GamePlayer : MonoBehaviour
         if (!(GameObject.Find("Ability_Float(Clone)")))
         {
             spawnOffset = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1f);
-            Instantiate(floatParticle, spawnOffset, Quaternion.Euler(-90, 0, 0));
+            Instantiate(floatParticle, spawnOffset, Quaternion.Euler(90, 0, 0));
         }
     }
 

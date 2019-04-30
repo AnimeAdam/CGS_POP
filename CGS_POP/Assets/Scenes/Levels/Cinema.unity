@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3644,7 +3644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growthSpeed: {x: 0.05, y: 0.05, z: 0.05}
-  growthLimit: 0
+  growthLimit: 2.5
 --- !u!4 &932180414
 Transform:
   m_ObjectHideFlags: 0
@@ -8818,6 +8818,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5345011814176489391, guid: 97113bc2729f0844e909e1f119430a39,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8881,31 +8906,6 @@ PrefabInstance:
     - target: {fileID: 5345011814176489391, guid: 97113bc2729f0844e909e1f119430a39,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 26.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -10.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5024821138236471556, guid: 97113bc2729f0844e909e1f119430a39,
-        type: 3}
-      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8513826966200007741, guid: 97113bc2729f0844e909e1f119430a39,
