@@ -330,12 +330,12 @@ public class Menus : MonoBehaviour
                 break;
 
             case 3:
-                levelScore = "00:00";
+                levelScore = "02:00";
                 scoreText[1].text = "Best Time: " + levelScore;
                 break;
 
             case 4:
-                levelScore = "00:00";
+                levelScore = "02:00";
                 scoreText[1].text = "Best Time: " + levelScore;
                 break;
 

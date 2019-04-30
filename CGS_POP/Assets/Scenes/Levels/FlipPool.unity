@@ -6922,6 +6922,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 932279141, guid: e69b1344693a33b40bbb79387b943c10, type: 3}
+      propertyPath: showTimer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 83700088, guid: e69b1344693a33b40bbb79387b943c10, type: 3}
       propertyPath: m_IsActive
       value: 1
