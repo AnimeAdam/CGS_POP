@@ -6,11 +6,12 @@ public class Unlock : MonoBehaviour
 {
     public bool locked = true;
     public ParticleSystem unlockParticle;
+    public AudioManager audiMan;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        audiMan = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -18,6 +19,7 @@ public class Unlock : MonoBehaviour
     {
         if (locked == false) {
             Instantiate(unlockParticle, transform.position, Quaternion.Euler(0, 0, 0));
+            audiMan.DoorUnlock.Play();
             Destroy(gameObject);
         }
     }

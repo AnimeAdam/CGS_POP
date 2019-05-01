@@ -31,6 +31,7 @@ public class AudioManager : MonoBehaviour
 	public AudioSource Circular_Saw;
     public AudioSource PauseSound;
     public AudioSource MenuSound;
+    public AudioSource DoorUnlock;
 
     [Header("Music")]
     public AudioSource[] TestMusic = new AudioSource[5];
