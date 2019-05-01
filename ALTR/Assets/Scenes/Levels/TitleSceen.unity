@@ -353,6 +353,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3536807879784795918, guid: 2590d9fb3612dfb4f8e937e8f977d0a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 3536807879784795919, guid: 2590d9fb3612dfb4f8e937e8f977d0a6,
         type: 3}
       propertyPath: m_ClearFlags
@@ -377,11 +382,6 @@ PrefabInstance:
         type: 3}
       propertyPath: orthographic size
       value: 11.278305
-      objectReference: {fileID: 0}
-    - target: {fileID: 3536807879784795918, guid: 2590d9fb3612dfb4f8e937e8f977d0a6,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2590d9fb3612dfb4f8e937e8f977d0a6, type: 3}
@@ -1320,16 +1320,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
-        type: 3}
-      propertyPath: defaultLevel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
-        type: 3}
-      propertyPath: levelToGoTo
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: m_Size.x
@@ -1349,6 +1339,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: 0.000000017199051
+      objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: defaultLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: levelToGoTo
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba1259d985e49a544a3d571e209f1ad8, type: 3}
@@ -2119,7 +2119,7 @@ PrefabInstance:
     - target: {fileID: 8805595011534854225, guid: e69b1344693a33b40bbb79387b943c10,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8805595011534854221, guid: e69b1344693a33b40bbb79387b943c10,
         type: 3}
@@ -3432,16 +3432,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
-        type: 3}
-      propertyPath: defaultLevel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
-        type: 3}
-      propertyPath: levelToGoTo
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: m_Size.x
@@ -3461,6 +3451,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: 0.000000017199051
+      objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: defaultLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: levelToGoTo
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba1259d985e49a544a3d571e209f1ad8, type: 3}
@@ -3531,11 +3531,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
-        type: 3}
-      propertyPath: exitGame
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: m_Size.x
@@ -3555,6 +3550,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: 0.000000017199051
+      objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: exitGame
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba1259d985e49a544a3d571e209f1ad8, type: 3}
@@ -3778,21 +3778,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
-        type: 3}
-      propertyPath: defaultLevel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
-        type: 3}
-      propertyPath: exitGame
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
-        type: 3}
-      propertyPath: levelToGoTo
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: m_Size.x
@@ -3812,6 +3797,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: 0.000000017199051
+      objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: defaultLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: exitGame
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: levelToGoTo
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba1259d985e49a544a3d571e209f1ad8, type: 3}

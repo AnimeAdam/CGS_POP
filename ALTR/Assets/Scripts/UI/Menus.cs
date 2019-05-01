@@ -167,7 +167,7 @@ public class Menus : MonoBehaviour
 
     void SetObjects()
     {
-        eventSys = EventSystem.current;
+        eventSys = GameObject.Find("EventSystem").GetComponent<EventSystem>();
 
         debugLevelMenu = GameObject.Find("DebugMenu");
         mainMenu = GameObject.Find("MainMenu");
