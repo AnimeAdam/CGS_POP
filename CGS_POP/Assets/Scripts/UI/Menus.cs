@@ -15,6 +15,7 @@ public class Menus : MonoBehaviour
     [HideInInspector] public GameObject levelSelectMenu;
     [HideInInspector] public GameObject scoreMenu;
     [HideInInspector] public GameObject timerMenu;
+    public bool timeIsPaused = false;
     LevelID levelIdentity;
 
     //Set up Gamepad Interface
@@ -94,6 +95,7 @@ public class Menus : MonoBehaviour
         {            
             menu.SetActive(true);
             Time.timeScale = 0;
+            timeIsPaused = true;
             eventSys.SetSelectedGameObject(menu);
             if (menu == scoreMenu)
             {
@@ -118,6 +120,7 @@ public class Menus : MonoBehaviour
             audiMan.TestMusic[levelIdentity.musicTrack].Play();
             ClearMenuButtons();
             menu.SetActive(false);
+            timeIsPaused = false;
             startTimer = true;
         }
     }

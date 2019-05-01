@@ -232,7 +232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104272947}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.87, y: 3.36, z: -49.84}
+  m_LocalPosition: {x: 1.87, y: 3.17, z: -49.84}
   m_LocalScale: {x: 1, y: 5, z: 1}
   m_Children:
   - {fileID: 1435998867}
@@ -328,6 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knife: {fileID: 1070410222}
   RotateSpeed: 0.3
+  menuInfo: {fileID: 0}
 --- !u!1001 &168369162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -620,7 +621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261270074}
   m_LocalRotation: {x: 0, y: 0, z: -0.21643952, w: 0.97629607}
-  m_LocalPosition: {x: 7.76, y: -2.509, z: 4.6270366}
+  m_LocalPosition: {x: 7.76, y: -2.35, z: 6.35}
   m_LocalScale: {x: 0.41447, y: 6.5191264, z: 1.50738}
   m_Children: []
   m_Father: {fileID: 2015200550}
@@ -1416,6 +1417,7 @@ MonoBehaviour:
   - {fileID: 1889331409}
   - {fileID: 1501804975}
   - {fileID: 1433278279}
+  menuInfo: {fileID: 0}
 --- !u!23 &442119191
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5527,7 +5529,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617421034}
   m_LocalRotation: {x: 0, y: 0, z: 0.2164396, w: 0.97629607}
-  m_LocalPosition: {x: 10.3, y: -2.509, z: 4.6270366}
+  m_LocalPosition: {x: 10.3, y: -2.35, z: 8}
   m_LocalScale: {x: 0.41447, y: 6.5191264, z: 1.50738}
   m_Children: []
   m_Father: {fileID: 2015200550}

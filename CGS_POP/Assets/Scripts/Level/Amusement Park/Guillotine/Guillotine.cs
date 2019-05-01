@@ -6,11 +6,16 @@ public class Guillotine : MonoBehaviour
 {
     public Knife knife;
     public float RotateSpeed = 0.3f;
+    public Menus menuInfo;
+
+    void Start() {
+        menuInfo = FindObjectOfType<Menus>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (!knife.TouchShapes)
+        if (!knife.TouchShapes && menuInfo.timeIsPaused == false)
         {
             Rotate();
         }

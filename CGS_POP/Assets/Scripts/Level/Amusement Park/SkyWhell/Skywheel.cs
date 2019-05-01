@@ -9,6 +9,11 @@ public class Skywheel : MonoBehaviour
 
     public GameObject Glass;
     public Basket[] Baskets;
+    [HideInInspector] public Menus menuInfo;
+
+    void Start() {
+        menuInfo = FindObjectOfType<Menus>();
+    }
 
     private void FixedUpdate()
     {
@@ -21,7 +26,10 @@ public class Skywheel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Rotate();
+        if (menuInfo.timeIsPaused == false)
+        {
+            Rotate();
+        }
     }
 
     private void Rotate()
