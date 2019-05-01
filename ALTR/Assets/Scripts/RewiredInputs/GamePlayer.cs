@@ -85,7 +85,7 @@ public class GamePlayer : MonoBehaviour
     private Mesh _mesh;
 
     //Spawning
-    public Vector3 spawnPoints;
+    private Vector3 spawnPoints;
 
     void Awake()
     {
