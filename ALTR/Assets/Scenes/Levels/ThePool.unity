@@ -7945,6 +7945,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2521461100884319969, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
+        type: 3}
+      propertyPath: MeshSizeIncrease
+      value: 1.02
+      objectReference: {fileID: 0}
     - target: {fileID: 835441215670946578, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
         type: 3}
       propertyPath: growthLimit
@@ -7969,11 +7974,6 @@ PrefabInstance:
         type: 3}
       propertyPath: growthSpeed.y
       value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 2521461100884319969, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
-        type: 3}
-      propertyPath: MeshSizeIncrease
-      value: 1.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb1324c61cbcc8c4ea58d4449c6c42f7, type: 3}
@@ -9901,6 +9901,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 5.4601364
+      objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 1.5615585
+      objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.0590832
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba1259d985e49a544a3d571e209f1ad8, type: 3}
 --- !u!1001 &2353870133803809384
@@ -10041,6 +10056,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4383719115125871049}
     m_Modifications:
+    - target: {fileID: 6288147387174699255, guid: a5c8348bebf445f49bcca47e8d622511,
+        type: 3}
+      propertyPath: m_Name
+      value: CircleKey
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288147387174699255, guid: a5c8348bebf445f49bcca47e8d622511,
+        type: 3}
+      propertyPath: m_TagString
+      value: Red
+      objectReference: {fileID: 0}
     - target: {fileID: 3650448299000919410, guid: a5c8348bebf445f49bcca47e8d622511,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10110,16 +10135,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.60000014
-      objectReference: {fileID: 0}
-    - target: {fileID: 6288147387174699255, guid: a5c8348bebf445f49bcca47e8d622511,
-        type: 3}
-      propertyPath: m_Name
-      value: CircleKey
-      objectReference: {fileID: 0}
-    - target: {fileID: 6288147387174699255, guid: a5c8348bebf445f49bcca47e8d622511,
-        type: 3}
-      propertyPath: m_TagString
-      value: Red
       objectReference: {fileID: 0}
     - target: {fileID: 183679608806712406, guid: a5c8348bebf445f49bcca47e8d622511,
         type: 3}

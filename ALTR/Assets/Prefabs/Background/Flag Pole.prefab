@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1493376634483235868}
   - component: {fileID: 1493376634483235869}
   m_Layer: 0
-  m_Name: Flag 2
+  m_Name: Flag Pole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,8 +45,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5748323, y: 2.1958492, z: 1}
-  m_Center: {x: -0.29657587, y: 1.0590833, z: 0}
+  m_Size: {x: 1.5748323, y: 2.1958492, z: 7.548232}
+  m_Center: {x: -0.29657587, y: 1.0590833, z: 0.85788536}
 --- !u!114 &1493376634483235869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,7 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eaf11c132f25b74ba78b86621941883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flagHeight: 0
+  defaultLevel: 0
+  exitGame: 0
+  levelToGoTo: 0
 --- !u!1 &1493376635001756049
 GameObject:
   m_ObjectHideFlags: 0

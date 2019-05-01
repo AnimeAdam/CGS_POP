@@ -1328,7 +1328,7 @@ PrefabInstance:
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: m_Size.z
-      value: 0.9999998
+      value: 3.7222176
       objectReference: {fileID: 0}
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
@@ -1338,7 +1338,12 @@ PrefabInstance:
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: m_Center.z
-      value: 0.000000017199051
+      value: 1.3611099
+      objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.0590832
       objectReference: {fileID: 0}
     - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
@@ -3440,7 +3445,7 @@ PrefabInstance:
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: m_Size.z
-      value: 0.9999998
+      value: 3.9984555
       objectReference: {fileID: 0}
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
@@ -3450,7 +3455,12 @@ PrefabInstance:
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: m_Center.z
-      value: 0.000000017199051
+      value: 1.4992282
+      objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.0590832
       objectReference: {fileID: 0}
     - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
@@ -3539,7 +3549,7 @@ PrefabInstance:
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: m_Size.z
-      value: 0.9999998
+      value: 3.598617
       objectReference: {fileID: 0}
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
@@ -3549,7 +3559,12 @@ PrefabInstance:
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: m_Center.z
-      value: 0.000000017199051
+      value: 1.2993096
+      objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.0590832
       objectReference: {fileID: 0}
     - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
@@ -3786,7 +3801,7 @@ PrefabInstance:
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: m_Size.z
-      value: 0.9999998
+      value: 3.966164
       objectReference: {fileID: 0}
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
@@ -3796,7 +3811,12 @@ PrefabInstance:
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: m_Center.z
-      value: 0.000000017199051
+      value: 1.4830829
+      objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.0590832
       objectReference: {fileID: 0}
     - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
@@ -4241,15 +4261,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 731292309777456479, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
-        type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2521461100884319969, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
         type: 3}
       propertyPath: MeshSizeIncrease
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 731292309777456479, guid: eb1324c61cbcc8c4ea58d4449c6c42f7,
+        type: 3}
+      propertyPath: m_Mass
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb1324c61cbcc8c4ea58d4449c6c42f7, type: 3}
