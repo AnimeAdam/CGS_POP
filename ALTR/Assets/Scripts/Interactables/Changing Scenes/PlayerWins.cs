@@ -20,6 +20,15 @@ public class PlayerWins : MonoBehaviour
     private bool flag3Sound = false;
     private bool flag4Sound = false;
     Transform flagCloth;
+    Transform pointToInstantiateAt;
+
+    public ParticleSystem level1;
+    public ParticleSystem level2;
+    public ParticleSystem level3;
+    public ParticleSystem level4;
+
+
+
 
     //Scene Manager
     public bool defaultLevel = false;
@@ -32,7 +41,8 @@ public class PlayerWins : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		flagCloth = this.gameObject.transform.GetChild(0);
+        pointToInstantiateAt = this.gameObject.transform.GetChild(0);
+        flagCloth = this.gameObject.transform.GetChild(1);
 		audiMan = FindObjectOfType<AudioManager>();
         menu = FindObjectOfType<Menus>();
         ScenesManager.SetScenes(0);
@@ -50,34 +60,37 @@ public class PlayerWins : MonoBehaviour
 				if (flag1Sound == false)
 				{
 					audiMan.Flag_1.PlayOneShot(audiMan.Flag_1.clip);
-					flag1Sound = true;
+                    Instantiate(level1, pointToInstantiateAt.position, pointToInstantiateAt.rotation);
+                    flag1Sound = true;
 				}
-
-				flagCloth.localPosition = position1;
+                flagCloth.localPosition = position1;
 				break;
 			case 2:
 				if (flag2Sound == false)
 				{
 					audiMan.Flag_2.PlayOneShot(audiMan.Flag_2.clip);
-					flag2Sound = true;
+                    Instantiate(level2, pointToInstantiateAt.position, pointToInstantiateAt.rotation);
+                    flag2Sound = true;
 				}
-				flagCloth.localPosition = position2;
+                flagCloth.localPosition = position2;
 				break;
 			case 3:
 				if (flag3Sound == false)
 				{
 					audiMan.Flag_3.PlayOneShot(audiMan.Flag_3.clip);
-					flag3Sound = true;
+                    Instantiate(level3, pointToInstantiateAt.position, pointToInstantiateAt.rotation);
+                    flag3Sound = true;
 				}
-				flagCloth.localPosition = position3;
+                flagCloth.localPosition = position3;
 				break;
 			case 4:
 				if (flag4Sound == false)
 				{
 					audiMan.Flag_4.PlayOneShot(audiMan.Flag_4.clip);
-					flag4Sound = true;
+                    Instantiate(level4, pointToInstantiateAt.position, pointToInstantiateAt.rotation);
+                    flag4Sound = true;
 				}
-				flagCloth.localPosition = position4;
+                flagCloth.localPosition = position4;
 				break;
 		}
     }
@@ -136,5 +149,9 @@ public class PlayerWins : MonoBehaviour
     {
         menu.OpenMenu(true, menu.levelSelectMenu);
         GamePlayer.menuOpenClose = false;
+    }
+
+    public IEnumerator SmallPause() {
+        yield return new WaitForSeconds(1);
     }
 }

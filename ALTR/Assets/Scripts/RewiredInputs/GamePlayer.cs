@@ -24,6 +24,11 @@ public class GamePlayer : MonoBehaviour
     public ParticleSystem floatParticle;
     Vector3 spawnOffset = new Vector3();
 
+    public ParticleSystem player1ability;
+    public ParticleSystem player2ability;
+
+    public ParticleSystem player4ability;
+
     // The Rewired player id of this character
     public int playerId = 0;
 
@@ -66,7 +71,8 @@ public class GamePlayer : MonoBehaviour
     [HideInInspector] public bool colourYellow = false;
     [HideInInspector] public bool colourBlue = false;
 
-    //Bools for audio purposes
+    //Bools for effects purposes
+    bool P1WasPressed = false;
     bool P2WasPressed = false;
     bool P3WasPressed = false;    //This needs to be given SFX
     bool P4WasPressed = false;
@@ -125,12 +131,21 @@ public class GamePlayer : MonoBehaviour
             Spawning();
             DustSparkle();
         }
-        
+
+        if (P1WasPressed == false) {
+            growParticle.Stop();
+        }
+
         if (P2WasPressed == false)
+        {
             pullParticle.Stop();
+        }
 
         if (P4WasPressed == false)
+        {
             floatParticle.Stop();
+        }
+
     }
 
     void DustSparkle()
@@ -345,6 +360,7 @@ public class GamePlayer : MonoBehaviour
         switch (playerId)
         {
             case 0:
+                P1WasPressed = true;
                 AbilityGrow();
                 break;
             case 1:
@@ -373,6 +389,7 @@ public class GamePlayer : MonoBehaviour
             spawnOffset = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1f);
             Instantiate(growParticle, spawnOffset, Quaternion.Euler(90, 0, 0));
         }
+
     }
 
     /// <summary>
