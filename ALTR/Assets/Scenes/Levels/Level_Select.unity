@@ -793,7 +793,7 @@ PrefabInstance:
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: m_Size.x
-      value: 3.2635627
+      value: 3.4251366
       objectReference: {fileID: 0}
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
@@ -803,12 +803,12 @@ PrefabInstance:
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: m_Center.x
-      value: -0.57439995
+      value: -0.49361295
       objectReference: {fileID: 0}
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: m_Center.z
-      value: 1.9391922
+      value: 1.9391919
       objectReference: {fileID: 0}
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
@@ -823,6 +823,11 @@ PrefabInstance:
     - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: defaultLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: menuLevel
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3285,12 +3290,12 @@ PrefabInstance:
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: m_Size.x
-      value: 2.78754
+      value: 3.9185588
       objectReference: {fileID: 0}
     - target: {fileID: 409736925551959346, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: m_Center.x
-      value: 0.23975787
+      value: 0.36093968
       objectReference: {fileID: 0}
     - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
@@ -3300,6 +3305,11 @@ PrefabInstance:
     - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
         type: 3}
       propertyPath: exitGame
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: menuLevel
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

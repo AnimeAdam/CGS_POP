@@ -25,6 +25,7 @@ public class PlayerWins : MonoBehaviour
     public bool defaultLevel = false;
     public bool exitGame = false;
     public int levelToGoTo;
+    public bool menuLevel = false;
     private Menus menu;
 
 
@@ -85,12 +86,15 @@ public class PlayerWins : MonoBehaviour
     {
 		if (flagHeight == 4)
 		{
-            var go = GameObject.Find("Canvas/PlayerWinner");
-            if(go)
+            if (menuLevel == false)
             {
-                Text playerText = go.GetComponent<Text>();
-                playerText.color = Color.cyan;
-                playerText.text = "Level Complete!";
+                var go = GameObject.Find("Canvas/PlayerWinner");
+                if (go)
+                {
+                    Text playerText = go.GetComponent<Text>();
+                    playerText.color = Color.cyan;
+                    playerText.text = "Level Complete!";
+                }
             }
 		    if (exitGame)
 		    {

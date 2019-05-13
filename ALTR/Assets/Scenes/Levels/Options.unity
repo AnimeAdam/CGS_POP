@@ -2458,6 +2458,11 @@ PrefabInstance:
       propertyPath: defaultLevel
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 409736925551959347, guid: ba1259d985e49a544a3d571e209f1ad8,
+        type: 3}
+      propertyPath: menuLevel
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba1259d985e49a544a3d571e209f1ad8, type: 3}
 --- !u!1 &1524630837
