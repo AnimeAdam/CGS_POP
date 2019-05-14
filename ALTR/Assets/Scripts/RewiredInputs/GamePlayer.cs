@@ -9,6 +9,7 @@ public class GamePlayer : MonoBehaviour
 {
     //Player Health
     public int playerHealth = 1;
+    public GameObject respawnPoint;
 
     // Audio Management
     AudioManager audiMan;
@@ -105,6 +106,7 @@ public class GamePlayer : MonoBehaviour
         audiMan = FindObjectOfType<AudioManager>();
         landCloud = GetComponentInChildren<ParticleSystem>();
 
+        respawnPoint = GameObject.FindGameObjectWithTag("P" + (playerId + 1) + "Spawn");
         //Menus
         menus = FindObjectOfType<Menus>();
 
@@ -449,7 +451,7 @@ public class GamePlayer : MonoBehaviour
         moveVector = Vector3.zero;
         uPhysics.velocity = Vector3.zero;
         cc.Move(Vector3.zero);
-        transform.position = spawnPoints;
+        transform.position = respawnPoint.transform.position;
         playerHealth = 1;
     }
 
